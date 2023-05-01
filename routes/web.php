@@ -16,3 +16,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/user-save', function () {
+    $user= new App\Models\User();
+    $user->name="Usuario Teste 2";
+    $user->email="usuario@teste2.com";
+    $user->email_verified_at=now();
+    $user->password=Illuminate\Support\Facades\Hash::make("password");
+    $user->save();
+
+    return $user;
+});
