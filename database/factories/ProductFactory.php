@@ -22,7 +22,6 @@ class ProductFactory extends Factory
             'body'=>fake()->paragraph(5,true),
             'price'=>fake()->randomFloat(2,10),
             'slug'=>fake()->slug(),
-            //'store_id')->constrained()->onDelete('cascade');
         ];
     }
 }
