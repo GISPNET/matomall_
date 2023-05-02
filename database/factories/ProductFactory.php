@@ -19,8 +19,8 @@ class ProductFactory extends Factory
         return [
             'name'=>fake()->name(),
             'description'=>fake()->sentence(),
-            'body'=>fake()->sentence(),
-            'price'=>fake()->doubleval(),
+            'body'=>fake()->paragraph(5,true),
+            'price'=>fake()->randomFloat(2,10),
             'slug'=>fake()->slug(),
             //'store_id')->constrained()->onDelete('cascade');
         ];
