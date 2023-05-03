@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Marketplace - Lojas</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
   <style>
     .table {
       max-width: 800px;
