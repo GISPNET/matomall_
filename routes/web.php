@@ -13,19 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/user-store', function () {
-    $user= App\Models\User::find(4);
-    $store=$user->store()->create([
-        'name'=>'InfoProd',
-        'description'=>'Loja de produtos de informática',
-        'phone'=>'+24932932532',
-        'mobile_phone'=>'+24932932532',
-        'slug'=>'info-prod',
-    ]);
-
-    dd($store);
+Route::group(['prefix'=>'admin/stores'],function(){
+     Route::get('/',[StoreController::class, 'index']);
+     Route::post('/',[StoreController::class, 'store']);
+     Route::get('/{id}',[StoreController::class, 'show']);
+     Route::put('/{id}',[StoreController::class, 'updade']);
+     Route::delete('/{id}',[StoreController::class, 'destroy']);
 });
