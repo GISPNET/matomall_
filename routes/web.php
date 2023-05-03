@@ -17,13 +17,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/user-save', function () {
-    $user= new App\Models\User();
-    $user->name="Usuario Teste 2";
-    $user->email="usuario@teste2.com";
-    $user->email_verified_at=now();
-    $user->password=Illuminate\Support\Facades\Hash::make("password");
-    $user->save();
+Route::get('/user-store', function () {
+    $user= App\Models\User::find(4);
+    $store=$user->store()->create([
+        'name'=>'InfoProd',
+        'description'=>'Loja de produtos de informática',
+        'phone'=>'+24932932532',
+        'mobile_phone'=>'+24932932532',
+        'slug'=>'info-prod',
+    ]);
 
-    return $user;
+    dd($store);
 });
