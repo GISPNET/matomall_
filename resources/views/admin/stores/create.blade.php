@@ -32,7 +32,11 @@
       </div>
       <div class="form-group">
         <label for="slug">Vendedor</label>
-        <input type="text" class="form-control" id="user_id" name="user_id" placeholder="Vendedor">
+        <select class="form-control" name="user_id" id="">
+            @foreach ($users as $user)
+                <option value="{{ $user->id }}">{{ $user->name }}</option>
+            @endforeach
+        </select>
       </div>
       <button type="submit" class="btn btn-primary">Cadastrar Loja</button>
     </form>

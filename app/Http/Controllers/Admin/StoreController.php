@@ -15,8 +15,8 @@ class StoreController extends Controller
      */
     public function index()
     {
-        $stores=Store::paginate(10);
-        return view('admin.stores.index',compact(['stores']));
+        $stores = Store::paginate(10);
+        return view('admin.stores.index', compact(['stores']));
     }
 
     /**
@@ -26,7 +26,8 @@ class StoreController extends Controller
      */
     public function create()
     {
-        //
+        $users=\App\Models\User::all('id','name');
+        return view('admin.stores.create',compact(['users']));
     }
 
     /**
@@ -37,8 +38,10 @@ class StoreController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $store = Store::create($request->all());
+        return $store;
     }
+
 
     /**
      * Display the specified resource.

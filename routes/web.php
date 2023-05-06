@@ -15,7 +15,8 @@ use App\Http\Controllers\Admin\StoreController;
 
 Route::group(['prefix'=>'admin/stores'],function(){
      Route::get('/',[StoreController::class, 'index']);
-     Route::post('/',[StoreController::class, 'store']);
+     Route::get('/create',[StoreController::class, 'create']);
+     Route::post('/create',[StoreController::class, 'store']);
      Route::get('/{id}',[StoreController::class, 'show']);
      Route::put('/{id}',[StoreController::class, 'updade']);
      Route::delete('/{id}',[StoreController::class, 'destroy']);
