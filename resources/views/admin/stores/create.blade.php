@@ -38,7 +38,7 @@
             @endforeach
         </select>
       </div>
-      <button type="submit" class="btn btn-primary">Cadastrar Loja</button>
+      <button type="submit" class="btn btn-primary">Criar Loja</button>
     </form>
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
