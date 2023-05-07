@@ -13,7 +13,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::prefix('admin')->namespace('App\Http\Controllers\Admin')->group(function () {
-    Route::get('/stores', 'StoreController@index');
-    Route::get('/stores/create', 'StoreController@create');
+    Route::prefix('/stores')->group(function () {
+        Route::get('/', 'StoreController@index');
+        Route::get('/create', 'StoreController@create');
+    });
 });
-
