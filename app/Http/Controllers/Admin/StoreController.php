@@ -42,7 +42,6 @@ class StoreController extends Controller
        $user=\App\Models\User::find($data['user_id']);
        $user->store()->create($data);
 
-
     }
 
 

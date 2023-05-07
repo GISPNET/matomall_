@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\StoreController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,11 +12,8 @@ use App\Http\Controllers\Admin\StoreController;
 |
 */
 
-Route::group(['prefix'=>'admin/stores'],function(){
-     Route::get('/',[StoreController::class, 'index']);
-     Route::get('/create',[StoreController::class, 'create']);
-     Route::post('/create',[StoreController::class, 'store']);
-     Route::get('/{id}',[StoreController::class, 'show']);
-     Route::put('/{id}',[StoreController::class, 'updade']);
-     Route::delete('/{id}',[StoreController::class, 'destroy']);
+Route::prefix('admin')->namespace('App\Http\Controllers\Admin')->group(function () {
+    Route::get('/stores', 'StoreController@index');
+    Route::get('/stores/create', 'StoreController@create');
 });
+
