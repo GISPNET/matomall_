@@ -15,8 +15,7 @@
 
     <!-- vendor css -->
     <link rel="stylesheet" href="{{asset('assets/css/style.css') }}">
-
-
+    <link rel="stylesheet" href="{{ asset('css/toastr.min.css') }}">
 
 </head>
 
@@ -416,6 +415,7 @@
     <!-- Warning Section Ends -->
 
     <!-- Required Js -->
+
     <script src="{{asset('assets/js/vendor-all.min.js') }}"></script>
     <script src="{{asset('assets/js/plugins/bootstrap.min.js') }}"></script>
     <script src="{{asset('assets/js/pcoded.min.js') }}"></script>
@@ -427,7 +427,12 @@
     <!-- custom-chart js -->
     <script src="{{asset('assets/js/pages/dashboard-main.js') }}"></script>
 
+    <!-- custom-chart js jquery-->
 
+    <script src="{{ asset('js/jquery.min.js') }}"></script>
+    <script src="{{ asset('js/toastr.min.js') }}"></script>
+
+    @yield('js')
 
 </body>
 

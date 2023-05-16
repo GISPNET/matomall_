@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,6 +12,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Auth::routes();
 
 Route::prefix('admin')->namespace('App\Http\Controllers\Admin')->group(function () {
     Route::get('/', 'PainelControllador@index')->name('admin.painel');
@@ -21,15 +23,3 @@ Route::prefix('admin')->namespace('App\Http\Controllers\Admin')->group(function 
     });
 
 });
-Route::get('/teste',function(){
-    return view('admin.dashboard');
-});
-
-Route::get('/stores',function(){
-    return view('admin.stores.index1');
-});
-
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -110,3 +110,14 @@
     </div>
     </div>
 @endsection
+
+@section('js')
+    @if (Session::has('message'))
+        <script>
+            setTimeout(function() {
+                toastr.options.progressBar = true;
+                toastr.success("{{ Session::get('message') }}");
+            }, 100);
+        </script>
+    @endif
+@endsection

@@ -52,7 +52,8 @@ class StoreController extends Controller
        $user=\App\Models\User::find($data['user_id']);
        $user->store()->create($data);
 
-       return redirect()->back()->with('message', 'A loja foi salva com sucesso!');
+       return back()->with('message', 'A loja foi salva com sucesso');
+
     }
 
 
