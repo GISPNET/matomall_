@@ -1,5 +1,5 @@
 @extends('admin.layouts.app')
-
+@section('titulo'.'Lojas')
 @section('main')
     <div class="pcoded-main-container">
         <div class="pcoded-content">
