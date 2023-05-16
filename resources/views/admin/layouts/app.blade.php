@@ -138,18 +138,6 @@
 
                 </ul>
 
-                <div class="card text-center">
-                    <div class="card-block">
-                        <button type="button" class="close" data-dismiss="alert"
-                            aria-hidden="true">&times;</button>
-                        <i class="feather icon-sunset f-40"></i>
-                        <h6 class="mt-3">Upgrade To Pro</h6>
-                        <p>Please contact us on our email for need any support</p>
-                        <a href="https://1.envato.market/PgJNQ" target="_blank"
-                            class="btn btn-primary btn-sm text-white m-0">Upgrade</a>
-                    </div>
-                </div>
-
             </div>
         </div>
     </nav>
@@ -162,8 +150,8 @@
             <a class="mobile-menu" id="mobile-collapse" href="#!"><span></span></a>
             <a href="#!" class="b-brand">
                 <!-- ========   change your logo hear   ============ -->
-                <img src="assets/images/logo.png" alt="" class="logo">
-                <img src="assets/images/logo-icon.png" alt="" class="logo-thumb">
+                <img src="{{asset('assets/images/logo.png') }}" alt="" class="logo">
+                <img src="{{asset('assets/images/logo-icon.png') }}" alt="" class="logo-thumb">
             </a>
             <a href="#!" class="mob-toggler">
                 <i class="feather icon-more-vertical"></i>
