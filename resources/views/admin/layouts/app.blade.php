@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Flat Able - Premium Admin Template by Phoenixcoded</title>
+    <title>MatoMall @yield('titulo')</title>
     <meta charset="utf-8">
     <meta name="csrf_token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
@@ -153,109 +153,6 @@
             </a>
         </div>
         <div class="collapse navbar-collapse">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a href="#!" class="pop-search"><i class="feather icon-search"></i></a>
-                    <div class="search-bar">
-                        <input type="text" class="form-control border-0 shadow-none" placeholder="Search hear">
-                        <button type="button" class="close" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <div class="dropdown">
-                        <a class="dropdown-toggle h-drop" href="#" data-toggle="dropdown">
-                            Dropdown
-                        </a>
-                        <div class="dropdown-menu profile-notification ">
-                            <ul class="pro-body">
-                                <li><a href="user-profile.html" class="dropdown-item"><i class="fas fa-circle"></i>
-                                        Profile</a></li>
-                                <li><a href="email_inbox.html" class="dropdown-item"><i class="fas fa-circle"></i> My
-                                        Messages</a></li>
-                                <li><a href="auth-signin.html" class="dropdown-item"><i class="fas fa-circle"></i>
-                                        Lock Screen</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <div class="dropdown mega-menu">
-                        <a class="dropdown-toggle h-drop" href="#" data-toggle="dropdown">
-                            Mega
-                        </a>
-                        <div class="dropdown-menu profile-notification ">
-                            <div class="row no-gutters">
-                                <div class="col">
-                                    <h6 class="mega-title">UI Element</h6>
-                                    <ul class="pro-body">
-                                        <li><a href="#!" class="dropdown-item"><i class="fas fa-circle"></i>
-                                                Alert</a></li>
-                                        <li><a href="#!" class="dropdown-item"><i class="fas fa-circle"></i>
-                                                Button</a></li>
-                                        <li><a href="#!" class="dropdown-item"><i class="fas fa-circle"></i>
-                                                Badges</a></li>
-                                        <li><a href="#!" class="dropdown-item"><i class="fas fa-circle"></i>
-                                                Cards</a></li>
-                                        <li><a href="#!" class="dropdown-item"><i class="fas fa-circle"></i>
-                                                Modal</a></li>
-                                        <li><a href="#!" class="dropdown-item"><i class="fas fa-circle"></i>
-                                                Tabs & pills</a></li>
-                                    </ul>
-                                </div>
-                                <div class="col">
-                                    <h6 class="mega-title">Forms</h6>
-                                    <ul class="pro-body">
-                                        <li><a href="#!" class="dropdown-item"><i
-                                                    class="feather icon-minus"></i> Elements</a></li>
-                                        <li><a href="#!" class="dropdown-item"><i
-                                                    class="feather icon-minus"></i> Validation</a></li>
-                                        <li><a href="#!" class="dropdown-item"><i
-                                                    class="feather icon-minus"></i> Masking</a></li>
-                                        <li><a href="#!" class="dropdown-item"><i
-                                                    class="feather icon-minus"></i> Wizard</a></li>
-                                        <li><a href="#!" class="dropdown-item"><i
-                                                    class="feather icon-minus"></i> Picker</a></li>
-                                        <li><a href="#!" class="dropdown-item"><i
-                                                    class="feather icon-minus"></i> Select</a></li>
-                                    </ul>
-                                </div>
-                                <div class="col">
-                                    <h6 class="mega-title">Application</h6>
-                                    <ul class="pro-body">
-                                        <li><a href="#!" class="dropdown-item"><i class="feather icon-mail"></i>
-                                                Email</a></li>
-                                        <li><a href="#!" class="dropdown-item"><i
-                                                    class="feather icon-clipboard"></i> Task</a></li>
-                                        <li><a href="#!" class="dropdown-item"><i
-                                                    class="feather icon-check-square"></i> To-Do</a></li>
-                                        <li><a href="#!" class="dropdown-item"><i
-                                                    class="feather icon-image"></i> Gallery</a></li>
-                                        <li><a href="#!" class="dropdown-item"><i
-                                                    class="feather icon-help-circle"></i> Helpdesk</a></li>
-                                    </ul>
-                                </div>
-                                <div class="col">
-                                    <h6 class="mega-title">Extension</h6>
-                                    <ul class="pro-body">
-                                        <li><a href="#!" class="dropdown-item"><i
-                                                    class="feather icon-file-plus"></i> Editor</a></li>
-                                        <li><a href="#!" class="dropdown-item"><i
-                                                    class="feather icon-file-minus"></i> Invoice</a></li>
-                                        <li><a href="#!" class="dropdown-item"><i
-                                                    class="feather icon-calendar"></i> Full calendar</a></li>
-                                        <li><a href="#!" class="dropdown-item"><i
-                                                    class="feather icon-upload-cloud"></i> File upload</a></li>
-                                        <li><a href="#!" class="dropdown-item"><i
-                                                    class="feather icon-scissors"></i> Image cropper</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-            </ul>
             <ul class="navbar-nav ml-auto">
                 <li>
                     <div class="dropdown">
@@ -359,81 +256,15 @@
 
 
     </header>
-    <!-- [ Header ] end -->
-
-
-
-    <!-- [ Main Content ] start -->
     @yield('main')
-
-    <!-- [ Main Content ] end -->
-    <!-- Warning Section start -->
-    <!-- Older IE warning message -->
-    <!--[if lt IE 11]>
-        <div class="ie-warning">
-            <h1>Warning!!</h1>
-            <p>You are using an outdated version of Internet Explorer, please upgrade
-               <br/>to any of the following web browsers to access this website.
-            </p>
-            <div class="iew-container">
-                <ul class="iew-download">
-                    <li>
-                        <a href="http://www.google.com/chrome/">
-                            <img src="assets/images/browser/chrome.png" alt="Chrome">
-                            <div>Chrome</div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.mozilla.org/en-US/firefox/new/">
-                            <img src="assets/images/browser/firefox.png" alt="Firefox">
-                            <div>Firefox</div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="http://www.opera.com">
-                            <img src="assets/images/browser/opera.png" alt="Opera">
-                            <div>Opera</div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.apple.com/safari/">
-                            <img src="assets/images/browser/safari.png" alt="Safari">
-                            <div>Safari</div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">
-                            <img src="assets/images/browser/ie.png" alt="">
-                            <div>IE (11 & above)</div>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <p>Sorry for the inconvenience!</p>
-        </div>
-    <![endif]-->
-    <!-- Warning Section Ends -->
-
-    <!-- Required Js -->
-
-    <script src="{{asset('assets/js/vendor-all.min.js') }}"></script>
-    <script src="{{asset('assets/js/plugins/bootstrap.min.js') }}"></script>
-    <script src="{{asset('assets/js/pcoded.min.js') }}"></script>
-
-    <!-- Apex Chart -->
-    <script src="{{asset('assets/js/plugins/apexcharts.min.js') }}"></script>
-
-
-    <!-- custom-chart js -->
-    <script src="{{asset('assets/js/pages/dashboard-main.js') }}"></script>
-
-    <!-- custom-chart js jquery-->
 
     <script src="{{ asset('js/jquery.min.js') }}"></script>
     <script src="{{ asset('js/toastr.min.js') }}"></script>
-
+    <script src="{{asset('assets/js/vendor-all.min.js') }}"></script>
+    <script src="{{asset('assets/js/plugins/bootstrap.min.js') }}"></script>
+    <script src="{{asset('assets/js/pcoded.min.js') }}"></script>
+    <script src="{{asset('assets/js/plugins/apexcharts.min.js') }}"></script>
+    <script src="{{asset('assets/js/pages/dashboard-main.js') }}"></script>
     @yield('js')
-
 </body>
-
 </html>
