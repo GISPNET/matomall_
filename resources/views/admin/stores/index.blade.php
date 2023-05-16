@@ -65,6 +65,9 @@
                                     </tbody>
                                 </table>
                             </div>
+                            <div class="d-flex justify-content-end mt-3">
+                                {{ $stores->links() }}
+                            </div>
                         </div>
                     </div>
                 </div>
