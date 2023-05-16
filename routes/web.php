@@ -13,9 +13,23 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::prefix('admin')->namespace('App\Http\Controllers\Admin')->group(function () {
+    Route::get('/', 'PainelControllador@index')->name('admin.painel');
     Route::prefix('/stores')->group(function () {
-        Route::get('/', 'StoreController@index');
-        Route::get('/create', 'StoreController@create');
-        Route::get('/store', 'StoreController@store');
+        Route::get('/', 'StoreController@index')->name('admin.stores');
+        Route::get('/create', 'StoreController@create')->name('admin.store.create');
+        Route::post('/', 'StoreController@store')->name('admin.store.store');
     });
+
 });
+Route::get('/teste',function(){
+    return view('admin.dashboard');
+});
+
+Route::get('/stores',function(){
+    return view('admin.stores.index1');
+});
+
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
