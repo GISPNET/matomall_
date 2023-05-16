@@ -38,10 +38,21 @@ class StoreController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'name' => 'required|unique:stores,name',
+            'description' => 'nullable',
+            'phone' => 'nullable',
+            'mobile_phone' => 'nullable',
+            'slug' => 'nullable',
+        ], [
+            'name.required' => 'O campo nome é obrigatório.',
+            'name.unique' => 'Já existe uma loja com esse nome.',
+        ]);
        $data=$request->all();
        $user=\App\Models\User::find($data['user_id']);
        $user->store()->create($data);
 
+       return redirect()->back()->with('message', 'A loja foi salva com sucesso!');
     }
 
 
