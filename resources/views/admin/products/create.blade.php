@@ -1,116 +1,82 @@
 @extends('admin.layouts.app')
-@section('titulo'.'Lojas')
+@section('page-title','Lojas')
+@section('breadcrumb-item','Painel')
+@section('breadcrumb-item-active','Produtos')
 @section('main')
-    <div class="pcoded-main-container">
-        <div class="pcoded-content">
-            <!-- [ breadcrumb ] start -->
-            <div class="page-header">
-                <div class="page-block">
-                    <div class="row align-items-center">
-                        <div class="col-md-12">
-                            <div class="page-header-title">
-                                <h5 class="m-b-10">Produtos</h5>
-                            </div>
-                            <ul class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="{{ route('admin.painel') }}"><i class="feather icon-home"></i></a></li>
-                                <li class="breadcrumb-item"><a href="{{ route('admin.product.index') }}">Produtos</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-12">
-                    <div class="card">
-                        <div class="card-header">
-                            <h5>Informações da Loja</h5>
-                        </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12" data-select2-id="15">
+                <div class="card">
+
+                    <form action="{{ route('admin.product.store') }}" method="POST">
+                        @csrf
                         <div class="card-body">
-                            <form action="{{ route('admin.product.store') }}" method="POST">
-                                @csrf
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label class="floating-label" for="name">Nome</label>
-                                            <input type="text" class="form-control" id="name" name="name" value="{{ old('name') }}" >
-                                            @error('name')
-                                                <span class="text-danger">{{ $message }}</span>
-                                            @enderror
-                                        </div>
-                                    </div>
-
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label class="floating-label" for="price">Preço</label>
-                                            <input type="text" class="form-control" id="price" name="price" value="{{ old('price') }}">
-                                            @error('price')
-                                                <span class="text-danger">{{ $message }}</span>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-12">
-                                        <div class="form-group">
-                                            <label class="floating-label" for="description">Descrição Curta</label>
-                                            <textarea class="form-control" name="description" id="description" cols="30" rows="5">{{ old('description') }}</textarea>
-                                            @error('description')
-                                                <span class="text-danger">{{ $message }}</span>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-12">
-                                        <div class="form-group">
-                                            <label class="floating-label" for="body">Descrição Longa</label>
-                                            <textarea class="form-control" name="body" id="body" cols="30" rows="10">{{ old('body') }}</textarea>
-                                            @error('body')
-                                                <span class="text-danger">{{ $message }}</span>
-                                            @enderror
-                                        </div>
-                                    </div>
-
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label class="floating-label" for="slug">Slug</label>
-                                            <input type="text" class="form-control" id="slug" name="slug" value="{{ old('slug') }}">
-                                            @error('slug')
-                                                <span class="text-danger">{{ $message }}</span>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label class="floating-label" for="store_id">Loja</label>
-                                            <select class="form-control" name="store_id" id="store_id">
-                                                <option value="">Selecione uma loja </option>
-                                                @foreach ($stores as $store)
-                                                    <option value="{{ $store->id }}">{{ $store->name }}</option>
-                                                @endforeach
-                                            </select>
-                                            @error('store_id')
-                                                <span class="text-danger">{{ $message }}</span>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <div class="form-group">
-                                                <button type="submit" class="btn  btn-primary">Salvar</button>
-                                            </div>
-                                        </div>
-                                    </div>
-
+                            <h4 class="card-title">Dados do produto</h4>
+                            <div class="form-group row">
+                                <label for="name" class="col-sm-3 text-right control-label col-form-label">Nome</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="name" name="name" value="{{ old('name') }}" placeholder="Digite o nome aqui">
+                                    @error('name')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
-                            </form>
+                            </div>
+                            <div class="form-group row">
+                                <label for="description" class="col-sm-3 text-right control-label col-form-label">Descrição</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="description" name="description" value="{{ old('description') }}" placeholder="Digite a descrição aqui">
+                                    @error('description')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="phone" class="col-sm-3 text-right control-label col-form-label">Telefone</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="phone" name="phone" value="{{ old('phone') }}" placeholder="Digite o telefone aqui">
+                                    @error('phone')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="mobile_phone" class="col-sm-3 text-right control-label col-form-label">Celular</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="mobile_phone" name="mobile_phone" value="{{ old('mobile_phone') }}" placeholder="Digite o celular aqui">
+                                    @error('mobile_phone')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="slug" class="col-sm-3 text-right control-label col-form-label">Slug</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="slug" name="slug" value="{{ old('slug') }}" placeholder="Digite o slug aqui">
+                                    @error('slug')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="user_id" class="col-sm-3 text-right control-label col-form-label">Vendedor</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="user_id" name="user_id" value="{{ old('user_id') }}" placeholder="Digite o ID do vendedor aqui">
+                                    @error('user_id')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="border-top">
+                                <div class="card-body">
+                                    <button type="submit" class="btn btn-primary">Salvar</button>
+                                 </div>
+                            </div>
                         </div>
-                    </div>
+
+                    </form>
                 </div>
-
-
             </div>
-
-            <!-- Latest Customers end -->
         </div>
-        <!-- [ Main Content ] end -->
-    </div>
     </div>
 @endsection
 
