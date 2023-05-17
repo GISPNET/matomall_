@@ -245,8 +245,7 @@
                         <div class="ml-auto text-right">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="#">@yield('breadcrumb-item')</a></li>
-                                    <li class="breadcrumb-item-active" aria-current="page">@yield('breadcrumb-item-active')</li>
+                                    <li class="breadcrumb-item"><a href="#">@yield('breadcrumb-item')</a></li> <li class="breadcrumb-item-active" aria-current="page">@yield('breadcrumb-item-active')</li>
                                 </ol>
                             </nav>
                         </div>
@@ -266,9 +265,6 @@
             <!-- ============================================================== -->
             <!-- footer -->
             <!-- ============================================================== -->
-            <footer class="footer text-center">
-                All Rights Reserved by Matrix-admin. Designed and Developed by <a href="https://wrappixel.com">WrapPixel</a>.
-            </footer>
             <!-- ============================================================== -->
             <!-- End footer -->
             <!-- ============================================================== -->
