@@ -12,7 +12,7 @@
                                 <h5 class="m-b-10">Lojas</h5>
                             </div>
                             <ul class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="{{ route('admin.painel') }}"><i class="feather icon-home"></i></a></li>
+                               <li class="breadcrumb-item"><a href="{{ route('admin.painel') }}"><i class="feather icon-home"></i></a></li>
                                 <li class="breadcrumb-item"><a href="{{ route('admin.store.index') }}">Lojas</a></li>
                             </ul>
                         </div>

@@ -62,6 +62,14 @@
                             <li><a href="{{ route('admin.store.create') }}">Registrar Nova</a></li>
                         </ul>
                     </li>
+                    <li class="nav-item pcoded-hasmenu">
+                        <a href="#!" class="nav-link "><span class="pcoded-micon"><i
+                                    class="feather icon-box"></i></span><span class="pcoded-mtext">Produtos</span></a>
+                        <ul class="pcoded-submenu">
+                            <li><a href="{{ route('admin.store.index') }}">Todos</a></li>
+                            <li><a href="{{ route('admin.store.create') }}">Registrar Novo</a></li>
+                        </ul>
+                    </li>
                 </ul>
 
             </div>
