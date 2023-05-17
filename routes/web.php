@@ -14,9 +14,9 @@ use Illuminate\Support\Facades\Auth;
 */
 Auth::routes();
 
-Route::prefix('admin')->namespace('App\Http\Controllers\Admin')->group(function () {
+Route::prefix('admin')->name('admin.')->namespace('App\Http\Controllers\Admin')->group(function () {
     Route::get('/', 'PainelControllador@index')->name('admin.painel');
-    Route::prefix('/stores')->name('admin.store.')->group(function () {
+    Route::prefix('/stores')->name('store.')->group(function () {
         Route::get('/', 'StoreController@index')->name('index');
         Route::get('/create', 'StoreController@create')->name('create');
         Route::post('/', 'StoreController@store')->name('store');
