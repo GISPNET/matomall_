@@ -20,6 +20,8 @@ Route::prefix('admin')->namespace('App\Http\Controllers\Admin')->group(function 
         Route::get('/', 'StoreController@index')->name('admin.stores');
         Route::get('/create', 'StoreController@create')->name('admin.store.create');
         Route::post('/', 'StoreController@store')->name('admin.store.store');
+        Route::get('/{id}', 'StoreController@edit')->name('admin.store.edit');
+        Route::delete('/{id}', 'StoreController@destroy')->name('admin.store.destroy');
     });
 
 });

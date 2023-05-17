@@ -26,8 +26,8 @@ class StoreController extends Controller
      */
     public function create()
     {
-        $users=\App\Models\User::all('id','name');
-        return view('admin.stores.create',compact(['users']));
+        $users = \App\Models\User::all('id', 'name');
+        return view('admin.stores.create', compact(['users']));
     }
 
     /**
@@ -48,12 +48,11 @@ class StoreController extends Controller
             'name.required' => 'O campo nome é obrigatório.',
             'name.unique' => 'Já existe uma loja com esse nome.',
         ]);
-       $data=$request->all();
-       $user=\App\Models\User::find($data['user_id']);
-       $user->store()->create($data);
+        $data = $request->all();
+        $user = \App\Models\User::find($data['user_id']);
+        $user->store()->create($data);
 
-       return back()->with('message', 'A loja foi salva com sucesso');
-
+        return back()->with('message', 'A loja foi salva com sucesso');
     }
 
 
@@ -99,6 +98,10 @@ class StoreController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $store = \App\Models\Store::find($id);
+        if (isset($store)); {
+            $store->delete();
+            return back()->with('message', 'A loja foi removida com sucesso');
+        }
     }
 }
