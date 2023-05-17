@@ -75,6 +75,16 @@ class StoreController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'name' => 'required',
+            'description' => 'nullable',
+            'phone' => 'nullable',
+            'mobile_phone' => 'nullable',
+            'slug' => 'nullable',
+        ], [
+            'name.required' => 'O campo nome é obrigatório.',
+            'name.unique' => 'Já existe uma loja com esse nome.',
+        ]);
        $data=$request->all();
        $d=$store=\App\Models\Store::find($id)->update($data);
 

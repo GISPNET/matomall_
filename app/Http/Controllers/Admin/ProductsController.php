@@ -72,7 +72,9 @@ class ProductsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $stores = \App\Models\Store::all('id', 'name');
+        $product = \App\Models\Product::find($id);
+        return view('admin.products.edit', compact(['stores','product']));
     }
 
     /**
@@ -84,7 +86,20 @@ class ProductsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'price' => 'required',
+            'store_id' => 'required',
+            'description' => 'nullable',
+        ], [
+            'name.required' => 'O campo nome é obrigatório.',
+            'price.required' => 'O campo preço é obrigatório.',
+            'store_id.required' => 'O campo loja é obrigatório.',
+        ]);
+       $data=$request->all();
+       \App\Models\Product::find($id)->update($data);
+
+       return back()->with('message','O produto foi atualizado com sucesso');
     }
 
     /**
