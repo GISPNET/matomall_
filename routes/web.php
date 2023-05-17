@@ -16,13 +16,13 @@ Auth::routes();
 
 Route::prefix('admin')->namespace('App\Http\Controllers\Admin')->group(function () {
     Route::get('/', 'PainelControllador@index')->name('admin.painel');
-    Route::prefix('/stores')->group(function () {
-        Route::get('/', 'StoreController@index')->name('admin.stores');
-        Route::get('/create', 'StoreController@create')->name('admin.store.create');
-        Route::post('/', 'StoreController@store')->name('admin.store.store');
-        Route::get('/{id}', 'StoreController@edit')->name('admin.store.edit');
-        Route::delete('/{id}', 'StoreController@destroy')->name('admin.store.destroy');
-        Route::post('/{id}', 'StoreController@update')->name('admin.store.update');
+    Route::prefix('/stores')->name('admin.store.')->group(function () {
+        Route::get('/', 'StoreController@index')->name('index');
+        Route::get('/create', 'StoreController@create')->name('create');
+        Route::post('/', 'StoreController@store')->name('store');
+        Route::get('/{id}', 'StoreController@edit')->name('edit');
+        Route::delete('/{id}', 'StoreController@destroy')->name('destroy');
+        Route::post('/{id}', 'StoreController@update')->name('update');
     });
 
 });
