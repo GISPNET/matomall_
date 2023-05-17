@@ -1,123 +1,101 @@
 @extends('admin.layouts.app')
-@section('titulo'.'Lojas')
+@section('page-title','Lojas')
+@section('breadcrumb-item','Painel')
+@section('breadcrumb-item-active','Produtos')
 @section('main')
-    <div class="pcoded-main-container">
-        <div class="pcoded-content">
-            <!-- [ breadcrumb ] start -->
-            <div class="page-header">
-                <div class="page-block">
-                    <div class="row align-items-center">
-                        <div class="col-md-12">
-                            <div class="page-header-title">
-                                <h5 class="m-b-10">Lojas</h5>
-                            </div>
-                            <ul class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="{{ route('admin.painel') }}"><i class="feather icon-home"></i></a></li>
-                                <li class="breadcrumb-item"><a href="{{ route('admin.store.index') }}">Lojas</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12" data-select2-id="15">
+                <div class="card">
+
+                    <form action="{{ route('admin.product.store') }}" method="POST">
+    @csrf
+    <div class="card-body">
+        <h4 class="card-title">Dados do produto</h4>
+        <div class="form-group row">
+            <label for="name" class="col-sm-3 text-right control-label col-form-label">Nome</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" id="name" name="name" value="{{ old('name') }}" placeholder="Digite o nome aqui">
+                @error('name')
+                    <span class="text-danger">{{ $message }}</span>
+                @enderror
             </div>
-            <div class="row">
-                <div class="col-sm-12">
-                    <div class="card">
-                        <div class="card-header">
-                            <h5>Informações da Loja</h5>
-                        </div>
-                        <div class="card-body">
-                            <form action="{{route('admin.store.update', $store->id) }}" method="POST">
-                                @csrf
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label class="floating-label" for="name">Nome</label>
-                                            <input type="text" class="form-control" id="name" name="name" value="{{ $store->name }}" >
-                                            @error('name')
-                                                <span class="text-danger">{{ $message }}</span>
-                                            @enderror
-                                        </div>
-                                    </div>
-
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label class="floating-label" for="description">Descrição</label>
-                                            <input type="text" class="form-control" id="description" name="description" value="{{ $store->description }}">
-                                            @error('description')
-                                                <span class="text-danger">{{ $message }}</span>
-                                            @enderror
-                                        </div>
-                                    </div>
-
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label class="floating-label" for="phone">Telefone</label>
-                                            <input type="text" class="form-control" id="phone" name="phone" value="{{ $store->phone }}">
-                                            @error('phone')
-                                                <span class="text-danger">{{ $message }}</span>
-                                            @enderror
-                                        </div>
-                                    </div>
-
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label class="floating-label" for="mobile_phone">Celular</label>
-                                            <input type="text" class="form-control" id="mobile_phone" name="mobile_phone" value="{{ $store->mobile_phone }}">
-                                            @error('mobile_phone')
-                                                <span class="text-danger">{{ $message }}</span>
-                                            @enderror
-                                        </div>
-                                    </div>
-
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label class="floating-label" for="slug">Slug</label>
-                                            <input type="text" class="form-control" id="slug" name="slug" value="{{ $store->slug }}">
-                                            @error('slug')
-                                                <span class="text-danger">{{ $message }}</span>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label class="floating-label" for="user_id">Vendedor</label>
-                                            <input type="text" class="form-control" id="user_id" name="user_id" value="{{ $store->user_id }}">
-                                            @error('slug')
-                                                <span class="text-danger">{{ $message }}</span>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <div class="form-group">
-                                                <button type="submit" class="btn  btn-primary">Actualizar</button>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-
-
-            </div>
-
-            <!-- Latest Customers end -->
         </div>
-        <!-- [ Main Content ] end -->
+        <div class="form-group row">
+            <label for="body" class="col-sm-3 text-right control-label col-form-label">Descrição</label>
+            <div class="col-sm-9">
+                <textarea class="form-control" id="description" name="description" rows="2" placeholder="Digite a descrição aqui">{{ old('description') }}</textarea>
+                @error('description')
+                    <span class="text-danger">{{ $message }}</span>
+                @enderror
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="body" class="col-sm-3 text-right control-label col-form-label">Descrição detalhada</label>
+            <div class="col-sm-9">
+                <textarea class="form-control" id="body" name="body" rows="3" placeholder="Digite a descrição detalhada aqui">{{ old('body') }}</textarea>
+                @error('body')
+                    <span class="text-danger">{{ $message }}</span>
+                @enderror
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="price" class="col-sm-3 text-right control-label col-form-label">Preço</label>
+            <div class="col-sm-9">
+                <input type="number" class="form-control" id="price" name="price" value="{{ old('price') }}" placeholder="Digite o preço aqui" onchange="formatPrice(this)">
+                @error('price')
+                    <span class="text-danger">{{ $message }}</span>
+                @enderror
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="slug" class="col-sm-3 text-right control-label col-form-label">Slug</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" id="slug" name="slug" value="{{ old('slug') }}" placeholder="Digite o slug aqui">
+                @error('slug')
+                    <span class="text-danger">{{ $message }}</span>
+                @enderror
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="store_id" class="col-sm-3 text-right control-label col-form-label">Loja</label>
+            <div class="col-sm-9">
+                <select class="form-control" id="store_id" name="store_id">
+                    @foreach($stores as $store)
+                        <option value="{{ $store->id }}">{{ $store->name }}</option>
+                    @endforeach
+                </select>
+                @error('store_id')
+                    <span class="text-danger">{{ $message }}</span>
+                @enderror
+            </div>
+        </div>
+        <div class="border-top">
+            <div class="card-body">
+                <button type="submit" class="btn btn-primary">Salvar</button>
+            </div>
+        </div>
     </div>
+</form>
+                </div>
+            </div>
+        </div>
     </div>
 @endsection
 
 @section('js')
     @if (Session::has('message'))
         <script>
-            setTimeout(function(){
-                toastr.options.progressBar=true;
+            setTimeout(function() {
+                toastr.options.progressBar = true;
                 toastr.success("{{ Session::get('message') }}");
-            },100)
+            }, 100);
+
+            function formatPrice(input) {
+                var price = input.value;
+                var formattedPrice = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(price);
+                input.value = formattedPrice;
+            }
         </script>
     @endif
 @endsection
