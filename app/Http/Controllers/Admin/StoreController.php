@@ -75,7 +75,8 @@ class StoreController extends Controller
      */
     public function edit($id)
     {
-        //
+       $store=\App\Models\Store::find($id);
+       return view('admin.stores.edit',compact(['store']));
     }
 
     /**
@@ -87,7 +88,10 @@ class StoreController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+       $data=$request->all();
+       $d=$store=\App\Models\Store::find($id)->update($data);
+
+       return back()->with('message','A loja foi atualizada com sucesso');
     }
 
     /**
