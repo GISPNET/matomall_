@@ -22,6 +22,9 @@ Route::get('/', function(){
     }
     return redirect()->to('/login');
 });
+Route::get('/teste', function(){
+   return view('login');
+});
 
 Route::prefix('admin')->name('admin.')->namespace('App\Http\Controllers\Admin')->group(function () {
     Route::get('/', 'PainelControllador@index')->name('painel');

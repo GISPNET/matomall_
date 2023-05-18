@@ -29,13 +29,13 @@ class LoginController extends Controller
     public function redirectTo()
     {
         if (auth()->user()->role == "admin") {
-            return redirect("/admin");
+            return url("/admin");
         }
         if (auth()->user()->role == "cliente") {
-            return redirect("/cliente");
+            return url("/cliente");
         }
         if (auth()->user()->role == "vendedor") {
-            return redirect("/vendedor");
+            return url("/vendedor");
         }
     }
 
