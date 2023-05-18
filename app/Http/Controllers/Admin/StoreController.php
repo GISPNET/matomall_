@@ -13,6 +13,10 @@ class StoreController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth.admin');
+    }
     public function index()
     {
         $stores = Store::paginate(10);
@@ -62,8 +66,8 @@ class StoreController extends Controller
      */
     public function edit($id)
     {
-       $store=\App\Models\Store::find($id);
-       return view('admin.stores.edit',compact(['store']));
+        $store = \App\Models\Store::find($id);
+        return view('admin.stores.edit', compact(['store']));
     }
 
     /**
@@ -85,10 +89,10 @@ class StoreController extends Controller
             'name.required' => 'O campo nome é obrigatório.',
             'name.unique' => 'Já existe uma loja com esse nome.',
         ]);
-       $data=$request->all();
-       $d=$store=\App\Models\Store::find($id)->update($data);
+        $data = $request->all();
+        $d = $store = \App\Models\Store::find($id)->update($data);
 
-       return back()->with('message','A loja foi atualizada com sucesso');
+        return back()->with('message', 'A loja foi atualizada com sucesso');
     }
 
     /**

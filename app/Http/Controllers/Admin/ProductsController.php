@@ -13,6 +13,11 @@ class ProductsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('auth.admin');
+    }
     public function index()
     {
         $products = Product::paginate(10);
@@ -74,7 +79,7 @@ class ProductsController extends Controller
     {
         $stores = \App\Models\Store::all('id', 'name');
         $product = \App\Models\Product::find($id);
-        return view('admin.products.edit', compact(['stores','product']));
+        return view('admin.products.edit', compact(['stores', 'product']));
     }
 
     /**
@@ -96,10 +101,10 @@ class ProductsController extends Controller
             'price.required' => 'O campo preço é obrigatório.',
             'store_id.required' => 'O campo loja é obrigatório.',
         ]);
-       $data=$request->all();
-       \App\Models\Product::find($id)->update($data);
+        $data = $request->all();
+        \App\Models\Product::find($id)->update($data);
 
-       return back()->with('message','O produto foi atualizado com sucesso');
+        return back()->with('message', 'O produto foi atualizado com sucesso');
     }
 
     /**
