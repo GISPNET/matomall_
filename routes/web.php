@@ -14,6 +14,15 @@ use Illuminate\Support\Facades\Auth;
 */
 Auth::routes();
 
+Route::get('/', function(){
+    if(auth()->check()){
+        if(auth()->user()->role=="admin"){
+            return redirect()->to('/admin');
+        }
+    }
+    return redirect()->to('/login');
+});
+
 Route::prefix('admin')->name('admin.')->namespace('App\Http\Controllers\Admin')->group(function () {
     Route::get('/', 'PainelControllador@index')->name('painel');
     Route::prefix('/stores')->name('store.')->group(function () {
