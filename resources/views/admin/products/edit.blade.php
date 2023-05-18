@@ -1,4 +1,5 @@
 @extends('admin.layouts.app')
+@section('titulo','Editando Produto '.$product->name)
 @section('page-title', 'Lojas')
 @section('breadcrumb-item', 'Painel')
 @section('breadcrumb-item-active', 'Produtos')

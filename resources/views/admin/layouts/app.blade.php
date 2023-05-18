@@ -10,7 +10,7 @@
     <meta name="author" content="">
     <meta name="csrf_token" content="{{ csrf_token() }}">
     <link rel="icon" type="image/png" sizes="16x16" href="{{asset('assets/images/favicon.png') }}">
-    <title>Matrix Template - The Ultimate Multipurpose admin template</title>
+    <title>MatoMall - @yield('titulo')</title>
     <link href="{{asset('assets/libs/flot/css/float-chart.css') }}" rel="stylesheet">
     <link href="{{asset('dist/css/style.min.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/toastr.min.css') }}">

@@ -1,4 +1,5 @@
 @extends('admin.layouts.app')
+@section('titulo','Registrar Nova Loja')
 @section('page-title','Lojas')
 @section('breadcrumb-item','Painel')
 @section('breadcrumb-item-active','Lojas')

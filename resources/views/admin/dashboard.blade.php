@@ -1,11 +1,8 @@
 @extends('admin.layouts.app')
-
+@section('titulo','Painel')
 @section('main')
 
 <div class="container-fluid">
-    <!-- ============================================================== -->
-    <!-- Sales Cards  -->
-    <!-- ============================================================== -->
     <div class="row">
         <!-- Column -->
         <div class="col-md-6 col-lg-2 col-xlg-3">
