@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class ProductsController extends Controller
 {
@@ -31,9 +32,15 @@ class ProductsController extends Controller
      */
     public function create()
     {
-        $stores = \App\Models\Store::all('id', 'name');
-        return view('admin.products.create', compact(['stores']));
+        $user = Auth::user();
+        $store = $user->store;
+
+        if (!$store) {
+            return back()->with('warning', 'Você não possui uma loja associada.');
+        }
+        return view('admin.products.create', compact('store'));
     }
+
 
     /**
      * Store a newly created resource in storage.

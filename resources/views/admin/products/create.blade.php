@@ -61,9 +61,7 @@
             <label for="store_id" class="col-sm-3 text-right control-label col-form-label">Loja</label>
             <div class="col-sm-9">
                 <select class="form-control" id="store_id" name="store_id">
-                    @foreach($stores as $store)
-                        <option value="{{ $store->id }}">{{ $store->name }}</option>
-                    @endforeach
+                    <option value="{{ $store->id }}">{{ $store->name }}</option>
                 </select>
                 @error('store_id')
                     <span class="text-danger">{{ $message }}</span>
@@ -98,4 +96,12 @@
             }
         </script>
     @endif
+    @if (Session::has('warning'))
+    <script>
+        setTimeout(function() {
+            toastr.options.progressBar = true;
+            toastr.warning("{{ Session::get('warning') }}");
+        }, 100);
+    </script>
+@endif
 @endsection

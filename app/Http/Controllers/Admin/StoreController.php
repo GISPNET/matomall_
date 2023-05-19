@@ -20,7 +20,8 @@ class StoreController extends Controller
     }
     public function index()
     {
-        $stores = Store::paginate(10);
+        $user=Auth::user();
+        $store=$user->store;
         return view('admin.stores.index', compact(['stores']));
     }
 
@@ -31,8 +32,7 @@ class StoreController extends Controller
      */
     public function create()
     {
-        $users = \App\Models\User::all('id', 'name');
-        return view('admin.stores.create', compact(['users']));
+        return view('admin.stores.create');
     }
 
     /**
