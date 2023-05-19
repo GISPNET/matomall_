@@ -54,6 +54,7 @@ class StoreController extends Controller
             'name.unique' => 'Já existe uma loja com esse nome.',
         ]);
         $data = $request->all();
+        $data=$request->except('_token');
         $user=Auth::user();
         $user->store()->create($data);
         return back()->with('message', 'A loja foi salva com sucesso');
@@ -90,6 +91,7 @@ class StoreController extends Controller
             'name.unique' => 'Já existe uma loja com esse nome.',
         ]);
         $data = $request->all();
+        $data=$request->except('_token');
         $user=Auth::user();
         $user->store()->update($data);
         return back()->with('message', 'A loja foi atualizada com sucesso');
