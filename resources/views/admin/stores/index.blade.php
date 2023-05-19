@@ -22,8 +22,7 @@
                                 </tr>
                             </thead>
                             <tbody class="customtable">
-                                @if (count($stores) > 0)
-                                    @foreach ($stores as $key => $store)
+                                @if ($store)
                                         <tr>
                                             <td>{{ $store->name }}</td>
                                             <td>{{ $store->phone }}</td>
@@ -39,21 +38,13 @@
                                                 </form>
                                             </td>
                                         </tr>
-                                    @endforeach
                                 @else
                                     <tr>
-                                        <td colspan="5">Nenhuma loja encontrada.</td>
+                                        <td colspan="5">Você não possui nenhuma loja cadastrada.</td>
                                     </tr>
                                 @endif
                             </tbody>
                         </table>
-
-                        <div style="text-align: right;">
-                            <div class="text-center">
-                                {{ $stores->links() }}
-                            </div>
-                        </div>
-
                     </div>
                 </div>
             </div>

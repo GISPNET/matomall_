@@ -22,7 +22,7 @@ class StoreController extends Controller
     {
         $user=Auth::user();
         $store=$user->store;
-        return view('admin.stores.index', compact(['stores']));
+        return view('admin.stores.index', compact(['store']));
     }
 
     /**

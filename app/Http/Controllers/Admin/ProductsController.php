@@ -21,7 +21,12 @@ class ProductsController extends Controller
     }
     public function index()
     {
-        $products = Product::paginate(10);
+        $user=Auth::user();
+        if($user->store){
+            $products=$user->store->products()->paginate(10);
+        }else{
+            $products=[];
+        }
         return view('admin.products.index', compact(['products']));
     }
 

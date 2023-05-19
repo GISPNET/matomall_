@@ -42,7 +42,7 @@
                                     @endforeach
                                 @else
                                     <tr>
-                                        <td colspan="5">Nenhum produto encontrada.</td>
+                                        <td colspan="5">Nenhum produto encontrado.</td>
                                     </tr>
                                 @endif
                             </tbody>
@@ -50,7 +50,9 @@
 
                         <div style="text-align: right;">
                             <div class="text-center">
+                               @if($products)
                                 {{ $products->links() }}
+                               @endif
                             </div>
                         </div>
 
