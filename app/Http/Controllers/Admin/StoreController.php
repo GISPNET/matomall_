@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Store;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class StoreController extends Controller
 {
@@ -53,9 +54,8 @@ class StoreController extends Controller
             'name.unique' => 'Já existe uma loja com esse nome.',
         ]);
         $data = $request->all();
-        $user = \App\Models\User::find($data['user_id']);
+        $user=Auth::user();
         $user->store()->create($data);
-
         return back()->with('message', 'A loja foi salva com sucesso');
     }
     /**
@@ -90,8 +90,8 @@ class StoreController extends Controller
             'name.unique' => 'Já existe uma loja com esse nome.',
         ]);
         $data = $request->all();
-        $d = $store = \App\Models\Store::find($id)->update($data);
-
+        $user=Auth::user();
+        $user->store()->update($data);
         return back()->with('message', 'A loja foi atualizada com sucesso');
     }
 
