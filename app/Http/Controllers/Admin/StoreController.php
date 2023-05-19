@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Store;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class StoreController extends Controller
 {
@@ -13,10 +14,15 @@ class StoreController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index()
     {
-        $stores = Store::paginate(10);
-        return view('admin.stores.index', compact(['stores']));
+        $user=Auth::user();
+        $store=$user->store;
+        return view('admin.stores.index', compact(['store']));
     }
 
     /**
@@ -26,8 +32,7 @@ class StoreController extends Controller
      */
     public function create()
     {
-        $users = \App\Models\User::all('id', 'name');
-        return view('admin.stores.create', compact(['users']));
+        return view('admin.stores.create');
     }
 
     /**
@@ -49,9 +54,9 @@ class StoreController extends Controller
             'name.unique' => 'Já existe uma loja com esse nome.',
         ]);
         $data = $request->all();
-        $user = \App\Models\User::find($data['user_id']);
+        $data=$request->except('_token');
+        $user=Auth::user();
         $user->store()->create($data);
-
         return back()->with('message', 'A loja foi salva com sucesso');
     }
     /**
@@ -62,8 +67,8 @@ class StoreController extends Controller
      */
     public function edit($id)
     {
-       $store=\App\Models\Store::find($id);
-       return view('admin.stores.edit',compact(['store']));
+        $store = \App\Models\Store::find($id);
+        return view('admin.stores.edit', compact(['store']));
     }
 
     /**
@@ -85,10 +90,11 @@ class StoreController extends Controller
             'name.required' => 'O campo nome é obrigatório.',
             'name.unique' => 'Já existe uma loja com esse nome.',
         ]);
-       $data=$request->all();
-       $d=$store=\App\Models\Store::find($id)->update($data);
-
-       return back()->with('message','A loja foi atualizada com sucesso');
+        $data = $request->all();
+        $data=$request->except('_token');
+        $user=Auth::user();
+        $user->store()->update($data);
+        return back()->with('message', 'A loja foi atualizada com sucesso');
     }
 
     /**

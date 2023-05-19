@@ -58,15 +58,6 @@
                                     @enderror
                                 </div>
                             </div>
-                            <div class="form-group row">
-                                <label for="user_id" class="col-sm-3 text-right control-label col-form-label">Vendedor</label>
-                                <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="user_id" name="user_id" value="{{ old('user_id') }}" placeholder="Digite o ID do vendedor aqui">
-                                    @error('user_id')
-                                        <span class="text-danger">{{ $message }}</span>
-                                    @enderror
-                                </div>
-                            </div>
                             <div class="border-top">
                                 <div class="card-body">
                                     <button type="submit" class="btn btn-primary">Salvar</button>

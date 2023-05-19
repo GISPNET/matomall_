@@ -13,7 +13,7 @@ class Store extends Model
     protected $table="stores";
 
     protected $fillable = [
-        'name', 'description', 'phone', 'mobile_phone', 'slug'
+        'name', 'description', 'phone', 'mobile_phone', 'slug','_token'
     ];
     /**
      * Get all of the comments for the Store
