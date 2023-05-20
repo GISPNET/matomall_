@@ -43,21 +43,29 @@ class StoreController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => 'required|unique:stores,name',
-            'description' => 'nullable',
-            'phone' => 'nullable',
-            'mobile_phone' => 'nullable',
-            'slug' => 'nullable',
-        ], [
-            'name.required' => 'O campo nome é obrigatório.',
-            'name.unique' => 'Já existe uma loja com esse nome.',
-        ]);
-        $data = $request->all();
-        $data=$request->except('_token');
         $user=Auth::user();
-        $user->store()->create($data);
-        return back()->with('message', 'A loja foi salva com sucesso');
+        $store=$user->store;
+        if($store){
+           return back()->with('warning','É permitido apenas um cadastro de loja por usuário.');
+        }
+        else{
+
+            $request->validate([
+                'name' => 'required|unique:stores,name',
+                'description' => 'nullable',
+                'phone' => 'nullable',
+                'mobile_phone' => 'nullable',
+                'slug' => 'nullable',
+            ], [
+                'name.required' => 'O campo nome é obrigatório.',
+                'name.unique' => 'Já existe uma loja com esse nome.',
+            ]);
+            $data = $request->all();
+            $data=$request->except('_token');
+            $user=Auth::user();
+            $user->store()->create($data);
+            return back()->with('message', 'A loja foi salva com sucesso');
+        }
     }
     /**
      * Show the form for editing the specified resource.

@@ -81,4 +81,12 @@
             }, 100);
         </script>
     @endif
+    @if (Session::has('warning'))
+    <script>
+        setTimeout(function() {
+            toastr.options.progressBar = true;
+            toastr.warning("{{ Session::get('warning') }}");
+        }, 100);
+    </script>
+@endif
 @endsection
