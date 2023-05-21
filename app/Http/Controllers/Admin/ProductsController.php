@@ -6,6 +6,7 @@ use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProductStoreRequest;
+use App\Http\Requests\ProductUpdateRequest;
 use Illuminate\Support\Facades\Auth;
 
 class ProductsController extends Controller
@@ -61,23 +62,6 @@ class ProductsController extends Controller
         return back()->with('message', 'O produto foi salvo com sucesso');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         $stores = \App\Models\Store::all('id', 'name');
@@ -85,25 +69,8 @@ class ProductsController extends Controller
         return view('admin.products.edit', compact(['stores', 'product']));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+    public function update(ProductUpdateRequest $request, $id)
     {
-        $request->validate([
-            'name' => 'required',
-            'price' => 'required',
-            'store_id' => 'required',
-            'description' => 'nullable',
-        ], [
-            'name.required' => 'O campo nome é obrigatório.',
-            'price.required' => 'O campo preço é obrigatório.',
-            'store_id.required' => 'O campo loja é obrigatório.',
-        ]);
         $data = $request->all();
         \App\Models\Product::find($id)->update($data);
 
