@@ -1,8 +1,8 @@
 @extends('admin.layouts.app')
-@section('titulo','Produtos')
-@section('page-title','Produtos')
-@section('breadcrumb-item','Painel')
-@section('breadcrumb-item-active','Produtos')
+@section('titulo', 'Produtos')
+@section('page-title', 'Produtos')
+@section('breadcrumb-item', 'Painel')
+@section('breadcrumb-item-active', 'Produtos')
 @section('main')
     <div class="container-fluid">
         <div class="row">
@@ -16,10 +16,9 @@
                             <thead class="thead-light">
                                 <tr>
                                     <th>Produto</th>
-                                            <th>Descrição</th>
-                                            <th>Preço</th>
-                                            <th>Loja</th>
-                                            <th>Ações</th>
+                                    <th>Preço</th>
+                                    <th>Categorias</th>
+                                    <th>Ações</th>
                                 </tr>
                             </thead>
                             <tbody class="customtable">
@@ -27,13 +26,20 @@
                                     @foreach ($products as $key => $product)
                                         <tr>
                                             <td>{{ $product->name }}</td>
-                                            <td>{{ $product->description }}</td>
                                             <td>{{ \App\Helpers\ptBRHelper::real($product->price) }}</td>
-                                            <td>{{ $product->store->name }}</td>
                                             <td>
-                                                <a href="{{ route('admin.product.edit', $product->id) }}" class="btn btn-primary btn-sm">Editar</a>
-                                                <form action="{{ route('admin.product.destroy', $product->id) }}" method="POST"
-                                                    style="display: inline-block;">
+                                                @if (count($product->categories) > 0)
+                                                    <p>{{ implode(', ', $product->categories->pluck('name')->toArray()) }}
+                                                    </p>
+                                                @else
+                                                    Sem categoria associada
+                                                @endif
+                                            </td>
+                                            <td>
+                                                <a href="{{ route('admin.product.edit', $product->id) }}"
+                                                    class="btn btn-primary btn-sm">Editar</a>
+                                                <form action="{{ route('admin.product.destroy', $product->id) }}"
+                                                    method="POST" style="display: inline-block;">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-sm">Excluir</button>
@@ -51,9 +57,9 @@
 
                         <div style="text-align: right;">
                             <div class="text-center">
-                               @if($products)
-                                {{ $products->links() }}
-                               @endif
+                                @if ($products)
+                                    {{ $products->links() }}
+                                @endif
                             </div>
                         </div>
 
@@ -74,11 +80,11 @@
         </script>
     @endif
     @if (Session::has('warning'))
-    <script>
-        setTimeout(function() {
-            toastr.options.progressBar = true;
-            toastr.warning("{{ Session::get('warning') }}");
-        }, 100);
-    </script>
+        <script>
+            setTimeout(function() {
+                toastr.options.progressBar = true;
+                toastr.warning("{{ Session::get('warning') }}");
+            }, 100);
+        </script>
     @endif
 @endsection

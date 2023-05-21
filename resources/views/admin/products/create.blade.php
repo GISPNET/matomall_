@@ -6,9 +6,8 @@
 @section('main')
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-12" data-select2-id="15">
+            <div class="col-md-12" data-select2-id="1">
                 <div class="card">
-
                     <form action="{{ route('admin.product.store') }}" method="POST">
                         @csrf
                         <div class="card-body">

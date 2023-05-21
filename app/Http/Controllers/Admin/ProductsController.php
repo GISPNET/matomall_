@@ -17,45 +17,52 @@ class ProductsController extends Controller
     }
     public function index()
     {
-        $user=Auth::user();
-        if($user->store){
-            $products=$user->store->products()->paginate(10);
-        }else{
-            $products=[];
+        $user = Auth::user();
+        if ($user->store) {
+            $products = $user->store->products()->paginate(10);
+        } else {
+            $products = [];
         }
         return view('admin.products.index', compact(['products']));
     }
     public function create()
-{
-    $product = new Product; // Cria uma instância vazia do modelo Product
-    $categories =\App\Models\Category::all();
-    return view('admin.products.create', compact('product', 'categories'));
-}
+    {
+        $product = new Product;
+        $categories = \App\Models\Category::all();
+        return view('admin.products.create', compact('product', 'categories'));
+    }
 
     public function store(ProductStoreRequest $request)
     {
         $data = $request->all();
-        $store=auth()->user()->store;
+        $store = auth()->user()->store;
         $product = $store->products()->create($data);
 
-        $selectedCategories = $request->input('categories',[]);
+        $selectedCategories = $request->input('categories', []);
 
-        $product->categories()->attach($selectedCategories);
+        $product->categories()->sync($selectedCategories);
 
         return back()->with('message', 'O produto foi salvo com sucesso');
     }
 
     public function edit($id)
     {
-        $stores = \App\Models\Store::all('id', 'name');
+        $categories = \App\Models\Category::all();
+
         $product = \App\Models\Product::find($id);
-        return view('admin.products.edit', compact(['stores', 'product']));
+        return view('admin.products.edit', compact(['categories', 'product']));
     }
 
     public function update(ProductUpdateRequest $request, $id)
     {
         $data = $request->all();
-        \App\Models\Product::find($id)->update($data);
+        $product=\App\Models\Product::find($id);
+
+        $product->update($data);
+
+        $selectedCategories = $request->input('categories', []);
+
+        $product->categories()->sync($selectedCategories);
 
         return back()->with('message', 'O produto foi atualizado com sucesso');
     }

@@ -56,31 +56,22 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="slug" class="col-sm-3 text-right control-label col-form-label">Slug</label>
+                                <label for="categories" class="col-sm-3 text-right control-label col-form-label">Categorias</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="slug" name="slug"
-                                        value="{{ $product->slug }}" placeholder="Digite o slug aqui">
-                                    @error('slug')
-                                        <span class="text-danger">{{ $message }}</span>
-                                    @enderror
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="store_id" class="col-sm-3 text-right control-label col-form-label">Loja</label>
-                                <div class="col-sm-9">
-                                    <select class="form-control" id="store_id" name="store_id">
-                                        @foreach ($stores as $store)
-                                            <option value="{{ $store->id }}"
-                                                {{ $store->id == $product->store_id ? 'selected' : '' }}>
-                                                {{ $store->name }}
-                                            </option>
+                                    <select class="js-example-basic-multiple form-control" id="categories" name="categories[]" multiple="multiple">
+                                        @foreach ($categories as $category)
+                                            <option value="{{ $category->id }}" {{ $product->categories->contains($category->id) ? 'selected' : '' }}>
+                                                {{ $category->name }}</option>
                                         @endforeach
                                     </select>
-                                    @error('store_id')
-                                        <span class="text-danger">{{ $message }}</span>
-                                    @enderror
                                 </div>
                             </div>
+                            <style>
+                                .select2-container .select2-selection--multiple .select2-selection__choice {
+                                    background-color: #2255a4;
+                                    color: #ffffff;
+                                }
+                            </style>
                             <div class="border-top">
                                 <div class="card-body">
                                     <button type="submit" class="btn btn-primary">Actualizar</button>
@@ -95,6 +86,11 @@
 @endsection
 
 @section('js')
+<script>
+    $(document).ready(function() {
+        $('.js-example-basic-multiple').select2();
+    });
+</script>
     @if (Session::has('message'))
         <script>
             setTimeout(function() {
