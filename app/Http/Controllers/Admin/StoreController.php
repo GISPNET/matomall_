@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreStoreRequest;
 use App\Models\Store;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -41,7 +42,7 @@ class StoreController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreStoreRequest $request)
     {
         $user=Auth::user();
         $store=$user->store;
@@ -50,16 +51,6 @@ class StoreController extends Controller
         }
         else{
 
-            $request->validate([
-                'name' => 'required|unique:stores,name',
-                'description' => 'nullable',
-                'phone' => 'nullable',
-                'mobile_phone' => 'nullable',
-                'slug' => 'nullable',
-            ], [
-                'name.required' => 'O campo nome é obrigatório.',
-                'name.unique' => 'Já existe uma loja com esse nome.',
-            ]);
             $data = $request->all();
             $data=$request->except('_token');
             $user=Auth::user();
