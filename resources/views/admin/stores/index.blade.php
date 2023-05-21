@@ -18,7 +18,7 @@
                                     <th>Loja</th>
                                     <th>Telefone</th>
                                     <th>Celular</th>
-                                    <th>Vendedor</th>
+                                    <th>Produtos</th>
                                     <th>Ações</th>
                                 </tr>
                             </thead>
@@ -28,7 +28,7 @@
                                             <td>{{ $store->name }}</td>
                                             <td>{{ $store->phone }}</td>
                                             <td>{{ $store->mobile_phone }}</td>
-                                            <td>{{ $store->user->name }}</td>
+                                            <td>{{ $store->products->count() }}</td>
                                             <td>
                                                 <a href="{{ route('admin.store.edit', $store->id) }}" class="btn btn-primary btn-sm">Editar</a>
                                                 <form action="{{ route('admin.store.destroy', $store->id) }}" method="POST"
