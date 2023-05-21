@@ -14,7 +14,7 @@
                         <div class="card-body">
                             <h4 class="card-title">Dados da loja</h4>
                             <div class="form-group row">
-                                <label for="name" class="col-sm-3 text-right control-label col-form-label">Nome</label>
+                                <label for="name" class="col-sm-3 text-left control-label col-form-label">Nome</label>
                                 <div class="col-sm-9">
                                     <input type="text" class="form-control" id="name" name="name" value="{{ $store->name }}" placeholder="Digite o nome aqui">
                                     @error('name')
@@ -23,7 +23,7 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="description" class="col-sm-3 text-right control-label col-form-label">Descrição</label>
+                                <label for="description" class="col-sm-3 text-left control-label col-form-label">Descrição</label>
                                 <div class="col-sm-9">
                                     <textarea class="form-control" id="description" name="description" cols="30" rows="5"placeholder="Digite a descrição aqui">{{$store->description}}</textarea>
                                     @error('description')
@@ -32,7 +32,7 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="phone" class="col-sm-3 text-right control-label col-form-label">Telefone</label>
+                                <label for="phone" class="col-sm-3 text-left control-label col-form-label">Telefone</label>
                                 <div class="col-sm-9">
                                     <input type="text" class="form-control" id="phone" name="phone" value="{{$store->phone}}" placeholder="Digite o telefone aqui">
                                     @error('phone')
@@ -41,7 +41,7 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="mobile_phone" class="col-sm-3 text-right control-label col-form-label">Celular</label>
+                                <label for="mobile_phone" class="col-sm-3 text-left control-label col-form-label">Celular</label>
                                 <div class="col-sm-9">
                                     <input type="text" class="form-control" id="mobile_phone" name="mobile_phone" value="{{$store->mobile_phone}}" placeholder="Digite o celular aqui">
                                     @error('mobile_phone')
@@ -49,22 +49,12 @@
                                     @enderror
                                 </div>
                             </div>
-                            <div class="form-group row">
-                                <label for="slug" class="col-sm-3 text-right control-label col-form-label">Slug</label>
-                                <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="slug" name="slug" value="{{$store->slug}}" placeholder="Digite o slug aqui">
-                                    @error('slug')
-                                        <span class="text-danger">{{ $message }}</span>
-                                    @enderror
-                                </div>
-                            </div>
-                            <div class="border-top">
-                                <div class="card-body">
-                                    <button type="submit" class="btn btn-primary">Actualizar</button>
-                                 </div>
-                            </div>
                         </div>
-
+                        <div class="border-top">
+                            <div class="card-body">
+                                <button type="submit" class="btn btn-primary">Actualizar</button>
+                             </div>
+                        </div>
                     </form>
                 </div>
             </div>

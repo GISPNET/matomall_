@@ -12,18 +12,17 @@ use Illuminate\Support\Facades\Auth;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 Auth::routes();
 
-Route::get('/', function(){
-    if(auth()->check()){
-        if(auth()->user()->role=="admin"){
-            return redirect()->to('/admin');
-        }
+Route::get('/', function () {
+    if (auth()->check()) {
+        return redirect()->to('/admin');
     }
     return redirect()->to('/login');
 });
-Route::get('/teste', function(){
-   return view('login');
+Route::get('/teste', function () {
+    return view('login');
 });
 
 Route::prefix('admin')->name('admin.')->namespace('App\Http\Controllers\Admin')->group(function () {

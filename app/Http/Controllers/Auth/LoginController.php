@@ -28,7 +28,7 @@ class LoginController extends Controller
      */
     public function redirectTo()
     {
-            return url("/admin");
+        return url("/admin");
     }
 
     /**

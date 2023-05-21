@@ -14,7 +14,7 @@
                         <div class="card-body">
                             <h4 class="card-title">Dados da categoria</h4>
                             <div class="form-group row">
-                                <label for="name" class="col-sm-3 text-right control-label col-form-label">Nome</label>
+                                <label for="name" class="col-sm-3 text-left control-label col-form-label">Nome</label>
                                 <div class="col-sm-9">
                                     <input type="text" class="form-control" id="name" name="name" value="{{ old('name') }}" placeholder="Digite o nome aqui">
                                     @error('name')
@@ -23,7 +23,7 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="description" class="col-sm-3 text-right control-label col-form-label">Descrição</label>
+                                <label for="description" class="col-sm-3 text-left control-label col-form-label">Descrição</label>
                                 <div class="col-sm-9">
                                     <textarea class="form-control" id="description" name="description" rows="3" placeholder="Digite a descrição aqui">{{ old('description') }}</textarea>
                                     @error('description')
@@ -31,25 +31,14 @@
                                     @enderror
                                 </div>
                             </div>
-                            <div class="form-group row">
-                                <label for="slug" class="col-sm-3 text-right control-label col-form-label">Slug</label>
-                                <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="slug" name="slug" value="{{ old('slug') }}" placeholder="Digite o slug aqui">
-                                    @error('slug')
-                                    <span class="text-danger">{{ $message }}</span>
-                                    @enderror
-                                </div>
-                            </div>
-                            <div class="border-top">
-                                <div class="card-body">
-                                    <button type="submit" class="btn btn-primary">Salvar</button>
-                                </div>
+
+                        </div>
+                        <div class="border-top">
+                            <div class="card-body">
+                                <button type="submit" class="btn btn-primary">Salvar</button>
                             </div>
                         </div>
                     </form>
-
-
-
                 </div>
             </div>
         </div>

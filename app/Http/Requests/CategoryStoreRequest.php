@@ -25,14 +25,12 @@ class CategoryStoreRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'slug' => 'required',
         ];
     }
     public function messages()
     {
         return[
             'name.required' => 'O campo nome é obrigatório.',
-            'slug.required' => 'O campo slug é obrigatório.',
         ];
     }
 }

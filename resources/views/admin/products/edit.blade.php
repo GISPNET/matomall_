@@ -14,7 +14,7 @@
                         <div class="card-body">
                             <h4 class="card-title">Dados do produto</h4>
                             <div class="form-group row">
-                                <label for="name" class="col-sm-3 text-right control-label col-form-label">Nome</label>
+                                <label for="name" class="col-sm-3 text-left control-label col-form-label">Nome</label>
                                 <div class="col-sm-9">
                                     <input type="text" class="form-control" id="name" name="name"
                                         value="{{ $product->name }}" placeholder="Digite o nome aqui">
@@ -25,7 +25,7 @@
                             </div>
                             <div class="form-group row">
                                 <label for="body"
-                                    class="col-sm-3 text-right control-label col-form-label">Descrição</label>
+                                    class="col-sm-3 text-left control-label col-form-label">Descrição</label>
                                 <div class="col-sm-9">
                                     <textarea class="form-control" id="description" name="description" rows="2" placeholder="Digite a descrição aqui">{{ $product->description }}</textarea>
                                     @error('description')
@@ -34,7 +34,7 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="body" class="col-sm-3 text-right control-label col-form-label">Descrição
+                                <label for="body" class="col-sm-3 text-left control-label col-form-label">Descrição
                                     detalhada</label>
                                 <div class="col-sm-9">
                                     <textarea class="form-control" id="body" name="body" rows="3"
@@ -45,7 +45,7 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="price" class="col-sm-3 text-right control-label col-form-label">Preço</label>
+                                <label for="price" class="col-sm-3 text-left control-label col-form-label">Preço</label>
                                 <div class="col-sm-9">
                                     <input type="number" class="form-control" id="price" name="price"
                                         value="{{ $product->price }}" placeholder="Digite o preço aqui"
@@ -56,7 +56,7 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="categories" class="col-sm-3 text-right control-label col-form-label">Categorias</label>
+                                <label for="categories" class="col-sm-3 text-left control-label col-form-label">Categorias</label>
                                 <div class="col-sm-9">
                                     <select class="js-example-basic-multiple form-control" id="categories" name="categories[]" multiple="multiple">
                                         @foreach ($categories as $category)
@@ -72,10 +72,11 @@
                                     color: #ffffff;
                                 }
                             </style>
-                            <div class="border-top">
-                                <div class="card-body">
-                                    <button type="submit" class="btn btn-primary">Actualizar</button>
-                                </div>
+
+                        </div>
+                        <div class="border-top">
+                            <div class="card-body">
+                                <button type="submit" class="btn btn-primary">Actualizar</button>
                             </div>
                         </div>
                     </form>
