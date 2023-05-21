@@ -26,7 +26,6 @@ class ProductUpdateRequest extends FormRequest
         return [
             'name' => 'required',
             'price' => 'required',
-            'store_id' => 'required',
             'description' => 'nullable',
         ];
     }
@@ -35,7 +34,6 @@ class ProductUpdateRequest extends FormRequest
         return[
             'name.required' => 'O campo nome é obrigatório.',
             'price.required' => 'O campo preço é obrigatório.',
-            'store_id.required' => 'O campo loja é obrigatório.',
         ];
     }
 }

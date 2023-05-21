@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 @section('titulo','Produtos')
-@section('page-title','Lojas')
+@section('page-title','Produtos')
 @section('breadcrumb-item','Painel')
 @section('breadcrumb-item-active','Produtos')
 @section('main')
@@ -72,5 +72,13 @@
                 toastr.error("{{ Session::get('message') }}");
             }, 100);
         </script>
+    @endif
+    @if (Session::has('warning'))
+    <script>
+        setTimeout(function() {
+            toastr.options.progressBar = true;
+            toastr.warning("{{ Session::get('warning') }}");
+        }, 100);
+    </script>
     @endif
 @endsection

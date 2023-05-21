@@ -31,7 +31,7 @@ class ProductsController extends Controller
         $store = $user->store;
 
         if (!$store) {
-            return back()->with('warning', 'Você não possui uma loja associada.');
+            return back()->with('warning', 'Você não possui uma loja.');
         }
         return view('admin.products.create', compact('store'));
     }
@@ -39,7 +39,8 @@ class ProductsController extends Controller
     public function store(ProductStoreRequest $request)
     {
         $data = $request->all();
-        \App\Models\Product::create($data);
+        $store=auth()->user()->store;
+        $store->products()->create($data);
         return back()->with('message', 'O produto foi salvo com sucesso');
     }
 

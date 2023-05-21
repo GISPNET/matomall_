@@ -49,26 +49,6 @@
                 @enderror
             </div>
         </div>
-        <div class="form-group row">
-            <label for="slug" class="col-sm-3 text-right control-label col-form-label">Slug</label>
-            <div class="col-sm-9">
-                <input type="text" class="form-control" id="slug" name="slug" value="{{ old('slug') }}" placeholder="Digite o slug aqui">
-                @error('slug')
-                    <span class="text-danger">{{ $message }}</span>
-                @enderror
-            </div>
-        </div>
-        <div class="form-group row">
-            <label for="store_id" class="col-sm-3 text-right control-label col-form-label">Loja</label>
-            <div class="col-sm-9">
-                <select class="form-control" id="store_id" name="store_id">
-                    <option value="{{ $store->id }}">{{ $store->name }}</option>
-                </select>
-                @error('store_id')
-                    <span class="text-danger">{{ $message }}</span>
-                @enderror
-            </div>
-        </div>
         <div class="border-top">
             <div class="card-body">
                 <button type="submit" class="btn btn-primary">Salvar</button>
