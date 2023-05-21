@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Product;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProductStoreRequest;
 use App\Http\Requests\ProductUpdateRequest;
@@ -34,6 +33,13 @@ class ProductsController extends Controller
 
     public function store(ProductStoreRequest $request)
     {
+        $images=$request->file('photos');
+
+        foreach($images as $image){
+            print $image->store('products','public') ."</br>";
+        }
+        dd("Ok uploaded");
+
         $data = $request->all();
         $store = auth()->user()->store;
         $product = $store->products()->create($data);

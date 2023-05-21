@@ -9,7 +9,7 @@
             <div class="card col-md-12">
 
                     <h4 class="card-title">Dados do produto</h4>
-                    <form action="{{ route('admin.product.store') }}" method="POST">
+                    <form action="{{ route('admin.product.store') }}" method="POST" enctype="multipart/form-data">
 
                         <div class="card-body">
                         @csrf
@@ -59,14 +59,23 @@
                                 </select>
                             </div>
                         </div>
-
                         <style>
                             .select2-container .select2-selection--multiple .select2-selection__choice {
                                 background-color: #2255a4;
                                 color: #ffffff;
                             }
                         </style>
+                        <div class="form-group row">
+                            <label for="image" class="col-md-3 m-t-15">Imagem destacada</label>
+                            <div class="col-md-9">
+                                <input type="file" class="form-control" id="photos" name="photos[]" multiple>
+                                @error('image')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
+                        </div>
                     </div>
+
                     <div class="border-top">
                         <div class="card-body">
                             <button type="submit" class="btn btn-primary">Salvar</button>
