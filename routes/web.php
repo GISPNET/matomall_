@@ -44,5 +44,12 @@ Route::prefix('admin')->name('admin.')->namespace('App\Http\Controllers\Admin')-
         Route::delete('/{id}', 'ProductsController@destroy')->name('destroy');
         Route::post('/{id}', 'ProductsController@update')->name('update');
     });
-
+    Route::prefix('/categories')->name('category.')->group(function () {
+        Route::get('/', 'CategoryController@index')->name('index');
+        Route::get('/create', 'CategoryController@create')->name('create');
+        Route::post('/', 'CategoryController@store')->name('store');
+        Route::get('/{id}', 'CategoryController@edit')->name('edit');
+        Route::delete('/{id}', 'CategoryController@destroy')->name('destroy');
+        Route::post('/{id}', 'CategoryController@update')->name('update');
+    });
 });
