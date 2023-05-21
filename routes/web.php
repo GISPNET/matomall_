@@ -30,8 +30,8 @@ Route::prefix('admin')->name('admin.')->namespace('App\Http\Controllers\Admin')-
     Route::get('/', 'PainelControllador@index')->name('painel');
     Route::prefix('/stores')->name('store.')->group(function () {
         Route::get('/', 'StoreController@index')->name('index');
-        Route::get('/create', 'StoreController@create')->name('create');
-        Route::post('/', 'StoreController@store')->name('store');
+        Route::get('/create', 'StoreController@create')->name('create')->middleware('userhasonestore');
+        Route::post('/', 'StoreController@store')->name('store')->middleware('userhasonestore');
         Route::get('/{id}', 'StoreController@edit')->name('edit');
         Route::delete('/{id}', 'StoreController@destroy')->name('destroy');
         Route::post('/{id}', 'StoreController@update')->name('update');

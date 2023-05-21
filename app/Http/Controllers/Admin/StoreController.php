@@ -22,8 +22,8 @@ class StoreController extends Controller
     }
     public function index()
     {
-        $user=Auth::user();
-        $store=$user->store;
+        $user = Auth::user();
+        $store = $user->store;
         return view('admin.stores.index', compact(['store']));
     }
 
@@ -45,19 +45,11 @@ class StoreController extends Controller
      */
     public function store(StoreStoreRequest $request)
     {
-        $user=Auth::user();
-        $store=$user->store;
-        if($store){
-           return back()->with('warning','É permitido apenas um cadastro de loja por usuário.');
-        }
-        else{
-
-            $data = $request->all();
-            $data=$request->except('_token');
-            $user=Auth::user();
-            $user->store()->create($data);
-            return back()->with('message', 'A loja foi salva com sucesso');
-        }
+        $data = $request->all();
+        $data = $request->except('_token');
+        $user = Auth::user();
+        $user->store()->create($data);
+        return back()->with('message', 'A loja foi salva com sucesso');
     }
     /**
      * Show the form for editing the specified resource.
@@ -73,8 +65,8 @@ class StoreController extends Controller
     public function update(StoreUpdateRequest $request, $id)
     {
         $data = $request->all();
-        $data=$request->except('_token');
-        $user=Auth::user();
+        $data = $request->except('_token');
+        $user = Auth::user();
         $user->store()->update($data);
         return back()->with('message', 'A loja foi atualizada com sucesso');
     }
