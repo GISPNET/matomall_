@@ -24,14 +24,16 @@ class StoreStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'name.required' => 'O campo nome é obrigatório.',
-            'price.required' => 'O campo preço é obrigatório.',
-            'store_id.required' => 'O campo loja é obrigatório.',
+            'name' => 'required|unique:stores,name',
+            'description' => 'nullable',
+            'phone' => 'nullable',
+            'mobile_phone' => 'nullable',
+            'slug' => 'nullable',
         ];
     }
     public function messages()
     {
-        return[
+        return [
             'name.required' => 'O campo nome é obrigatório.',
             'name.unique' => 'Já existe uma loja com esse nome.',
         ];
