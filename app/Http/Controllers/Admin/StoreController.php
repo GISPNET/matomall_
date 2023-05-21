@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreStoreRequest;
+use App\Http\Requests\StoreUpdateRequest;
 use App\Models\Store;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -69,26 +70,8 @@ class StoreController extends Controller
         $store = \App\Models\Store::find($id);
         return view('admin.stores.edit', compact(['store']));
     }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+    public function update(StoreUpdateRequest $request, $id)
     {
-        $request->validate([
-            'name' => 'required',
-            'description' => 'nullable',
-            'phone' => 'nullable',
-            'mobile_phone' => 'nullable',
-            'slug' => 'nullable',
-        ], [
-            'name.required' => 'O campo nome é obrigatório.',
-            'name.unique' => 'Já existe uma loja com esse nome.',
-        ]);
         $data = $request->all();
         $data=$request->except('_token');
         $user=Auth::user();
