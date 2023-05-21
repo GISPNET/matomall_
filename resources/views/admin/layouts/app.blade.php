@@ -14,8 +14,10 @@
     <link href="{{asset('assets/libs/flot/css/float-chart.css') }}" rel="stylesheet">
     <link href="{{asset('dist/css/style.min.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/toastr.min.css') }}">
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/libs/jquery-minicolors/jquery.minicolors.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/libs/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/libs/quill/dist/quill.snow.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/select2.min.css') }}">
 </head>
 <body>
     <!-- ============================================================== -->
@@ -269,6 +271,7 @@
     <script src="{{asset('assets/libs/flot.tooltip/js/jquery.flot.tooltip.min.js') }}"></script>
     <script src="{{asset('dist/js/pages/chart/chart-page-init.js') }}"></script>
     <script src="{{asset('js/toastr.min.js') }}"></script>
+    <script src="{{ asset('js/select2.min.js') }}"></script>
     @yield('js')
 </body>
 

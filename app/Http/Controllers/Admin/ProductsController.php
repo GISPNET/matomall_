@@ -26,21 +26,22 @@ class ProductsController extends Controller
         return view('admin.products.index', compact(['products']));
     }
     public function create()
-    {
-        $user = Auth::user();
-        $store = $user->store;
-
-        if (!$store) {
-            return back()->with('warning', 'Você não possui uma loja.');
-        }
-        return view('admin.products.create', compact('store'));
-    }
+{
+    $product = new Product; // Cria uma instância vazia do modelo Product
+    $categories =\App\Models\Category::all();
+    return view('admin.products.create', compact('product', 'categories'));
+}
 
     public function store(ProductStoreRequest $request)
     {
         $data = $request->all();
         $store=auth()->user()->store;
-        $store->products()->create($data);
+        $product = $store->products()->create($data);
+
+        $selectedCategories = $request->input('categories',[]);
+
+        $product->categories()->attach($selectedCategories);
+
         return back()->with('message', 'O produto foi salvo com sucesso');
     }
 
