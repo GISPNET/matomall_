@@ -6,12 +6,18 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\CategoryStoreRequest;
 use App\Http\Requests\CategoryUpdateRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CategoryController extends Controller
 {
     public function index()
     {
-        $categories=\App\Models\Category::paginate(10);
+        if(auth()->user()->store){
+            $categories=auth()->user()->store->categories()->paginate(10);
+        }
+        else{
+            $categories=[];
+        }
         return view('admin.categories.index',compact(['categories']));
     }
 
@@ -24,7 +30,8 @@ class CategoryController extends Controller
     {
         $data = $request->all();
         $data = $request->except('_token');
-        \App\Models\Category::create($data);
+        $store=auth()->user()->store;
+        $category=$store->categories()->create($data);
         return back()->with('message', 'A categoria foi salva com sucesso');
     }
 

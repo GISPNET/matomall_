@@ -186,7 +186,7 @@
                                 <li class="sidebar-item"><a href="{{ route('admin.product.create') }}" class="sidebar-link"><i class="mdi mdi-plus-circle"></i><span class="hide-menu"> Registrar Novo </span></a></li>
                             </ul>
                         </li>
-                        <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-package-variant-closed"></i><span class="hide-menu">Categorias </span></a>
+                        <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-tag"></i><span class="hide-menu">Categorias </span></a>
                             <ul aria-expanded="false" class="collapse  first-level">
                                 <li class="sidebar-item"><a href="{{ route('admin.category.index') }}" class="sidebar-link"><i class="mdi mdi-format-list-bulleted"></i><span class="hide-menu"> Todas </span></a></li>
                                 <li class="sidebar-item"><a href="{{ route('admin.category.create') }}" class="sidebar-link"><i class="mdi mdi-plus-circle"></i><span class="hide-menu"> Registrar Nova </span></a></li>

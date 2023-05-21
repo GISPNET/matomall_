@@ -1,5 +1,5 @@
 @extends('admin.layouts.app')
-@section('titulo','Lojas')
+@section('titulo','Categorias')
 @section('page-title','Categorias')
 @section('breadcrumb-item','Painel')
 @section('breadcrumb-item-active','Categorias')
