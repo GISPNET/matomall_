@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ProductStoreRequest;
 use Illuminate\Support\Facades\Auth;
 
 class ProductsController extends Controller
@@ -53,18 +54,8 @@ class ProductsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProductStoreRequest $request)
     {
-        $request->validate([
-            'name' => 'required',
-            'price' => 'required',
-            'store_id' => 'required',
-            'description' => 'nullable',
-        ], [
-            'name.required' => 'O campo nome é obrigatório.',
-            'price.required' => 'O campo preço é obrigatório.',
-            'store_id.required' => 'O campo loja é obrigatório.',
-        ]);
         $data = $request->all();
         \App\Models\Product::create($data);
         return back()->with('message', 'O produto foi salvo com sucesso');
