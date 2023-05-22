@@ -33,27 +33,27 @@ class ProductsController extends Controller
     }
 
     public function store(ProductStoreRequest $request)
-{
-    $images = $request->file('photos');
-    $data = $request->all();
-    $store = auth()->user()->store;
-    $product = $store->products()->create($data);
+    {
+        $images = $request->file('photos');
+        $data = $request->all();
+        $store = auth()->user()->store;
+        $product = $store->products()->create($data);
 
-    $selectedCategories = $request->input('categories', []);
+        $selectedCategories = $request->input('categories', []);
 
-    $product->categories()->sync($selectedCategories);
+        $product->categories()->sync($selectedCategories);
 
-    if ($images) {
-        $imageUploaded = [];
-        foreach ($images as $image) {
-            $path = $image->store('products', 'public');
-            $imageUploaded[] = ['image' => $path];
+        if ($images) {
+            $imageUploaded = [];
+            foreach ($images as $image) {
+                $path = $image->store('products', 'public');
+                $imageUploaded[] = ['image' => $path];
+            }
+            $product->photos()->createMany($imageUploaded);
         }
-        $product->photos()->createMany($imageUploaded);
-    }
 
-    return back()->with('message', 'O produto foi salvo com sucesso');
-}
+        return back()->with('message', 'O produto foi salvo com sucesso');
+    }
 
 
     public function edit($id)
@@ -66,6 +66,8 @@ class ProductsController extends Controller
 
     public function update(ProductUpdateRequest $request, $id)
     {
+        $images = $request->file('photos');
+
         $data = $request->all();
         $product = \App\Models\Product::find($id);
 
@@ -75,6 +77,14 @@ class ProductsController extends Controller
 
         $product->categories()->sync($selectedCategories);
 
+        if ($images) {
+            $imageUploaded = [];
+            foreach ($images as $image) {
+                $path = $image->store('products', 'public');
+                $imageUploaded[] = ['image' => $path];
+            }
+            $product->photos()->createMany($imageUploaded);
+        }
         return back()->with('message', 'O produto foi atualizado com sucesso');
     }
 

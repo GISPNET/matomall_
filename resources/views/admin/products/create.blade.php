@@ -66,7 +66,7 @@
                             }
                         </style>
                         <div class="form-group row">
-                            <label for="image" class="col-md-3 m-t-15">Imagem destacada</label>
+                            <label for="image" class="col-md-3 m-t-15">Imagens</label>
                             <div class="col-md-9">
                                 <input type="file" class="form-control" id="photos" name="photos[]" multiple>
                                 @error('image')

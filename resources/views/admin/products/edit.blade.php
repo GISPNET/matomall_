@@ -9,7 +9,7 @@
             <div class="col-md-12" data-select2-id="15">
                 <div class="card">
 
-                    <form action="{{ route('admin.product.update',$product->id ) }}" method="POST">
+                    <form action="{{ route('admin.product.update',$product->id ) }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="card-body">
                             <h4 class="card-title">Dados do produto</h4>
@@ -72,7 +72,15 @@
                                     color: #ffffff;
                                 }
                             </style>
-
+                            <div class="form-group row">
+                                <label for="image" class="col-md-3 m-t-15">Imagens</label>
+                                <div class="col-md-9">
+                                    <input type="file" class="form-control" id="photos" name="photos[]" multiple>
+                                    @error('image')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                            </div>
                         </div>
                         <div class="border-top">
                             <div class="card-body">
@@ -82,6 +90,13 @@
                     </form>
                 </div>
             </div>
+        </div>
+        <div class="row">
+            @foreach ($product->photos as $photo)
+                 <div class="col-4">
+                      <img src="{{asset('storage/'.$photo->image) }}" alt="{{ $photo->image }}" class="img-fluid">
+                 </div>
+            @endforeach
         </div>
     </div>
 @endsection
