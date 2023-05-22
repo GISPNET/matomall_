@@ -6,6 +6,7 @@ use App\Models\Product;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProductStoreRequest;
 use App\Http\Requests\ProductUpdateRequest;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class ProductsController extends Controller
@@ -32,24 +33,28 @@ class ProductsController extends Controller
     }
 
     public function store(ProductStoreRequest $request)
-    {
-        $images=$request->file('photos');
+{
+    $images = $request->file('photos');
+    $data = $request->all();
+    $store = auth()->user()->store;
+    $product = $store->products()->create($data);
 
-        foreach($images as $image){
-            print $image->store('products','public') ."</br>";
+    $selectedCategories = $request->input('categories', []);
+
+    $product->categories()->sync($selectedCategories);
+
+    if ($images) {
+        $imageUploaded = [];
+        foreach ($images as $image) {
+            $path = $image->store('products', 'public');
+            $imageUploaded[] = ['image' => $path];
         }
-        dd("Ok uploaded");
-
-        $data = $request->all();
-        $store = auth()->user()->store;
-        $product = $store->products()->create($data);
-
-        $selectedCategories = $request->input('categories', []);
-
-        $product->categories()->sync($selectedCategories);
-
-        return back()->with('message', 'O produto foi salvo com sucesso');
+        $product->photos()->createMany($imageUploaded);
     }
+
+    return back()->with('message', 'O produto foi salvo com sucesso');
+}
+
 
     public function edit($id)
     {
@@ -62,7 +67,7 @@ class ProductsController extends Controller
     public function update(ProductUpdateRequest $request, $id)
     {
         $data = $request->all();
-        $product=\App\Models\Product::find($id);
+        $product = \App\Models\Product::find($id);
 
         $product->update($data);
 
