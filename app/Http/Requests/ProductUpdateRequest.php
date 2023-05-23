@@ -34,6 +34,7 @@ class ProductUpdateRequest extends FormRequest
         return[
             'name.required' => 'O campo nome é obrigatório.',
             'price.required' => 'O campo preço é obrigatório.',
+            'photos.image' => 'O arquivo não é uma imagem válida.',
         ];
     }
 }

@@ -36,6 +36,7 @@ class StoreStoreRequest extends FormRequest
         return [
             'name.required' => 'O campo nome é obrigatório.',
             'name.unique' => 'Já existe uma loja com esse nome.',
+            'logo.image' => 'O arquivo não é uma imagem válida.',
         ];
     }
 }

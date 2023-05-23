@@ -46,7 +46,7 @@ class StoreController extends Controller
      */
     public function store(StoreStoreRequest $request)
     {
-        $path = $request->file('logo')->store('logos', 'public');
+        $path = $request->file('logo')->store('logo', 'public');
         $data = $request->all();
         $data = $request->except('_token');
         if ($request->hasFile('logo')) {
@@ -72,7 +72,7 @@ class StoreController extends Controller
         $data = $request->all();
         $data = $request->except('_token');
         if ($request->hasFile('logo')) {
-            $path = $request->file('logo')->store('logos', 'public');
+            $path = $request->file('logo')->store('logo', 'public');
             $store = \App\Models\Store::find($id);
             if ($store->logo) {
                 Storage::disk('public')->delete($store->logo);
