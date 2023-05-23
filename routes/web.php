@@ -51,4 +51,7 @@ Route::prefix('admin')->name('admin.')->namespace('App\Http\Controllers\Admin')-
         Route::delete('/{id}', 'CategoryController@destroy')->name('destroy');
         Route::post('/{id}', 'CategoryController@update')->name('update');
     });
+    Route::prefix('/photos/remove')->name('photos.')->group(function () {
+        Route::post('/{photoId}', 'ProductPhotoController@removePhoto')->name('removePhoto');
+    });
 });

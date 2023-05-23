@@ -95,6 +95,10 @@
             @foreach ($product->photos as $photo)
                  <div class="col-4">
                       <img src="{{asset('storage/'.$photo->image) }}" alt="{{ $photo->image }}" class="img-fluid">
+                      <form action="{{ route('admin.photos.removePhoto',$photo->id) }}" method="post">
+                        @csrf
+                           <button type="submit" style="margin-top:5px" class="btn btn-sm btn-danger">Reomver</button>
+                      </form>
                  </div>
             @endforeach
         </div>
@@ -107,21 +111,30 @@
         $('.js-example-basic-multiple').select2();
     });
 </script>
+    <script>
+        function formatPrice(input) {
+            var price = input.value;
+            var formattedPrice = new Intl.NumberFormat('pt-BR', {
+                style: 'currency',
+                currency: 'BRL'
+            }).format(price);
+            input.value = formattedPrice;
+        }
+    </script>
     @if (Session::has('message'))
         <script>
             setTimeout(function() {
                 toastr.options.progressBar = true;
                 toastr.success("{{ Session::get('message') }}");
             }, 100);
-
-            function formatPrice(input) {
-                var price = input.value;
-                var formattedPrice = new Intl.NumberFormat('pt-BR', {
-                    style: 'currency',
-                    currency: 'BRL'
-                }).format(price);
-                input.value = formattedPrice;
-            }
+        </script>
+    @endif
+    @if (Session::has('deleted'))
+        <script>
+            setTimeout(function() {
+                toastr.options.progressBar = true;
+                toastr.error("{{ Session::get('deleted') }}");
+            }, 100);
         </script>
     @endif
 @endsection
