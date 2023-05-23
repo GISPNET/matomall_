@@ -8,6 +8,7 @@ use App\Http\Requests\StoreUpdateRequest;
 use App\Models\Store;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class StoreController extends Controller
 {
@@ -45,10 +46,12 @@ class StoreController extends Controller
      */
     public function store(StoreStoreRequest $request)
     {
-        $path = $request->file('logo')->store('logos','public');
+        $path = $request->file('logo')->store('logos', 'public');
         $data = $request->all();
-        $data = $request->except('_token');~
-        $data['logo']=$path;
+        $data = $request->except('_token');
+        if ($request->hasFile('logo')) {
+            $data['logo'] = $path;
+        }
         $user = Auth::user();
         $user->store()->create($data);
         return back()->with('message', 'A loja foi salva com sucesso');
@@ -68,6 +71,14 @@ class StoreController extends Controller
     {
         $data = $request->all();
         $data = $request->except('_token');
+        if ($request->hasFile('logo')) {
+            $path = $request->file('logo')->store('logos', 'public');
+            $store = \App\Models\Store::find($id);
+            if ($store->logo) {
+                Storage::disk('public')->delete($store->logo);
+            }
+            $data['logo'] = $path;
+        }
         $user = Auth::user();
         $user->store()->update($data);
         return back()->with('message', 'A loja foi atualizada com sucesso');
@@ -83,7 +94,9 @@ class StoreController extends Controller
     {
         $store = \App\Models\Store::find($id);
         if (isset($store)); {
+            $logo = $store->logo;
             $store->delete();
+            Storage::disk('public')->delete($logo);
             return back()->with('message', 'A loja foi removida com sucesso');
         }
     }
