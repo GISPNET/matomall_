@@ -133,7 +133,7 @@
         <script>
             setTimeout(function() {
                 toastr.options.progressBar = true;
-                toastr.error("{{ Session::get('deleted') }}");
+                toastr.success("{{ Session::get('deleted') }}");
             }, 100);
         </script>
     @endif

@@ -56,7 +56,7 @@
         <script>
             setTimeout(function() {
                 toastr.options.progressBar = true;
-                toastr.error("{{ Session::get('message') }}");
+                toastr.success("{{ Session::get('message') }}");
             }, 100);
         </script>
     @endif

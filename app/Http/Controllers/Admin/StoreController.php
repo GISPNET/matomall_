@@ -45,8 +45,10 @@ class StoreController extends Controller
      */
     public function store(StoreStoreRequest $request)
     {
+        $path = $request->file('logo')->store('logos','public');
         $data = $request->all();
-        $data = $request->except('_token');
+        $data = $request->except('_token');~
+        $data['logo']=$path;
         $user = Auth::user();
         $user->store()->create($data);
         return back()->with('message', 'A loja foi salva com sucesso');

@@ -9,7 +9,7 @@
             <div class="col-md-12" data-select2-id="15">
                 <div class="card">
 
-                    <form action="{{ route('admin.store.store') }}" method="POST">
+                    <form action="{{ route('admin.store.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="card-body">
                             <h4 class="card-title">Dados da loja</h4>
@@ -45,6 +45,15 @@
                                 <div class="col-sm-9">
                                     <input type="text" class="form-control" id="mobile_phone" name="mobile_phone" value="{{ old('mobile_phone') }}" placeholder="Digite o celular aqui">
                                     @error('mobile_phone')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="logo" class="col-md-3 m-t-15">Logo</label>
+                                <div class="col-md-9">
+                                    <input type="file" class="form-control" id="logo" name="logo">
+                                    @error('logo')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
