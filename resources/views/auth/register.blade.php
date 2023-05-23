@@ -72,7 +72,7 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text bg-info text-white" id="basic-addon2"><i class="ti-pencil"></i></span>
                                     </div>
-                                    <input type="text" class="form-control form-control-lg" placeholder="Confirmar senha">
+                                    <input type="password" class="form-control form-control-lg" placeholder="Confirmar senha">
                                 </div>
                             </div>
                         </div>
