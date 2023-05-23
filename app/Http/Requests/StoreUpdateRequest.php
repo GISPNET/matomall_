@@ -29,6 +29,7 @@ class StoreUpdateRequest extends FormRequest
             'phone' => 'nullable',
             'mobile_phone' => 'nullable',
             'slug' => 'nullable',
+            'logo'=>'image|mimes:jpeg,png,jpg',
         ];
     }
     public function messages()
