@@ -38,7 +38,7 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text bg-success text-white" id="basic-addon1"><i class="ti-user"></i></span>
                                     </div>
-                                    <input type="text" class="form-control form-control-lg @error('password') is-invalid @enderror" name="name"  autocomplete="current-password" placeholder="Nome de usuário">
+                                    <input type="text" class="form-control form-control-lg @error('password') is-invalid @enderror" name="name"  autocomplete="current-password" placeholder="Nome de usuário" value="{{ old('name') }}">
                                     @error('name')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -50,7 +50,7 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text bg-danger text-white" id="basic-addon1"><i class="ti-email"></i></span>
                                     </div>
-                                    <input type="email" class="form-control form-control-lg @error('email') is-invalid @enderror" placeholder="Endereço de e-mail" name="email">
+                                    <input type="email" class="form-control form-control-lg @error('email') is-invalid @enderror" placeholder="Endereço de e-mail" name="email" value="{{ old('email') }}">
                                     @error('email')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -61,7 +61,7 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text bg-warning text-white" id="basic-addon2"><i class="ti-pencil"></i></span>
                                     </div>
-                                    <input type="password" class="form-control form-control-lg @error('password') is-invalid @enderror" name="password"  autocomplete="current-password" placeholder="Senha">
+                                    <input type="password" class="form-control form-control-lg @error('password') is-invalid @enderror" name="password" value="{{ old('password') }}"  autocomplete="current-password" placeholder="Senha">
                                     @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -72,7 +72,7 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text bg-info text-white" id="basic-addon2"><i class="ti-pencil"></i></span>
                                     </div>
-                                    <input type="password" class="form-control form-control-lg" placeholder="Confirmar senha">
+                                    <input type="password" class="form-control form-control-lg" placeholder="Confirmar senha" name="password_confirmation" value="{{ old('confirm_password') }}">
                                 </div>
                             </div>
                         </div>
