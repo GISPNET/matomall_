@@ -19,9 +19,6 @@
     <link rel="stylesheet" href="{{ asset('css/select2.min.css') }}">
 </head>
 <body>
-    <!-- ============================================================== -->
-    <!-- Preloader - style you can find in spinners.css -->
-    <!-- ============================================================== -->
     <div class="preloader">
         <div class="lds-ripple">
             <div class="lds-pos"></div>
