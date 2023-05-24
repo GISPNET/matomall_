@@ -25,7 +25,7 @@
                                     @foreach ($categories as $key => $category)
                                         <tr>
                                             <td>{{ $category->name }}</td>
-                                            <td>{{ $category->description }}</td>
+                                            <td style="max-width: 300px; text-align: justify;">{{ $category->description }}</td>
                                             <td>
                                                 <a href="{{ route('admin.category.edit', $category->id) }}" class="btn btn-primary btn-sm">Editar</a>
                                                 <form action="{{ route('admin.category.destroy', $category->id) }}" method="POST"

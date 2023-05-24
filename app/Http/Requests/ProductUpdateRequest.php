@@ -27,6 +27,7 @@ class ProductUpdateRequest extends FormRequest
             'name' => 'required',
             'price' => 'required',
             'description' => 'nullable',
+            'photos.*'=>'image|mimes:jpeg,png,jpg',
         ];
     }
     public function messages()

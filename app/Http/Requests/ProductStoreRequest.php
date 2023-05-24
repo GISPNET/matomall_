@@ -27,6 +27,7 @@ class ProductStoreRequest extends FormRequest
             'name' => 'required',
             'price' => 'required',
             'description' => 'nullable',
+            'photos.*'=>'image|mimes:jpeg,png,jpg',
         ];
     }
     public function messages()
@@ -34,7 +35,7 @@ class ProductStoreRequest extends FormRequest
         return[
             'name.required' => 'O campo nome é obrigatório.',
             'price.required' => 'O campo preço é obrigatório.',
-            'photos.image' => 'O arquivo não é uma imagem válida.',
+            'photos.*.image' => 'O arquivo .* não é uma imagem válida.',
         ];
     }
 }

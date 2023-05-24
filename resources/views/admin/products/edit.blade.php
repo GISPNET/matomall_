@@ -76,7 +76,7 @@
                                 <label for="image" class="col-md-3 m-t-15">Imagens</label>
                                 <div class="col-md-9">
                                     <input type="file" class="form-control" id="photos" name="photos[]" multiple>
-                                    @error('photos')
+                                    @error('photos.*')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
