@@ -15,12 +15,8 @@ use Illuminate\Support\Facades\Auth;
 
 Auth::routes();
 
-Route::get('/', function () {
-    if (auth()->check()) {
-        return redirect()->to('/admin');
-    }
-    return redirect()->to('/login');
-});
+Route::get('/', [App\Http\Controllers\Web\HomePageController::class, 'index']);
+
 Route::get('/teste', function () {
     return view('login');
 });
@@ -54,4 +50,9 @@ Route::prefix('admin')->name('admin.')->namespace('App\Http\Controllers\Admin')-
     Route::prefix('/photos/remove')->name('photos.')->group(function () {
         Route::post('/{photoId}', 'ProductPhotoController@removePhoto')->name('removePhoto');
     });
+});
+
+Route::prefix('products')->name('product.')->namespace('App\Http\Controllers\Web')->group(function () {
+    Route::get('/', 'ProductsController@index')->name('index');
+    Route::get('/{slug}', 'ProductsController@show')->name('details');
 });
