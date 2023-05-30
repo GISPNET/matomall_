@@ -117,7 +117,7 @@
                                                             <div class="d-flex align-items-center mb-1">
                                                                 <p class="me-2 text-900 text-decoration-line-through mb-0">
                                                                     ${{ $product->original_price }}</p>
-                                                                <h3 class="text-1100 mb-0">R$ {{ $product->price }}</h3>
+                                                                <h3 class="text-1100 mb-0">R$ {{ \App\Helpers\ptBRHelper::real($product->price) }}</h3>
                                                             </div>
                                                             <p class="text-700 fw-semi-bold fs--1 lh-1 mb-0">
                                                                 {{ $product->color_count }} colors</p>
@@ -187,7 +187,7 @@
                                                         </p>
                                                     </div>
                                                     <div>
-                                                        <h3 class="text-1100">{{ $product->price }}</h3>
+                                                        <h3 class="text-1100">{{ \App\Helpers\ptBRHelper::real($product->price) }}</h3>
                                                         <p class="text-700 fw-semi-bold fs--1 lh-1 mb-0">
                                                             {{ $product->colorCount }} colors</p>
                                                     </div>
