@@ -58,5 +58,6 @@ Route::prefix('products')->name('product.')->namespace('App\Http\Controllers\Web
 });
 
 Route::prefix('cart')->name('cart.')->namespace('App\Http\Controllers\Web')->group(function () {
+    Route::get('/', 'CartController@index')->name('index');
     Route::post('/add', 'CartController@add')->name('add');
 });

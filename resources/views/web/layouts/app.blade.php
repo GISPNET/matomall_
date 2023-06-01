@@ -35,6 +35,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&amp;display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link rel="stylesheet" href="{{ asset('css/toastr.min.css') }}">
     <script>
         var phoenixIsRTL = window.config.config.phoenixIsRTL;
         if (phoenixIsRTL) {
@@ -59,7 +60,7 @@
     @component('web.components.footer')
     @endcomponent
 
-
+    <script src="{{asset('assets/libs/jquery/dist/jquery.min.js') }}"></script>
     <script src="{{ asset('vendors/popper/popper.min.js') }}"></script>
     <script src="{{ asset('vendors/bootstrap/bootstrap.min.js') }}"></script>
     <script src="{{ asset('vendors/anchorjs/anchor.min.js') }}"></script>
@@ -76,6 +77,7 @@
     <script src="{{ asset('vendors/rater-js/index.j') }}s"></script>
     <script src="{{ asset('vendors/glightbox/glightbox.min.js') }}"></script>
     <script src="{{ asset('assets/js/phoenix.js') }}"></script>
-
+    <script src="{{asset('js/toastr.min.js') }}"></script>
+    @yield('js')
 </body>
 </html>

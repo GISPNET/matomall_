@@ -19,4 +19,8 @@ class CartController extends Controller
         }
         return back()->with('product-added','Produto adicionado com sucesso');
     }
+    public function index(){
+        $carts=session()->has('cart')? session()->get('cart'): [];
+        return view('web.cart',compact(['carts']));
+    }
 }

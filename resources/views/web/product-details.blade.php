@@ -167,3 +167,14 @@
             </div>
         </section>
 @endsection
+
+@section('js')
+    @if (Session::has('product-added'))
+        <script>
+            setTimeout(function() {
+                toastr.options.progressBar = true;
+                toastr.success("{{ Session::get('product-added') }}");
+            }, 100);
+        </script>
+    @endif
+@endsection
