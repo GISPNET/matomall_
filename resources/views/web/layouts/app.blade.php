@@ -13,9 +13,9 @@
     <link rel="manifest" href="assets/img/favicons/manifest.json">
     <meta name="msapplication-TileImage" content="assets/img/favicons/mstile-150x150.png">
     <meta name="theme-color" content="#ffffff">
-    <script src="vendors/imagesloaded/imagesloaded.pkgd.min.js"></script>
-    <script src="vendors/simplebar/simplebar.min.js"></script>
-    <script src="assets/js/config.js"></script>
+    <script src="{{asset('vendors/imagesloaded/imagesloaded.pkgd.min.js') }}"></script>
+    <script src="{{asset('vendors/simplebar/simplebar.min.js') }}"></script>
+    <script src="{{asset('assets/js/config.js') }}"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&amp;display=swap"
@@ -35,7 +35,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&amp;display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
-
     <script>
         var phoenixIsRTL = window.config.config.phoenixIsRTL;
         if (phoenixIsRTL) {
@@ -73,12 +72,10 @@
     <script src="{{ asset('vendors/dayjs/dayjs.min.js') }}"></script>
     <script src="{{ asset('assets/js/phoenix.js') }}"></script>
     <script src="{{ asset('vendors/swiper/swiper-bundle.min.js') }}"></script>
-
-
     <script src="{{ asset('vendors/dropzone/dropzone.min.js') }}"></script>
     <script src="{{ asset('vendors/rater-js/index.j') }}s"></script>
     <script src="{{ asset('vendors/glightbox/glightbox.min.js') }}"></script>
     <script src="{{ asset('assets/js/phoenix.js') }}"></script>
-</body>
 
+</body>
 </html>
