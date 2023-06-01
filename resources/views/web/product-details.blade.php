@@ -86,12 +86,12 @@
                                 <button class="btn btn-lg btn-outline-warning rounded-pill flex-fill me-3 px-2 px-sm-4 fs--1 fs-sm-0">
                                     <span class="me-2 far fa-heart"></span>Adicionar a lista de desejos
                                 </button>
-                                <form action="" method="post">
+                                <form action="{{ route('cart.add') }}" method="post">
                                     <input type="hidden" name="product[name]" value="{{ $product->name }}">
                                     <input type="hidden" name="product[price]"  value="{{ $product->price }}">
                                     <input type="hidden" name="product[slug]"  value="{{ $product->slug }}">
 
-                                    <input class="form-control" type="number" name="quantidade" id="quantidade" value="1">
+                                    <input class="form-control" type="number" name="product[amount]"  value="1">
                                     <button class="btn btn-lg btn-warning rounded-pill flex-fill fs--1 fs-sm-0">
                                         <span class="fas fa-shopping-cart me-2"></span> Adicionar ao carrinho
                                     </button>
