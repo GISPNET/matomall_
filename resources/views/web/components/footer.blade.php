@@ -2,7 +2,7 @@
     <div class="container-small">
       <div class="row justify-content-between gy-4">
         <div class="col-12 col-lg-4">
-          <div class="d-flex align-items-center mb-3"><img src="assets/img/icons/logo.png" alt="phoenix" width="27" />
+          <div class="d-flex align-items-center mb-3"><img src="{{asset('assets/img/icons/logo.png') }}" alt="phoenix" width="27" />
             <p class="logo-text ms-2">phoenix</p>
           </div>
           <p class="text-700 mb-1 fw-semi-bold lh-sm fs--1">Matomall - O seu destino para compras inteligentes e convenientes. Descubra uma ampla variedade de produtos de qualidade, desde eletrônicos a moda, tudo em um só lugar. Encontre as melhores ofertas, explore novidades e desfrute de uma experiência de compra única no Matomall.</p>
