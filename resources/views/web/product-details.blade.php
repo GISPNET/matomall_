@@ -87,7 +87,7 @@
                                     <span class="me-2 far fa-heart"></span>Adicionar a lista de desejos
                                 </button>
                                 <form action="" method="post">
-                                    <input class="form-control" type="number" name="quantidade" id="quantidade">
+                                    <input class="form-control" type="number" name="quantidade" id="quantidade" value="1">
                                     <button class="btn btn-lg btn-warning rounded-pill flex-fill fs--1 fs-sm-0">
                                         <span class="fas fa-shopping-cart me-2"></span> Adicionar ao carrinho
                                     </button>
