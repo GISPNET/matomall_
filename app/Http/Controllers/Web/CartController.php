@@ -17,6 +17,12 @@ class CartController extends Controller
         $product = $request->get('product');
 
         if (session()->has('cart')) {
+
+            $productsSlungs=array_column($products,'slug');
+            if(in_array($product['slug'],$productsSlungs)){
+                   $this->productIncrement($product['slug'], $product['amount'], $products);
+                   $products=session()->get('cart');
+            }
             session()->push('cart', $product);
         } else {
             $products[] = $product;
@@ -39,10 +45,15 @@ class CartController extends Controller
 
            return redirect()->route('cart.index');
     }
-    private function productIncrement($slug, $products){
-        $products=array_map(function($slug){
-
+    private function productIncrement($slug,$amount, $products){
+        $products=array_map(function($line)use($slug,$amount){
+            if($slug==$line['slug']){
+                $line['amount']+=$amount;
+            }
+            return $line;
         },$products);
+
+        return $products;
     }
 
 }
