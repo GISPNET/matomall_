@@ -3,12 +3,12 @@
       <div class="row justify-content-between gy-4">
         <div class="col-12 col-lg-4">
           <div class="d-flex align-items-center mb-3"><img src="{{asset('assets/img/icons/logo.png') }}" alt="phoenix" width="27" />
-            <p class="logo-text ms-2">phoenix</p>
+            <p class="logo-text ms-2">matomall</p>
           </div>
           <p class="text-700 mb-1 fw-semi-bold lh-sm fs--1">Matomall - O seu destino para compras inteligentes e convenientes. Descubra uma ampla variedade de produtos de qualidade, desde eletrônicos a moda, tudo em um só lugar. Encontre as melhores ofertas, explore novidades e desfrute de uma experiência de compra única no Matomall.</p>
         </div>
         <div class="col-6 col-md-auto">
-            <h5 class="fw-bolder mb-3">Sobre a Phoenix</h5>
+            <h5 class="fw-bolder mb-3">Sobre a Matomall</h5>
             <div class="d-flex flex-column"><a class="text-700 fw-semi-bold fs--1 mb-1" href="#!">Carreiras</a><a class="text-700 fw-semi-bold fs--1 mb-1" href="#!">Programa de Afiliados</a><a class="text-700 fw-semi-bold fs--1 mb-1" href="#!">Política de Privacidade</a><a class="text-700 fw-semi-bold fs--1 mb-1" href="#!">Termos e Condições</a></div>
           </div>
           <div class="col-6 col-md-auto">

@@ -73,7 +73,9 @@
         <li class="nav-item" data-nav-item="data-nav-item"><a class="nav-link" href="apps/e-commerce/landing/shipping-info.html">Informação de Envio</a></li>
         <li class="nav-item" data-nav-item="data-nav-item"><a class="nav-link" href="apps/e-commerce/admin/add-product.html">Seja um vendedor</a></li>
         <li class="nav-item" data-nav-item="data-nav-item"><a class="nav-link" href="apps/e-commerce/landing/order-tracking.html">Acompanhar Pedido</a></li>
-
+        <li class="nav-item dropdown" data-nav-item="data-nav-item" data-more-item="data-more-item"><a class="nav-link dropdown-toggle dropdown-caret-none fw-bold pe-0" href="javascript: void(0)" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-boundary="window" data-bs-reference="parent"> Mais<span class="fas fa-angle-down ms-2"></span></a>
+          <div class="dropdown-menu dropdown-menu-end category-list" aria-labelledby="navbarDropdown" data-category-list="data-category-list"></div>
+        </li>
       </ul>
     </div>
   </nav>

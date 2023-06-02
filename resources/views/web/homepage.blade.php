@@ -1,4 +1,5 @@
 @extends('web.layouts.app')
+@section('titulo','Matomall')
 @section('body')
     <main class="main" id="top">
         @component('web.components.top')

@@ -1,4 +1,5 @@
 @extends('web.layouts.app')
+@section('titulo','Carrinho')
 @section('body')
     <main class="main" id="top">
 
@@ -36,37 +37,42 @@
                                         @php
                                             $subtotal = 0;
                                         @endphp
-                                        @foreach ($carts as $cart)
-                                            @php
-                                                $subtotal = $subtotal + $cart['amount'] * $cart['price'];
-                                            @endphp
-                                            <tr class="cart-table-row btn-reveal-trigger">
-                                                <td class="align-middle white-space-nowrap py-0">
-                                                    <div class="border rounded-2"><img
-                                                            src="../../../assets/img//products/1.png" alt=""
-                                                            width="53" /></div>
-                                                </td>
-                                                <td class="products align-middle"><a class="fw-semi-bold mb-0 line-clamp-2"
-                                                        href="{{ route('product.details', $cart['slug']) }}">{{ $cart['name'] }}</a>
-                                                </td>
-                                                </td>
-                                                <td class="price align-middle text-900 fs--1 fw-semi-bold text-end">
-                                                    {{ \App\Helpers\ptBRHelper::real($cart['price']) }}</td>
-                                                <td class="quantity align-middle fs-0 ps-5">
-                                                    <div class="input-group input-group-sm flex-nowrap center"
-                                                        data-quantity="data-quantity"><input
-                                                            class="form-control text-center input-spin-none bg-transparent border-0 px-0"
-                                                            type="number" min="1" value="{{ $cart['amount'] }}"
-                                                            aria-label="Amount (to the nearest dollar)" /></div>
-                                                </td>
-                                                <td class="total align-middle fw-bold text-1000 text-end">
-                                                    {{ \App\Helpers\ptBRHelper::real($cart['amount'] * $cart['price']) }}
-                                                </td>
-                                                <td class="align-middle white-space-nowrap text-end pe-0 ps-3"><button
-                                                        class="btn btn-sm text-500 hover-text-600 me-2"><span
-                                                            class="fas fa-trash"></span></button></td>
-                                            </tr>
-                                        @endforeach
+                                         @if (count($carts)>0)
+                                         @foreach ($carts as $cart)
+                                         @php
+                                             $subtotal = $subtotal + $cart['amount'] * $cart['price'];
+                                         @endphp
+                                         <tr class="cart-table-row btn-reveal-trigger">
+                                             <td class="align-middle white-space-nowrap py-0">
+                                                 <div class="border rounded-2"><img
+                                                         src="{{ asset('storage/' .$cart['image']) }}" alt=""
+                                                         width="53" /></div>
+                                             </td>
+                                             <td class="products align-middle"><a class="fw-semi-bold mb-0 line-clamp-2"
+                                                     href="{{ route('product.details', $cart['slug']) }}">{{ $cart['name'] }}</a>
+                                             </td>
+                                             </td>
+                                             <td class="price align-middle text-900 fs--1 fw-semi-bold text-end">
+                                                 {{ \App\Helpers\ptBRHelper::real($cart['price']) }}</td>
+                                             <td class="quantity align-middle fs-0 ps-5">
+                                                 <div class="input-group input-group-sm flex-nowrap center"
+                                                     data-quantity="data-quantity"><input
+                                                         class="form-control text-center input-spin-none bg-transparent border-0 px-0"
+                                                         type="number" min="1" value="{{ $cart['amount'] }}"
+                                                         aria-label="Amount (to the nearest dollar)" /></div>
+                                             </td>
+                                             <td class="total align-middle fw-bold text-1000 text-end">
+                                                 {{ \App\Helpers\ptBRHelper::real($cart['amount'] * $cart['price']) }}
+                                             </td>
+                                             <td class="align-middle white-space-nowrap text-end pe-0 ps-3">
+                                                 <a href="{{ route('cart.remove', $cart['slug']) }}" class="btn btn-sm text-500 hover-text-600 me-2"><span
+                                                         class="fas fa-trash"></span></a>
+                                             </td>
+                                         </tr>
+                                     @endforeach
+                                     @else
+                                     <td colspan="5" align="center"> Carrinho vazio</td>
+                                         @endif
                                         <tr class="cart-table-row btn-reveal-trigger">
                                             <td class="text-1100 fw-semi-bold ps-0 fs-0" colspan="4">Subtotal de itens: :
                                             </td>

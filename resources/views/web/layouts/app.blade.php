@@ -26,7 +26,7 @@
     <link href="{{ asset('assets/css/theme.min.css') }}" type="text/css" rel="stylesheet" id="style-default">
     <link href="{{ asset('assets/css/user-rtl.min.css') }}" type="text/css" rel="stylesheet" id="user-style-rtl">
     <link href="{{ asset('assets/css/user.min.css') }}" type="text/css" rel="stylesheet" id="user-style-default">
-
+    <title>@yield('titulo')</title>
     <link href="{{ asset('vendors/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
     <link href="{{ asset('vendors/dropzone/dropzone.min.css') }}" rel="stylesheet">
     <link href="{{ asset('vendors/glightbox/glightbox.min.css') }}" rel="stylesheet">

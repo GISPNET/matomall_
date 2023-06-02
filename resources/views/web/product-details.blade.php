@@ -1,4 +1,5 @@
 @extends('web.layouts.app')
+@section('titulo', $product->name)
 @section('body')
     <main class="main" id="top">
 
@@ -39,6 +40,7 @@
                                     <input type="hidden" name="product[name]" value="{{ $product->name }}">
                                     <input type="hidden" name="product[price]"  value="{{ $product->price }}">
                                     <input type="hidden" name="product[slug]"  value="{{ $product->slug }}">
+                                    <input type="hidden" name="product[image]"  value="{{ $product->photos->first()->image }}">
 
                                     <input class="form-control" type="number" name="product[amount]"  value="1">
                                     <button class="btn btn-lg btn-warning rounded-pill flex-fill fs--1 fs-sm-0">
