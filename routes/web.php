@@ -22,7 +22,7 @@ Route::get('/teste', function () {
 });
 
 Route::prefix('admin')->name('admin.')->namespace('App\Http\Controllers\Admin')->group(function () {
-    Route::get('/', 'PainelControllador@index')->name('painel');
+    Route::get('/', 'DashboardController@index')->name('painel');
     Route::prefix('/stores')->name('store.')->group(function () {
         Route::get('/', 'StoreController@index')->name('index');
         Route::get('/create', 'StoreController@create')->name('create')->middleware('userhasonestore');
