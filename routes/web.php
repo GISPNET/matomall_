@@ -67,3 +67,7 @@ Route::prefix('checkout')->name('checkout.')->namespace('App\Http\Controllers\We
     Route::get('/', 'CheckoutController@index')->name('index');
 });
 
+Route::prefix('stores')->name('store.')->namespace('App\Http\Controllers\Web')->group(function () {
+    Route::get('/', 'StoreController@index')->name('index');
+});
+
