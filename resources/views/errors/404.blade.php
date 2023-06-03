@@ -20,10 +20,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&amp;display=swap" rel="stylesheet">
     <link href="vendors/simplebar/simplebar.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
-    <link href="assets/css/theme-rtl.min.css" type="text/css" rel="stylesheet" id="style-rtl">
-    <link href="assets/css/theme.min.css" type="text/css" rel="stylesheet" id="style-default">
-    <link href="assets/css/user-rtl.min.css" type="text/css" rel="stylesheet" id="user-style-rtl">
-    <link href="assets/css/user.min.css" type="text/css" rel="stylesheet" id="user-style-default">
+    <link href="{{asset('assets/css/theme-rtl.min.css') }}" type="text/css" rel="stylesheet" id="style-rtl">
+    <link href="{{asset('assets/css/theme.min.css') }}" type="text/css" rel="stylesheet" id="style-default">
+    <link href="{{asset('assets/css/user-rtl.min.css') }}" type="text/css" rel="stylesheet" id="user-style-rtl">
+    <link href="{{asset('assets/css/user.min.css') }}" type="text/css" rel="stylesheet" id="user-style-default">
     <script>
       var phoenixIsRTL = window.config.config.phoenixIsRTL;
       if (phoenixIsRTL) {
@@ -47,8 +47,8 @@
           <div class="row min-vh-100 flex-center p-5">
             <div class="col-12 col-xl-10 col-xxl-8">
               <div class="row justify-content-center align-items-center g-5">
-                <div class="col-12 col-lg-6 text-center order-lg-1"><img class="img-fluid w-lg-100 d-dark-none" src="assets/img/spot-illustrations/404-illustration.png" alt="" width="400" /><img class="img-fluid w-md-50 w-lg-100 d-light-none" src="assets/img/spot-illustrations/dark_404-illustration.png" alt="" width="540" /></div>
-                <div class="col-12 col-lg-6 text-center text-lg-start"><img class="img-fluid mb-6 w-50 w-lg-75 d-dark-none" src="assets/img/spot-illustrations/404.png" alt="" /><img class="img-fluid mb-6 w-50 w-lg-75 d-light-none" src="assets/img/spot-illustrations/dark_404.png" alt="" />
+                <div class="col-12 col-lg-6 text-center order-lg-1"><img class="img-fluid w-lg-100 d-dark-none" src="{{asset('assets/img/spot-illustrations/404-illustration.png') }}" alt="" width="400" /><img class="img-fluid w-md-50 w-lg-100 d-light-none" src="{{asset('assets/img/spot-illustrations/dark_404-illustration.png') }}" alt="" width="540" /></div>
+                <div class="col-12 col-lg-6 text-center text-lg-start"><img class="img-fluid mb-6 w-50 w-lg-75 d-dark-none" src="{{asset('assets/img/spot-illustrations/404.png') }}" alt="" /><img class="img-fluid mb-6 w-50 w-lg-75 d-light-none" src="{{asset('assets/img/spot-illustrations/dark_404.png') }}" alt="" />
                   <h2 class="text-800 fw-bolder mb-3">Página em falta!</h2>
                   <p class="text-900 mb-5">Mas não se preocupe! Nosso avestruz está procurando em todos os lugares<br class="d-none d-sm-block" />enquanto você espera com segurança.</p><a class="btn btn-lg btn-primary" href="/">Ir para casa</a>
                 </div>
