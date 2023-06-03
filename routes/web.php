@@ -62,3 +62,8 @@ Route::prefix('cart')->name('cart.')->namespace('App\Http\Controllers\Web')->gro
     Route::post('/add', 'CartController@add')->name('add');
     Route::get('/remove/{slug}', 'CartController@remove')->name('remove');
 });
+
+Route::prefix('checkout')->name('checkout.')->namespace('App\Http\Controllers\Web')->group(function () {
+    Route::get('/', 'CheckoutController@index')->name('index');
+});
+
