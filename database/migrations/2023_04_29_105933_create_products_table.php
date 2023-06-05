@@ -18,9 +18,16 @@ return new class extends Migration
             $table->string('name');
             $table->longText('description')->nullable();
             $table->longText('body')->nullable();
-            $table->decimal('price',10,2)->nullable();
+            $table->decimal('regular_price',10,2)->nullable();
+            $table->decimal('sale_price',10,2)->nullable();
+            $table->string('shipping_type')->nullable();
+            $table->string('delivery')->nullable();
             $table->string('slug')->nullable();
+            $table->string('product_id_type')->nullable();
+            $table->string('product_id')->nullable();
+            $table->date('expiry_date_of_product')->nullable();
             $table->foreignId('store_id')->constrained()->onDelete('cascade');
+            $table->foreignId('category_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }
