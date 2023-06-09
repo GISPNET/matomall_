@@ -13,7 +13,8 @@
                 <h2 class="mb-5">Check out</h2>
                 <div class="row justify-content-between">
                     <div class="col-lg-7 col-xl-7">
-                        <form>
+                        <form method="POST" action="{{ route('paypal.retorno') }}">
+                            @csrf
                             <div class="d-flex align-items-end">
                                 <h3 class="mb-0 me-3">Detalhes de entrega</h3><button class="btn btn-link p-0"
                                     type="button">Editar</button>
@@ -261,8 +262,11 @@
                                 <div class="col-md-8 col-lg-9 d-grid"><button class="btn btn-primary"
                                         type="submit">Pagar {{ \App\Helpers\ptBRHelper::real($subtotal) }}</button></div>
                                 <div class="col-md-4 col-lg-3 d-grid"><button
-                                        class="btn btn-phoenix-secondary text-nowrap" type="submit">Salvar Pedido e
+                                        class="btn btn-phoenix-secondary text-nowrap">Salvar Pedido e
                                         Sair</button></div>
+
+                                <div id="paypal-button-container"></div>
+
                             </div>
                         </form>
                     </div>

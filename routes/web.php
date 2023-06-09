@@ -72,3 +72,7 @@ Route::prefix('stores')->name('store.')->namespace('App\Http\Controllers\Web')->
     Route::get('/{slug?}', 'StoreController@show')->name('details');
 });
 
+Route::post('/paypal/retorno',[\App\Http\Controllers\PaypalController::class,'retorno'])->name('paypal.retorno');
+Route::get('/paypal/cancelamento',[\App\Http\Controllers\PaypalController::class,'cancelamento'])->name('paypal.cancelamento');
+
+
