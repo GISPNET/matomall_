@@ -13,14 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('user_orders', function (Blueprint $table) {
+        Schema::create('sellers', function (Blueprint $table) {
             $table->id();
-            $table->string('reference')->nullable();
-            $table->string('paypal_code')->nullable();
-            $table->integer('paypal_status')->nullable();
-            $table->text('items')->nullable();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->foreignId('store_id')->constrained()->onDelete('cascade');
+            $table->string('phone');
+            $table->string('address');
             $table->timestamps();
         });
     }
@@ -32,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_orders');
+        Schema::dropIfExists('sellers');
     }
 };

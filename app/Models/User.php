@@ -46,12 +46,15 @@ class User extends Authenticatable
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function store()
+
+
+    public function seller()
     {
-        return $this->hasOne(Store::class);
+        return $this->hasOne(Seller::class);
     }
-    public function orders()
+
+    public function customer()
     {
-        return $this->hasMany(UserOrder::class);
+        return $this->hasOne(Customer::class);
     }
 }
