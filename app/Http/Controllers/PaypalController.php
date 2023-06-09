@@ -165,6 +165,9 @@ class PaypalController extends Controller
         /** Clear the session payment ID **/
         Session::forget('paypal_payment_id');
 
+         /** Clear the session payment ID **/
+        Session::forget('cart');
+
         return Redirect::route('addmoney.paywithpaypal');
     }
 }
