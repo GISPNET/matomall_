@@ -72,6 +72,6 @@ Route::prefix('stores')->name('store.')->namespace('App\Http\Controllers\Web')->
     Route::get('/{slug?}', 'StoreController@show')->name('details');
 });
 
-Route::post('paywithpaypal',[\App\Http\Controllers\PaypalController::class,'payWithPaypal'])->name('addmoney.paywithpaypal');
-Route::get('paypal',[\App\Http\Controllers\PaypalController::class,'postPaymentWithpaypal'])->name('addmoney.paypal');
+Route::get('paywithpaypal',[\App\Http\Controllers\PaypalController::class,'payWithPaypal'])->name('addmoney.paywithpaypal');
+Route::post('paypal', [\App\Http\Controllers\PaypalController::class, 'postPaymentWithpaypal'])->name('addmoney.paypal');
 Route::get('paypal',[\App\Http\Controllers\PaypalController::class,'getPaymentStatus'])->name('payment.status');
