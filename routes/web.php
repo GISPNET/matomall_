@@ -72,7 +72,6 @@ Route::prefix('stores')->name('store.')->namespace('App\Http\Controllers\Web')->
     Route::get('/{slug?}', 'StoreController@show')->name('details');
 });
 
-Route::post('/paypal/retorno',[\App\Http\Controllers\PaypalController::class,'retorno'])->name('paypal.retorno');
-Route::get('/paypal/cancelamento',[\App\Http\Controllers\PaypalController::class,'cancelamento'])->name('paypal.cancelamento');
-
-
+Route::post('paywithpaypal',[\App\Http\Controllers\PaypalController::class,'payWithPaypal'])->name('addmoney.paywithpaypal');
+Route::get('paypal',[\App\Http\Controllers\PaypalController::class,'postPaymentWithpaypal'])->name('addmoney.paypal');
+Route::get('paypal',[\App\Http\Controllers\PaypalController::class,'getPaymentStatus'])->name('payment.status');
