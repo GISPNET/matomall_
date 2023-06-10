@@ -120,9 +120,12 @@
                             <hr class="my-6">
 
                             <div class="row g-2 mb-5 mb-lg-0">
-                                <div class="col-md-12 col-lg-12 d-grid"><button class="btn btn-primary"
-                                        type="submit">Pagar Com PayPal</button></div>
+                                <div class="col-md-12 col-lg-12 d-grid">
+                                    <button style="background-color: #ffc439; border-radius: 3px; border: none; padding: 10px 15px;"
+                                    type="submit"><img width="70px" src="{{ asset('assets/img/icons/paypal.png') }}" alt=""></button>
+                                    </div>
                             </div>
+
                         </form>
                     </div>
                     <div class="col-lg-5 col-xl-4">

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Validator;
 use URL;
 use Session;
@@ -11,6 +12,7 @@ use Redirect;
 use Input;
 
 /** All Paypal Details class **/
+
 use PayPal\Rest\ApiContext;
 use PayPal\Auth\OAuthTokenCredential;
 use PayPal\Api\Amount;
@@ -134,6 +136,19 @@ class PaypalController extends Controller
 
     public function getPaymentStatus(Request $request)
     {
+        $user = Auth::user();
+
+        $carts = session()->get('cart');
+        $items = [];
+
+        foreach ($carts as $cart) {
+            $item = new Item();
+            $item->setName($cart['name'])
+                ->setCurrency('BRL')
+                ->setQuantity($cart['amount'])
+                ->setPrice($cart['price']);
+            $items[] = $item;
+        }
         /** Get the payment ID from session before clearing it **/
         $payment_id = Session::get('paypal_payment_id');
 
@@ -152,17 +167,34 @@ class PaypalController extends Controller
         $result = $payment->execute($execution, $this->_api_context);
 
         if ($result->getState() == 'approved') {
-            /** Payment successful **/
 
-            /** Perform database logic or any other actions you want **/
+            $transactions = $result->getTransactions();
+            if (!empty($transactions)) {
+                $transaction = $transactions[0];
+                $relatedResources = $transaction->getRelatedResources();
+                if (!empty($relatedResources)) {
+                    $sale = $relatedResources[0]->getSale();
+                    if (!empty($sale)) {
+                        // Salvar as informações no array $customerOrder
+                        $customerOrder = [
+                            'reference' => $sale->getId(),
+                            'state' => $sale->getState(),
+                            'exchange_rate' => $sale->getExchangeRate(),
+                            'parent_payment' => $sale->getParentPayment(),
+                            'payment_mode' => $sale->getPaymentMode(),
+                            'store_id' => 1,
+                            'items' => serialize($items),
+                        ];
 
-            \Session::put('success', 'Payment success');
+                        // Salvar as informações no banco de dados ou fazer o que for necessário
+                        $user->customerorder()->create($customerOrder);
 
-            \Session::forget('cart');
+                        session()->forget('cart');
 
-            dd($result);
 
-            return Redirect::route('addmoney.paywithpaypal');
+                    }
+                }
+            }
         }
 
         \Session::put('error', 'Payment failed');
@@ -170,7 +202,7 @@ class PaypalController extends Controller
         /** Clear the session payment ID **/
         Session::forget('paypal_payment_id');
 
-         /** Clear the session payment ID **/
+        /** Clear the session payment ID **/
         Session::forget('cart');
 
         dd($result);
