@@ -37,7 +37,7 @@ class PaypalController extends Controller
      */
     public function __construct()
     {
-        /** setup PayPal api context **/
+        /** configurar o contexto da API do PayPal **/
         $paypal_conf = \Config::get('paypal');
         $this->_api_context = new ApiContext(new OAuthTokenCredential($paypal_conf['client_id'], $paypal_conf['secret']));
         $this->_api_context->setConfig($paypal_conf['settings']);
@@ -122,11 +122,11 @@ class PaypalController extends Controller
             }
         }
 
-        /** add payment ID to session **/
+        /** adicionar ID de pagamento à sessão**/
         Session::put('paypal_payment_id', $payment->getId());
 
         if (isset($redirect_url)) {
-            /** redirect to PayPal **/
+            /** redirecionar para oPayPal **/
             return Redirect::away($redirect_url);
         }
 
@@ -149,7 +149,7 @@ class PaypalController extends Controller
                 ->setPrice($cart['price']);
             $items[] = $item;
         }
-        /** Get the payment ID from session before clearing it **/
+        /** Obtenha o ID de pagamento da sessão antes de limpá-la **/
         $payment_id = Session::get('paypal_payment_id');
 
         if (empty($request->input('PayerID')) || empty($request->input('token'))) {
@@ -159,11 +159,11 @@ class PaypalController extends Controller
 
         $payment = Payment::get($payment_id, $this->_api_context);
 
-        /** Create PaymentExecution object with payer ID to execute the payment **/
+        /** Crie o objeto PaymentExecution com ID do pagador para executar o pagamento **/
         $execution = new PaymentExecution();
         $execution->setPayerId($request->input('PayerID'));
 
-        /** Execute the payment **/
+        /** Executar o pagamento **/
         $result = $payment->execute($execution, $this->_api_context);
 
         if ($result->getState() == 'approved') {
@@ -189,6 +189,9 @@ class PaypalController extends Controller
                         // Salvar as informações no banco de dados ou fazer o que for necessário
                         $user->customerorder()->create($customerOrder);
 
+                        /** Limpe o ID de pagamento da sessão **/
+                        Session::forget('paypal_payment_id');
+
                         session()->forget('cart');
 
                          return redirect()->route('client.invoice.index');
@@ -199,10 +202,10 @@ class PaypalController extends Controller
 
         \Session::put('error', 'Payment failed');
 
-        /** Clear the session payment ID **/
+        /** Limpe o ID de pagamento da sessão **/
         Session::forget('paypal_payment_id');
 
-        /** Clear the session payment ID **/
+        /** Limpar a sessão do carrinho **/
         Session::forget('cart');
 
         dd($result);

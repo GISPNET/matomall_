@@ -179,7 +179,7 @@
                       </tr>
                       <tr class="bg-200">
                         <td class="align-middle ps-4 fw-bold text-1000" colspan="3">Grand Total</td>
-                        <td class="align-middle fw-bold text-1000" colspan="7">Three Hundred and Ninenty Eight USD</td>
+                        <td class="align-middle fw-bold text-1000" colspan="7"></td>
                         <td class="align-middle text-end fw-bold">$398</td>
                         <td></td>
                       </tr>
