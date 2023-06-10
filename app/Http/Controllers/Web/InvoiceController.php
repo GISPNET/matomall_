@@ -7,7 +7,8 @@ use Illuminate\Http\Request;
 
 class InvoiceController extends Controller
 {
-    public function index(){
-        return view('web.invoice');
+    public function index($reference){
+        $order=\App\Models\CustomerOrder::where('reference','=',$reference)->first();
+        return view('web.invoice',compact(['order']));
     }
 }

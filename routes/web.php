@@ -75,7 +75,7 @@ Route::prefix('stores')->name('store.')->namespace('App\Http\Controllers\Web')->
 
 Route::prefix('client')->name('client.')->namespace('App\Http\Controllers\Web')->group(function () {
     Route::prefix('/invoice')->name('invoice.')->group(function () {
-        Route::get('/', 'InvoiceController@index')->name('index');
+        Route::get('/{reference}', 'InvoiceController@index')->name('index');
     });
 });
 Route::get('paywithpaypal',[\App\Http\Controllers\PaypalController::class,'payWithPaypal'])->name('addmoney.paywithpaypal');

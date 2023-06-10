@@ -187,14 +187,14 @@ class PaypalController extends Controller
                         ];
 
                         // Salvar as informações no banco de dados ou fazer o que for necessário
-                        $user->customerorder()->create($customerOrder);
+                        $order=$user->customerorder()->create($customerOrder);
 
                         /** Limpe o ID de pagamento da sessão **/
                         Session::forget('paypal_payment_id');
 
                         session()->forget('cart');
 
-                         return redirect()->route('client.invoice.index');
+                         return redirect()->route('client.invoice.index',$order->reference);
                     }
                 }
             }
