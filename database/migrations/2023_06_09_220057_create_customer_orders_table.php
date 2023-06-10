@@ -16,11 +16,14 @@ return new class extends Migration
         Schema::create('customer_orders', function (Blueprint $table) {
             $table->id();
             $table->string('reference')->nullable();
-            $table->string('paypal_code')->nullable();
-            $table->integer('paypal_status')->nullable();
+            $table->string('state')->nullable();
+            $table->string('exchange_rate')->nullable();
+            $table->string('parent_payment')->nullable();
+            $table->string('payment_mode')->nullable();
             $table->text('items')->nullable();
-            $table->foreignId('customer_id')->constrained()->onDelete('cascade');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->foreignId('store_id')->constrained()->onDelete('cascade');
+           // $table->foreignId('customer_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

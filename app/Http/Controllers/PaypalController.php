@@ -157,6 +157,11 @@ class PaypalController extends Controller
             /** Perform database logic or any other actions you want **/
 
             \Session::put('success', 'Payment success');
+
+            \Session::forget('cart');
+
+            dd($result);
+
             return Redirect::route('addmoney.paywithpaypal');
         }
 
