@@ -191,7 +191,7 @@ class PaypalController extends Controller
 
                         session()->forget('cart');
 
-
+                         return redirect()->route('client.invoice.index');
                     }
                 }
             }

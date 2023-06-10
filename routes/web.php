@@ -72,10 +72,14 @@ Route::prefix('stores')->name('store.')->namespace('App\Http\Controllers\Web')->
     Route::get('/{slug?}', 'StoreController@show')->name('details');
 });
 
+
+Route::prefix('client')->name('client.')->namespace('App\Http\Controllers\Web')->group(function () {
+    Route::prefix('/invoice')->name('invoice.')->group(function () {
+        Route::get('/', 'InvoiceController@index')->name('index');
+    });
+});
 Route::get('paywithpaypal',[\App\Http\Controllers\PaypalController::class,'payWithPaypal'])->name('addmoney.paywithpaypal');
 Route::post('paypal', [\App\Http\Controllers\PaypalController::class, 'postPaymentWithpaypal'])->name('addmoney.paypal');
 Route::get('paypal',[\App\Http\Controllers\PaypalController::class,'getPaymentStatus'])->name('payment.status');
 
-Route::get('/testepaypal', function(){
-    return view('paypal');
-});
+
