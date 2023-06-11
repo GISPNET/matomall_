@@ -81,6 +81,11 @@ Route::prefix('customer')->name('customer.')->namespace('App\Http\Controllers\We
         Route::get('/', 'CustomerProfileController@index')->name('index');
     });
 });
+Route::prefix('customer')->name('customer.')->namespace('App\Http\Controllers\Auth\Customer')->group(function () {
+    Route::prefix('/register')->name('register.')->group(function () {
+        Route::get('/', 'CustomerAuthController@index')->name('index');
+    });
+});
 Route::get('paywithpaypal',[\App\Http\Controllers\PaypalController::class,'payWithPaypal'])->name('addmoney.paywithpaypal');
 Route::post('paypal', [\App\Http\Controllers\PaypalController::class, 'postPaymentWithpaypal'])->name('addmoney.paypal');
 Route::get('paypal',[\App\Http\Controllers\PaypalController::class,'getPaymentStatus'])->name('payment.status');
