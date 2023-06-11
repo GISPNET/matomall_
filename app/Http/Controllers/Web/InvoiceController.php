@@ -9,6 +9,6 @@ class InvoiceController extends Controller
 {
     public function index($reference){
         $order=\App\Models\CustomerOrder::where('reference','=',$reference)->first();
-        return view('web.invoice',compact(['order']));
+        return view('web.invoice',compact(['order']))->with('payment-success','Pedido feito com sucesso');
     }
 }

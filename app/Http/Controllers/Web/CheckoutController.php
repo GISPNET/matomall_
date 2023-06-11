@@ -11,7 +11,10 @@ class CheckoutController extends Controller
         $carts=session()->get('cart');
         if(!auth()->check()){
            return redirect()->route('login');
-        }else{
+        }else if(!session()->get('cart')){
+            return redirect()->route('product.index');
+        }
+        else{
             return view('web.checkout',compact(['carts']));
         }
     }

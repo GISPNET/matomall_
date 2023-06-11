@@ -141,14 +141,16 @@ class PaypalController extends Controller
         $carts = session()->get('cart');
         $items = [];
 
-        foreach ($carts as $cart) {
-            $item = new Item();
-            $item->setName($cart['name'])
-                ->setCurrency('BRL')
-                ->setQuantity($cart['amount'])
-                ->setPrice($cart['price']);
-            $items[] = $item;
-        }
+foreach ($carts as $cart) {
+    $item = [
+        'name' => $cart['name'],
+        'quantity' => $cart['amount'],
+        'price' => $cart['price'],
+        'total' => $cart['amount'] * $cart['price'],
+    ];
+
+    $items[] = $item;
+}
         /** Obtenha o ID de pagamento da sessão antes de limpá-la **/
         $payment_id = Session::get('paypal_payment_id');
 
@@ -183,7 +185,7 @@ class PaypalController extends Controller
                             'parent_payment' => $sale->getParentPayment(),
                             'payment_mode' => $sale->getPaymentMode(),
                             'store_id' => 1,
-                            'items' => serialize($items),
+                            'items' => json_encode($items),
                         ];
 
                         // Salvar as informações no banco de dados ou fazer o que for necessário
@@ -207,8 +209,6 @@ class PaypalController extends Controller
 
         /** Limpar a sessão do carrinho **/
         Session::forget('cart');
-
-        dd($result);
 
         return Redirect::route('addmoney.paywithpaypal');
     }
