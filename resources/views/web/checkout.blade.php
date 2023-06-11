@@ -14,7 +14,20 @@
                 <div class="row justify-content-between">
                     <div class="col-lg-7 col-xl-7">
                         <form method="POST" action="{{ route('addmoney.paypal') }}">
-                             {{ csrf_field() }}
+                            {{ csrf_field() }}
+
+                            <input hidden class="form-control" name="shipping_address"
+                                value="@if (auth()->user()->shipping_address) {{ auth()->user()->shipping_address }}
+                                     @else
+                                         Sem endereço de entrega associado @endif">
+                            <input hidden class="form-control" name="billing_address"
+                                value="@if (auth()->user()->billing_address) {{ auth()->user()->billing_address }}
+                                     @else
+                                         Sem endereço de Cobrança associado @endif">
+
+                            <input hidden class="form-control" name="phone"
+                                value="@if (auth()->user()->phone) {{ auth()->user()->phone }} @else Sem endereço telefone associado @endif">
+
                             <div class="d-flex align-items-end">
                                 <h3 class="mb-0 me-3">Detalhes de entrega</h3><button class="btn btn-link p-0"
                                     type="button">Editar</button>
@@ -44,8 +57,13 @@
                                         </td>
                                         <td class="py-2 fw-bold lh-sm">:</td>
                                         <td class="py-2 px-3">
-                                            <h5 class="lh-lg fw-normal text-800">Apt: 6/B, 192 Edsel Road, Van Nuys <br>
-                                                California, EUA 96580</h5>
+                                            <h5 class="lh-lg fw-normal text-800">
+                                                @if (auth()->user()->shipping_address)
+                                                    {{ auth()->user()->shipping_address }}
+                                                @else
+                                                    Sem endereço de entrega associado
+                                                @endif
+                                            </h5>
                                         </td>
                                     </tr>
                                     <tr>
@@ -58,7 +76,13 @@
                                         </td>
                                         <td class="py-2 fw-bold lh-sm">:</td>
                                         <td class="py-2 px-3">
-                                            <h5 class="lh-sm fw-normal text-800">818-414-4092</h5>
+                                            <h5 class="lh-lg fw-normal text-800">
+                                                @if (auth()->user()->phone)
+                                                    {{ auth()->user()->phone }}
+                                                @else
+                                                    Sem telefone associado
+                                                @endif
+                                            </h5>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -67,9 +91,6 @@
                             <hr class="my-6">
                             <h3>Detalhes de Cobrança</h3>
                             <div class="form-check">
-                                <input class="form-check-input" id="sameAsShipping" type="checkbox" checked="checked" />
-                                <label class="form-check-label fs-0 fw-normal" for="sameAsShipping">Mesmo endereço de
-                                    entrega</label>
                             </div>
                             <table class="table table-borderless mt-4">
                                 <tbody>
@@ -96,8 +117,13 @@
                                         </td>
                                         <td class="py-2 fw-bold lh-sm">:</td>
                                         <td class="py-2 px-3">
-                                            <h5 class="lh-lg fw-normal text-800">Apt: 6/B, 192 Edsel Road, Van Nuys <br>
-                                                California, EUA 96580</h5>
+                                            <h5 class="lh-lg fw-normal text-800">
+                                                @if (auth()->user()->billing_address)
+                                                    {{ auth()->user()->billing_address }}
+                                                @else
+                                                    Sem endereço de cobrança associado
+                                                @endif
+                                            </h5>
                                         </td>
                                     </tr>
                                     <tr>
@@ -110,7 +136,13 @@
                                         </td>
                                         <td class="py-2 fw-bold lh-sm">: </td>
                                         <td class="py-2 px-3">
-                                            <h5 class="lh-sm fw-normal text-800">818-414-4092</h5>
+                                            <h5 class="lh-lg fw-normal text-800">
+                                                @if (auth()->user()->phone)
+                                                    {{ auth()->user()->phone }}
+                                                @else
+                                                    Sem telefone associado
+                                                @endif
+                                            </h5>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -121,9 +153,11 @@
 
                             <div class="row g-2 mb-5 mb-lg-0">
                                 <div class="col-md-12 col-lg-12 d-grid">
-                                    <button style="background-color: #ffc439; border-radius: 3px; border: none; padding: 10px 15px;"
-                                    type="submit"><img width="70px" src="{{ asset('assets/img/icons/paypal.png') }}" alt=""></button>
-                                    </div>
+                                    <button
+                                        style="background-color: #ffc439; border-radius: 3px; border: none; padding: 10px 15px;"
+                                        type="submit"><img width="70px" src="{{ asset('assets/img/icons/paypal.png') }}"
+                                            alt=""></button>
+                                </div>
                             </div>
 
                         </form>
@@ -132,8 +166,8 @@
                         <div class="card mt-3 mt-lg-0">
                             <div class="card-body">
                                 <div class="d-flex align-items-center justify-content-between">
-                                    <h3 class="mb-0">Resumo</h3><button class="btn btn-link pe-0"
-                                        type="button">Continuar a compra</button>
+                                    <h3 class="mb-0">Resumo</h3><button class="btn btn-link pe-0" type="button">Continuar
+                                        a compra</button>
                                 </div>
                                 <div class="border-dashed border-bottom mt-4">
                                     <div class="mx-n2">
@@ -149,7 +183,8 @@
                                                     <div class="d-flex align-items-center"><img class="me-2 ms-1"
                                                             src="{{ asset('storage/' . $cart['image']) }}" width="40"
                                                             alt="" />
-                                                        <h6 class="fw-semi-bold text-1000 lh-base">{{ $cart['name'] }}</h6>
+                                                        <h6 class="fw-semi-bold text-1000 lh-base">{{ $cart['name'] }}
+                                                        </h6>
                                                     </div>
                                                 </div>
                                                 <div class="col-2 col-md-3 col-lg-2">

@@ -18,7 +18,7 @@ Auth::routes();
 Route::get('/', [App\Http\Controllers\Web\HomePageController::class, 'index']);
 
 Route::get('/teste', function () {
-    return view('register');
+    return view('login');
 });
 
 Route::prefix('admin')->name('admin.')->namespace('App\Http\Controllers\Admin')->group(function () {
@@ -77,8 +77,11 @@ Route::prefix('customer')->name('customer.')->namespace('App\Http\Controllers\We
     Route::prefix('/invoice')->name('invoice.')->group(function () {
         Route::get('/{reference}', 'InvoiceController@index')->name('index');
     });
+    Route::prefix('/dashboard')->name('dashboard.')->group(function () {
+        Route::get('/', 'CustomerDashboardController@index')->name('index');
+    });
     Route::prefix('/profile')->name('profile.')->group(function () {
-        Route::get('/', 'CustomerProfileController@index')->name('index');
+        Route::post('/', 'CustomerProfileController@update')->name('update');
     });
 });
 Route::prefix('customer')->name('customer.')->namespace('App\Http\Controllers\Auth\Customer')->group(function () {

@@ -91,18 +91,18 @@
                                     <h6 class="mb-2">Endereço de cobrança:</h6>
                                     <div class="fs--1 text-800 fw-semi-bold mb-0">
                                         <p class="mb-2">{{ $order->user->name }}</p>
-                                        <p class="mb-2">36, Rua Verde Cidade,<br>Bairro Dourado, LUANDA,</p>
+                                        <p class="mb-2">{{ $order->user->billing_address }}</p>
                                         <p class="mb-2">{{ $order->user->email }}</p>
-                                        <p class="mb-0">+244933029030</p>
+                                        <p class="mb-0">{{ $order->user->phone }}</p>
                                     </div>
                                 </div>
                                 <div class="col-12 col-lg-6">
                                     <h6 class="mb-2">Endereço de envio:</h6>
                                     <div class="fs--1 text-800 fw-semi-bold mb-0">
                                         <p class="mb-2">{{ $order->user->name }}</p>
-                                        <p class="mb-2">36, Rua Verde Cidade,<br>Bairro Dourado, LUANDA,</p>
+                                        <p class="mb-2">{{ $order->user->shipping_address }}</p>
                                         <p class="mb-2">{{ $order->user->email }}</p>
-                                        <p class="mb-0">+244933029030</p>
+                                        <p class="mb-0">{{ $order->user->phone }}</p>
                                     </div>
                                 </div>
                             </div>

@@ -22,7 +22,17 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'role'
+        'role',
+        'phone',
+        'shipping_address',
+        'billing_address',
+        'alternative_phone',
+        'gender',
+        'date_of_birth',
+        'facebook',
+        'instagram',
+        'twitter',
+        'profile_picture',
     ];
 
     /**
@@ -62,6 +72,6 @@ class User extends Authenticatable
 
     public function customerorder()
     {
-        return $this->hasMany(CustomerOrder::class,'user_id');
+        return $this->hasMany(CustomerOrder::class, 'user_id');
     }
 }

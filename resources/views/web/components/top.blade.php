@@ -32,20 +32,20 @@
                     <div class="card-body p-0">
                       <div class="text-center pt-4 pb-3">
                         <div class="avatar avatar-xl ">
-                          <img class="rounded-circle " src="" alt="" />
+                          <img class="rounded-circle " src="{{ auth()->user()->profile_picture ? asset('storage/'.auth()->user()->profile_picture) : asset('assets/images/users/avatar.png') }}" alt="" />
                         </div>
                         <h6 class="mt-2 text-black">{{ auth()->user()->name }}</h6>
                       </div>
-                      <div class="mb-3 mx-3"><input class="form-control form-control-sm" id="statusUpdateInput" type="text" placeholder="Update your status" /></div>
                     </div>
+                    <hr />
                     <div class="overflow-auto scrollbar" style="height: 3rem;">
                       <ul class="nav d-flex flex-column mb-2 pb-1">
-                        <li class="nav-item"><a class="nav-link px-3" href="#!"><span class="me-2 text-900" data-feather="pie-chart"></span>Painel</a></li>
+                        <li class="nav-item"><a class="nav-link px-3" href="{{ route('customer.dashboard.index') }}"><span class="me-2 text-900" data-feather="pie-chart"></span>Painel</a></li>
                       </ul>
                     </div>
                     <div class="card-footer p-0 border-top">
                       <ul class="nav d-flex flex-column my-3">
-                        <li class="nav-item"><a class="nav-link px-3" href="#!"> <span class="me-2 text-900" data-feather="user-plus"></span>Adicionar outra conta                          </a></li>
+                        <li class="nav-item"><a class="nav-link px-3" href="{{ route('customer.register.index') }}"> <span class="me-2 text-900" data-feather="user-plus"></span>Adicionar outra conta                          </a></li>
                       </ul>
                       <hr />
                       <div class="px-3">

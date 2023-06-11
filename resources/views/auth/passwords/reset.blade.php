@@ -1,89 +1,85 @@
 <!DOCTYPE html>
-<html dir="ltr">
-
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{asset('assets/images/favicon.png') }}">
-    <title>MatoMall - Login</title>
-    <link href="{{asset('dist/css/style.min.css') }}" rel="stylesheet">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Central do Cliente</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <link rel="stylesheet" href="{{asset('plugins/fontawesome-free/css/all.min.css') }}">
+  <link rel="stylesheet" href="{{asset('plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}">
+  <link rel="stylesheet" href="{{asset('dist/css/adminlte.min.css') }}">
 </head>
+<body class="hold-transition login-page">
+<div class="login-box">
+  <div class="login-logo">
+    <a href="/"><img src="{{ asset('imagens/logopopdata.png') }}" width="250" alt="LogoPopData"></a>
+</div>
+  <!-- /.login-logo -->
+  <div class="card">
+    <div class="card-body login-card-body">
+      <p class="login-box-msg">Você está a apenas um passo de sua nova senha, recupere sua senha agora.</p>
 
-<body>
-    <div class="main-wrapper">
-        <div class="preloader">
-            <div class="lds-ripple">
-                <div class="lds-pos"></div>
-                <div class="lds-pos"></div>
-            </div>
-        </div>
-        <div class="auth-wrapper d-flex no-block justify-content-center align-items-center bg-dark">
-            <div class="auth-box bg-dark border-top border-secondary">
-                <div id="loginform">
-                    <div class="text-center p-t-20 p-b-20">
-                        <span class="db"><img src="{{asset('assets/images/logo.png') }}" alt="logo" /></span>
-                    </div>
-                    <div id="loginform">
-                        <form class="form-horizontal m-t-20" method="POST" action="{{ route('password.update') }}">
-                            @csrf
-                            <div class="row p-b-30">
-                                <div class="col-12">
-                                    <div class="input-group mb-3">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text bg-success text-white" id="basic-addon1"><i class="ti-user"></i></span>
-                                        </div>
-                                        <input type="text" class="form-control form-control-lg @error('email') is-invalid @enderror" name="email" value="{{ $email ?? old('email') }}"  autocomplete="email" autofocus placeholder="Email">
-                                        @error('email')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                    </div>
-                                    <div class="input-group mb-3">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text bg-warning text-white" id="basic-addon2"><i class="ti-pencil"></i></span>
-                                        </div>
-                                        <input type="password" class="form-control form-control-lg @error('password') is-invalid @enderror" name="password"  autocomplete="current-password" placeholder="Senha">
-                                        @error('password')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                    </div>
-                                    <div class="input-group mb-3">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text bg-warning text-white" id="basic-addon2"><i class="ti-pencil"></i></span>
-                                        </div>
-                                        <input type="password_confirmation" class="form-control form-control-lg @error('password_confirmation') is-invalid @enderror" name="password_confirmation"  autocomplete="current-password" placeholder="Confirmar senha">
-                                        @error('password_confirmation')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row border-top border-secondary">
-                                <div class="col-12">
-                                    <div class="form-group">
-                                        <div class="p-t-20">
-                                              <button class="btn btn-success float-right" type="submit">Redefinir senha</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
+      <form action="{{ route('password.update') }}" method="post">
+
+        @csrf
+        <input type="hidden" name="token" value="{{ $token }}">
+
+        <div class="input-group mb-3">
+            <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ $email ?? old('email') }}" placeholder="Email" required autocomplete="email" autofocus>
+            <div class="input-group-append">
+                <div class="input-group-text">
+                    <span class="fas fa-envelope"></span>
                 </div>
             </div>
+            @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
         </div>
-    </div>
+        <div class="input-group mb-3">
+            <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="Senha">
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-lock"></span>
+              </div>
+            </div>
+            @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+          </div>
+        <div class="input-group mb-3">
+          <input type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" placeholder="Confirme sua senha          ">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-lock"></span>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <button type="submit" class="btn btn-primary btn-block">Alterar a senha</button>
+          </div>
+          <!-- /.col -->
+        </div>
+      </form>
 
-    <script src="{{asset('assets/libs/jquery/dist/jquery.min.js') }}"></script>
-    <script src="{{asset('assets/libs/popper.js/dist/umd/popper.min.js') }}"></script>
-    <script src="{{asset('assets/libs/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+      <p class="mt-3 mb-1">
+        <a href="/login">Login</a>
+      </p>
+    </div>
+    <!-- /.login-card-body -->
+  </div>
+</div>
+<!-- /.login-box -->
+
+<!-- jQuery -->
+<script src="{{asset('plugins/jquery/jquery.min.js') }}"></script>
+<!-- Bootstrap 4 -->
+<script src="{{asset('plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+<!-- AdminLTE App -->
+<script src="{{asset('dist/js/adminlte.min.js') }}"></script>
 </body>
 </html>
