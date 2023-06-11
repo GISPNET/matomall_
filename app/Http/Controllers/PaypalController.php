@@ -196,7 +196,7 @@ foreach ($carts as $cart) {
 
                         session()->forget('cart');
 
-                         return redirect()->route('client.invoice.index',$order->reference);
+                         return redirect()->route('customer.invoice.index',$order->reference);
                     }
                 }
             }

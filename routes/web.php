@@ -18,7 +18,7 @@ Auth::routes();
 Route::get('/', [App\Http\Controllers\Web\HomePageController::class, 'index']);
 
 Route::get('/teste', function () {
-    return view('login');
+    return view('register');
 });
 
 Route::prefix('admin')->name('admin.')->namespace('App\Http\Controllers\Admin')->group(function () {
@@ -73,9 +73,12 @@ Route::prefix('stores')->name('store.')->namespace('App\Http\Controllers\Web')->
 });
 
 
-Route::prefix('client')->name('client.')->namespace('App\Http\Controllers\Web')->group(function () {
+Route::prefix('customer')->name('customer.')->namespace('App\Http\Controllers\Web')->group(function () {
     Route::prefix('/invoice')->name('invoice.')->group(function () {
         Route::get('/{reference}', 'InvoiceController@index')->name('index');
+    });
+    Route::prefix('/profile')->name('profile.')->group(function () {
+        Route::get('/', 'CustomerProfileController@index')->name('index');
     });
 });
 Route::get('paywithpaypal',[\App\Http\Controllers\PaypalController::class,'payWithPaypal'])->name('addmoney.paywithpaypal');

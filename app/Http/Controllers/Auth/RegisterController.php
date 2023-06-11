@@ -32,7 +32,9 @@ class RegisterController extends Controller
      */
     public function redirectTo()
     {
-        return url("/admin");
+        if(auth()->user()->role=="customer"){
+            return url('/customer/profile');
+        }
     }
 
     /**
@@ -79,6 +81,9 @@ class RegisterController extends Controller
     protected function registered(Request $request, $user){
         if(session()->has('cart') && $user->role=="customer"){
             return redirect()->route('checkout.index');
+        }
+        if($user->role=="customer"){
+            return url('/customer/profile');
         }
         return null;
     }

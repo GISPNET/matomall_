@@ -29,7 +29,9 @@ class LoginController extends Controller
      */
     public function redirectTo()
     {
-        return url("/admin");
+        if(auth()->user()->role=="customer"){
+            return url('/customer/profile');
+        }
     }
 
     /**
