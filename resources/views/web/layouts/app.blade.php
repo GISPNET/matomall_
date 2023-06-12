@@ -78,6 +78,7 @@
     <script src="{{ asset('vendors/glightbox/glightbox.min.js') }}"></script>
     <script src="{{ asset('assets/js/phoenix.js') }}"></script>
     <script src="{{asset('js/toastr.min.js') }}"></script>
+
     @yield('js')
 </body>
 </html>
