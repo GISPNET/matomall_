@@ -17,6 +17,11 @@ class CartController extends Controller
     {
         $product = $request->get('product');
 
+        $product = \App\Models\Product::whereSlug($product['slug']);
+
+        if (!$product) {
+            return redirect()->back()->with('product_not_found', 'Produto não encontrado');
+        }
         if (session()->has('cart')) {
 
             $products = session()->get('cart');
@@ -25,7 +30,7 @@ class CartController extends Controller
             if (in_array($product['slug'], $productsSlungs)) {
                 $products = $this->productIncrement($product['slug'], $product['amount'], $products);
                 session()->put('cart', $products);
-            }else{
+            } else {
                 session()->push('cart', $product);
             }
         } else {

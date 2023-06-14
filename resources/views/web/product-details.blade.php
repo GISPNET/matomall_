@@ -41,12 +41,10 @@
                                     <input type="hidden" name="product[price]"  value="{{ $product->price }}">
                                     <input type="hidden" name="product[slug]"  value="{{ $product->slug }}">
                                     <input type="hidden" name="product[image]"  value="{{ $product->photos->first()->image }}">
-
-                                    <input class="form-control" type="number" name="product[amount]"  value="1">
                                     <button class="btn btn-lg btn-warning rounded-pill flex-fill fs--1 fs-sm-0">
                                         <span class="fas fa-shopping-cart me-2"></span> Adicionar ao carrinho
                                     </button>
-                                </form>
+
                             </div>
 
                         </div>
@@ -85,19 +83,20 @@
                                             <p class="fw-semi-bold mb-2 text-900">Quantidade : </p>
                                             <div class="d-flex justify-content-between align-items-end">
                                                 <div class="d-flex flex-between-center" data-quantity="data-quantity">
-                                                    <button class="btn btn-phoenix-primary px-3"
+                                                    <a class="btn btn-phoenix-primary px-3"
                                                         data-type="minus"><span
-                                                            class="fas fa-minus"></span></button><input
+                                                            class="fas fa-minus"></span></a><input name="product[amount]"
                                                         class="form-control text-center input-spin-none bg-transparent border-0 outline-none"
                                                         style="width:50px;" type="number" min="1"
-                                                        value="2" /><button class="btn btn-phoenix-primary px-3"
-                                                        data-type="plus"><span class="fas fa-plus"></span></button>
+                                                        value="1" /><a class="btn btn-phoenix-primary px-3"
+                                                        data-type="plus"><span class="fas fa-plus"></span></a>
                                                 </div><button class="btn btn-phoenix-primary px-3 border-0"><span
                                                         class="fas fa-share-alt fs-1"></span></button>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                            </form>
                             </div>
                         </div>
                     </div>

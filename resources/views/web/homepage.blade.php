@@ -108,8 +108,7 @@
                                                                     <span class="fa fa-star text-warning"></span>
                                                                 @endfor
                                                                 <span
-                                                                    class="text-500 fw-semi-bold ms-1">({{ $product->rating_count }}
-                                                                    people rated)</span>
+                                                                    class="text-500 fw-semi-bold ms-1">(67 pessoas avaliadas)</span>
                                                             </p>
                                                         </div>
                                                         <div>
@@ -121,7 +120,7 @@
                                                                 <h3 class="text-1100 mb-0">R$ {{ \App\Helpers\ptBRHelper::real($product->price) }}</h3>
                                                             </div>
                                                             <p class="text-700 fw-semi-bold fs--1 lh-1 mb-0">
-                                                                {{ $product->color_count }} colors</p>
+                                                                {{ $product->color_count }} {{ $product->store->name }}</p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -183,14 +182,13 @@
                                                                 <span class="fa fa-star text-warning"></span>
                                                             @endfor
                                                             <span
-                                                                class="text-500 fw-semi-bold ms-1">({{ $product->ratingCount }}
-                                                                people rated)</span>
+                                                                class="text-500 fw-semi-bold ms-1">(67 pessoas avaliadas)</span>
                                                         </p>
                                                     </div>
                                                     <div>
                                                         <h3 class="text-1100">{{ \App\Helpers\ptBRHelper::real($product->price) }}</h3>
                                                         <p class="text-700 fw-semi-bold fs--1 lh-1 mb-0">
-                                                            {{ $product->colorCount }} colors</p>
+                                                            {{ $product->colorCount }} {{ $product->store->name }}</p>
                                                     </div>
                                                 </div>
                                             </div>

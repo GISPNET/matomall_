@@ -104,11 +104,7 @@
                                     <div class="d-flex justify-content-between">
                                         <p class="text-900 fw-semi-bold">Taxa :</p>
                                         <p class="text-1100 fw-semi-bold">{{ \App\Helpers\ptBRHelper::real(0) }}</p>
-                                    </div>
-                                    <div class="d-flex justify-content-between">
-                                        <p class="text-900 fw-semi-bold">Subtotal :</p>
-                                        <p class="text-1100 fw-semi-bold">{{ \App\Helpers\ptBRHelper::real(0) }}</p>
-                                    </div>
+                                    </div>W
                                     <div class="d-flex justify-content-between">
                                         <p class="text-900 fw-semi-bold">Frete :</p>
                                         <p class="text-1100 fw-semi-bold">{{ \App\Helpers\ptBRHelper::real(0) }}</p>
