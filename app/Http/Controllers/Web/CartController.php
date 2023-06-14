@@ -15,13 +15,16 @@ class CartController extends Controller
 
     public function add(Request $request)
     {
-        $product = $request->get('product');
+        $productData = $request->get('product');
 
         $product = \App\Models\Product::whereSlug($product['slug']);
 
         if (!$product) {
             return redirect()->back()->with('product_not_found', 'Produto não encontrado');
         }
+        $product=$product->first(['name','price'])->toArray();
+        $product=array_merge($productData, $product);
+
         if (session()->has('cart')) {
 
             $products = session()->get('cart');
