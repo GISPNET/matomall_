@@ -17,10 +17,10 @@ class CartController extends Controller
     {
         $productData = $request->get('product');
 
-        $product = \App\Models\Product::whereSlug($product['slug']);
+        $product = \App\Models\Product::whereSlug($productData['slug']);
 
-        if (!$product) {
-            return redirect()->back()->with('product_not_found', 'Produto não encontrado');
+        if (!$product || $productData['amount']==0) {
+            return redirect()->route('product.details', $product['slug']);
         }
         $product=$product->first(['name','price'])->toArray();
         $product=array_merge($productData, $product);
