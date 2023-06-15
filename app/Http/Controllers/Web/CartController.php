@@ -22,7 +22,7 @@ class CartController extends Controller
         if (!$product || $productData['amount']==0) {
             return redirect()->route('product.details', $product['slug']);
         }
-        $product=$product->first(['name','price'])->toArray();
+        $product=$product->first(['name','price','store_id'])->toArray();
         $product=array_merge($productData, $product);
 
         if (session()->has('cart')) {

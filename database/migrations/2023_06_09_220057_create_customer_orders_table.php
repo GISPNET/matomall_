@@ -22,7 +22,6 @@ return new class extends Migration
             $table->string('payment_mode')->nullable();
             $table->text('items')->nullable();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->foreignId('store_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

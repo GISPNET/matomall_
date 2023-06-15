@@ -138,16 +138,19 @@ class PaypalController extends Controller
         $carts = session()->get('cart');
         $items = [];
 
-foreach ($carts as $cart) {
-    $item = [
-        'name' => $cart['name'],
-        'quantity' => $cart['amount'],
-        'price' => $cart['price'],
-        'total' => $cart['amount'] * $cart['price'],
-    ];
+        foreach ($carts as $cart) {
+            $item = [
+                'name' => $cart['name'],
+                'quantity' => $cart['amount'],
+                'price' => $cart['price'],
+                'total' => $cart['amount'] * $cart['price'],
+                'store_id' => $cart['store_id']
+            ];
 
-    $items[] = $item;
-}
+            $items[] = $item;
+        }
+
+        $stores = array_unique(array_column($items, 'store_id'));
         /** Obtenha o ID de pagamento da sessão antes de limpá-la **/
         $payment_id = Session::get('paypal_payment_id');
 
@@ -181,12 +184,11 @@ foreach ($carts as $cart) {
                             'exchange_rate' => $sale->getExchangeRate(),
                             'parent_payment' => $sale->getParentPayment(),
                             'payment_mode' => $sale->getPaymentMode(),
-                            'store_id' => 1,
                             'items' => json_encode($items),
                         ];
 
                         // Salvar as informações no banco de dados ou fazer o que for necessário
-                        $order=$user->customerorder()->create($customerOrder);
+                        $order = $user->customerorder()->create($customerOrder);
 
                         $order->stores()->sync($stores);
                         /** Limpe o ID de pagamento da sessão **/
@@ -194,7 +196,7 @@ foreach ($carts as $cart) {
 
                         session()->forget('cart');
 
-                         return redirect()->route('customer.invoice.index',$order->reference);
+                        return redirect()->route('customer.invoice.index', $order->reference);
                     }
                 }
             }
