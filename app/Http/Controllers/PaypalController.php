@@ -188,6 +188,7 @@ foreach ($carts as $cart) {
                         // Salvar as informações no banco de dados ou fazer o que for necessário
                         $order=$user->customerorder()->create($customerOrder);
 
+                        $order->stores()->sync($stores);
                         /** Limpe o ID de pagamento da sessão **/
                         Session::forget('paypal_payment_id');
 
