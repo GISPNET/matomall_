@@ -1,4 +1,4 @@
-@extends('admin.layouts.app')
+@extends('sellers.layouts.app')
 @section('titulo')
 @section('content')
 <div class="content">
@@ -1471,7 +1471,7 @@
             </div>
         </div>
     </div>
-    @component('admin.components.footer')
+    @component('sellers.components.footer')
     @endcomponent
 </div>
 @endsection

@@ -49,19 +49,19 @@
     <main class="main" id="top">
         <div class="container-fluid px-0" data-layout="container">
 
-            @component('admin.components.navbar.navbar-vertical-navbar-expand-lg')
+            @component('sellers.components.navbar.navbar-vertical-navbar-expand-lg')
             @endcomponent
-            @component('admin.components.navbar.navbar-top-fixed-top')
+            @component('sellers.components.navbar.navbar-top-fixed-top')
             @endcomponent
-            @component('admin.components.navbar.navbar-top-navbar-slim-fixed-top')
+            @component('sellers.components.navbar.navbar-top-navbar-slim-fixed-top')
             @endcomponent
-            @component('admin.components.navbar.navbar-top fixed-top-navbar-expand-lg')
+            @component('sellers.components.navbar.navbar-top fixed-top-navbar-expand-lg')
             @endcomponent
-            @component('admin.components.navbar.navbar-top-navbar-slim-justify-content-between')
+            @component('sellers.components.navbar.navbar-top-navbar-slim-justify-content-between')
             @endcomponent
-            @component('admin.components.navbar.navbar-top fixed-top navbar-expand-lg')
+            @component('sellers.components.navbar.navbar-top fixed-top navbar-expand-lg')
             @endcomponent
-            @component('admin.components.navbar.navbar-top-fixed-top-navbar-slim-justify-content-between navbar-expand-lg')
+            @component('sellers.components.navbar.navbar-top-fixed-top-navbar-slim-justify-content-between navbar-expand-lg')
             @endcomponent
             <div class="modal fade" id="searchBoxModal" tabindex="-1" aria-hidden="true"
                 data-bs-backdrop="true" data-phoenix-modal="data-phoenix-modal"
@@ -489,7 +489,7 @@
                                 class="label-text d-light-none">Lighter</span></label></div>
                 </div>
             </div><a class="bun btn-primary d-grid mb-3 text-white dark__text-100 mt-5 btn btn-primary"
-                href="https://themes.getbootstrap.com/product/phoenix-admin-dashboard-webapp-template/"
+                href="https://themes.getbootstrap.com/product/phoenix-sellers-dashboard-webapp-template/"
                 target="_blank">Purchase template</a>
         </div>
     </div><a class="card setting-toggle" href="#settings-offcanvas" data-bs-toggle="offcanvas">

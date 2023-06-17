@@ -13,15 +13,19 @@ use Input;
 use PayPal\Rest\ApiContext;
 use PayPal\Auth\OAuthTokenCredential;
 use PayPal\Api\Amount;
+use PayPal\Api\Currency;
 use PayPal\Api\Details;
 use PayPal\Api\Item;
 use PayPal\Api\ItemList;
-use PayPal\Api\Payer;
+use PayPal\Api\Payout;
+use PayPal\Api\PayoutItem;
+use PayPal\Api\PayoutSenderBatchHeader;
 use PayPal\Api\Payment;
 use PayPal\Api\RedirectUrls;
 use PayPal\Api\ExecutePayment;
 use PayPal\Api\PaymentExecution;
 use PayPal\Api\Transaction;
+use PayPal\Api\Payer;
 
 class PaypalController extends Controller
 {
@@ -123,7 +127,7 @@ class PaypalController extends Controller
         Session::put('paypal_payment_id', $payment->getId());
 
         if (isset($redirect_url)) {
-            /** redirecionar para oPayPal **/
+            /** redirecionar para o PayPal **/
             return Redirect::away($redirect_url);
         }
 
@@ -169,7 +173,6 @@ class PaypalController extends Controller
         $result = $payment->execute($execution, $this->_api_context);
 
         if ($result->getState() == 'approved') {
-
             $transactions = $result->getTransactions();
             if (!empty($transactions)) {
                 $transaction = $transactions[0];
@@ -196,6 +199,9 @@ class PaypalController extends Controller
 
                         session()->forget('cart');
 
+                        // Realizar pagamentos para as contas PayPal das lojas
+                        $this->sendPaymentsToStores($order, $stores);
+
                         return redirect()->route('customer.invoice.index', $order->reference);
                     }
                 }
@@ -211,5 +217,68 @@ class PaypalController extends Controller
         Session::forget('cart');
 
         return Redirect::route('addmoney.paywithpaypal');
+    }
+
+    /**
+     * Send payments to the PayPal accounts of the stores.
+     *
+     * @param  \App\Models\Order  $order
+     * @param  array  $storeIds
+     * @return void
+     */
+    private function sendPaymentsToStores($order, $storeIds)
+    {
+        foreach ($storeIds as $storeId) {
+            $store = \App\Models\Store::findOrFail($storeId);
+            $storePaypalEmail = $store->paypal_email;
+            $amount = $this->calculateStorePaymentAmount($order, $storeId);
+
+            $payoutItem = new PayoutItem();
+            $payoutItem->setRecipientType('EMAIL')
+                ->setReceiver($storePaypalEmail)
+                ->setAmount(new Currency('{
+                    "value": "'.$amount.'",
+                    "currency": "BRL"
+                }'));
+
+            $senderBatchHeader = new PayoutSenderBatchHeader();
+            $senderBatchHeader->setSenderBatchId(uniqid())
+                ->setEmailSubject('Payment for order: '.$order->reference);
+
+            $payout = new Payout();
+            $payout->setSenderBatchHeader($senderBatchHeader)
+                ->addItem($payoutItem);
+
+            try {
+                $payout->create(null, $this->_api_context);
+            } catch (\PayPal\Exception\PPConnectionException $ex) {
+                \Session::put('error', 'Payment failed');
+                return;
+            }
+        }
+    }
+
+
+    /**
+     * Calculate the payment amount for a store based on the order items.
+     *
+     * @param  \App\Models\Order  $order
+     * @param  int  $storeId
+     * @return float
+     */
+    private function calculateStorePaymentAmount($order, $storeId)
+    {
+        $items = json_decode($order->items, true);
+        $storeItems = array_filter($items, function ($item) use ($storeId) {
+            return $item['store_id'] == $storeId;
+        });
+
+        $totalAmount = 0;
+
+        foreach ($storeItems as $item) {
+            $totalAmount += $item['total'];
+        }
+
+        return $totalAmount;
     }
 }
