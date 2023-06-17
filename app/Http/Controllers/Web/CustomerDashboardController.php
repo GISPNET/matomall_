@@ -16,7 +16,7 @@ class CustomerDashboardController extends Controller
 
         $user=Auth::user();
 
-        $orders=$user->customerorder()->paginate(6);
+        $orders=$user->orders()->paginate(6);
         return view('web.dashboard', compact(['user','orders']));
     }
 }

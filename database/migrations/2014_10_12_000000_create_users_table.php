@@ -19,6 +19,17 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('phone')->nullable();
+            $table->text('shipping_address')->nullable();
+            $table->text('billing_address')->nullable();
+            $table->string('alternative_phone')->nullable();
+            $table->string('gender')->nullable();
+            $table->date('date_of_birth')->nullable();
+            $table->string('facebook')->nullable();
+            $table->string('instagram')->nullable();
+            $table->string('twitter')->nullable();
+            $table->enum('role',['admin','seller','customer']);
+            $table->string('profile_picture')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

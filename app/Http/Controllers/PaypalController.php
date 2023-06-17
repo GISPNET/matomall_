@@ -147,6 +147,7 @@ class PaypalController extends Controller
                 'name' => $cart['name'],
                 'produto_image' => $cart['image'],
                 'quantity' => $cart['amount'],
+                'slug' => $cart['slug'],
                 'price' => $cart['price'],
                 'total' => $cart['amount'] * $cart['price'],
                 'store_id' => $cart['store_id']
@@ -192,7 +193,7 @@ class PaypalController extends Controller
                         ];
 
                         // Salvar as informações no banco de dados ou fazer o que for necessário
-                        $order = $user->customerorder()->create($customerOrder);
+                        $order = $user->orders()->create($customerOrder);
 
                         $order->stores()->sync($stores);
                         /** Limpe o ID de pagamento da sessão **/

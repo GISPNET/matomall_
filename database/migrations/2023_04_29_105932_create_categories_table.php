@@ -13,8 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('stores', function (Blueprint $table) {
-            $table->string('paypal_email')->nullable();
+        Schema::create('categories', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->string('description')->nullable();
+            $table->string('slug')->nullable();
+            $table->foreignId('store_id')->constrained()->onDelete('cascade');
+            $table->timestamps();
         });
     }
 
@@ -25,8 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('stores', function (Blueprint $table) {
-            $table->dropColumn('paypal_email');
-        });
+        Schema::dropIfExists('categories');
     }
 };
