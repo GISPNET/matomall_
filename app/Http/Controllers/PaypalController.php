@@ -145,6 +145,7 @@ class PaypalController extends Controller
         foreach ($carts as $cart) {
             $item = [
                 'name' => $cart['name'],
+                'produto_image' => $cart['image'],
                 'quantity' => $cart['amount'],
                 'price' => $cart['price'],
                 'total' => $cart['amount'] * $cart['price'],

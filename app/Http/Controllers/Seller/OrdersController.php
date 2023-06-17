@@ -19,7 +19,12 @@ class OrdersController extends Controller
     }
     public function index()
     {
-       $orders =Auth::user()->store->orders;
+       $orders =Auth::user()->store->orders()->paginate(10);
        return view('sellers.orders', compact(['orders']));
+    }
+    public function show($id)
+    {
+       $order=\App\Models\CustomerOrder::find($id);
+       return view('sellers.order-details', compact(['order']));
     }
 }
