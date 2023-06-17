@@ -23,8 +23,7 @@ class StoreController extends Controller
     }
     public function index()
     {
-        $user = Auth::user();
-        $store = $user->store;
+        $store =Auth::user()->store;
         return view('admin.stores.index', compact(['store']));
     }
 

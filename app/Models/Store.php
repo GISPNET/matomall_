@@ -41,10 +41,6 @@ class Store extends Model
         return $this->hasMany(Category::class);
     }
 
-    public function seller()
-    {
-        return $this->belongsTo(User::class);
-    }
     public function orders()
     {
         return $this->belongsToMany(CustomerOrder::class,'order_store');

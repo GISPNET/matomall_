@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Seller;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class OrdersController extends Controller
 {
@@ -14,7 +15,7 @@ class OrdersController extends Controller
      */
     public function index()
     {
-       $orders=\App\Models\OrderStore::all();
+       $orders =Auth::user()->store->orders;
        return view('sellers.orders', compact(['orders']));
     }
 }
