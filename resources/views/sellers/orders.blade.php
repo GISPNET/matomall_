@@ -112,23 +112,22 @@
                                                 data-bulk-select="{&quot;body&quot;:&quot;order-table-body&quot;}"></div>
                                     </th>
                                     <th class="sort white-space-nowrap align-middle pe-3" scope="col"
-                                        data-sort="order" style="width:5%;">ORDER</th>
+                                        data-sort="order" style="width:5%;">PEDIDO</th>
                                     <th class="sort align-middle text-end" scope="col" data-sort="total"
                                         style="width:6%;">TOTAL</th>
                                     <th class="sort align-middle ps-8" scope="col" data-sort="customer"
-                                        style="width:28%; min-width: 250px;">CUSTOMER</th>
+                                        style="width:28%; min-width: 250px;">CLIENTE</th>
                                     <th class="sort align-middle pe-3" scope="col" data-sort="payment_status"
-                                        style="width:10%;">PAYMENT STATUS</th>
-                                    <th class="sort align-middle text-start pe-3" scope="col"
-                                        data-sort="fulfilment_status" style="width:12%; min-width: 200px;">FULFILMENT
-                                        STATUS</th>
+                                        style="width:10%;">STATUS DO PAGAMENTO</th>
                                     <th class="sort align-middle text-start" scope="col" data-sort="delivery_type"
-                                        style="width:30%;">DELIVERY TYPE</th>
-                                    <th class="sort align-middle text-end pe-0" scope="col" data-sort="date">DATE</th>
+                                        style="width:30%;">TIPO DE ENTREGA</th>
+                                    <th class="sort align-middle text-end pe-0" scope="col" data-sort="date">DATA</th>
                                 </tr>
                             </thead>
                             <tbody class="list" id="order-table-body">
-                                <tr class="hover-actions-trigger btn-reveal-trigger position-static">
+                               @if ($orders)
+                                  @foreach ($orders as $order)
+                                  <tr class="hover-actions-trigger btn-reveal-trigger position-static">
                                     <td class="fs--1 align-middle px-0 py-3">
                                         <div class="form-check mb-0 fs-0"><input class="form-check-input" type="checkbox"
                                                 data-bulk-select-row="{&quot;order&quot;:2453,&quot;total&quot;:87,&quot;customer&quot;:{&quot;avatar&quot;:&quot;/team/32.webp&quot;,&quot;name&quot;:&quot;Carry Anna&quot;},&quot;payment_status&quot;:{&quot;label&quot;:&quot;Complete&quot;,&quot;type&quot;:&quot;badge-phoenix-success&quot;,&quot;icon&quot;:&quot;check&quot;},&quot;fulfilment_status&quot;:{&quot;label&quot;:&quot;Cancelled&quot;,&quot;type&quot;:&quot;badge-phoenix-secondary&quot;,&quot;icon&quot;:&quot;x&quot;},&quot;delivery_type&quot;:&quot;Cash on delivery&quot;,&quot;date&quot;:&quot;Dec 12, 12:56 PM&quot;}">
@@ -152,24 +151,13 @@
                                                 style="height:12.8px;width:12.8px;">
                                                 <polyline points="20 6 9 17 4 12"></polyline>
                                             </svg></span></td>
-                                    <td
-                                        class="fulfilment_status align-middle white-space-nowrap text-start fw-bold text-700">
-                                        <span class="badge badge-phoenix fs--2 badge-phoenix-secondary"><span
-                                                class="badge-label">Cancelled</span><svg
-                                                xmlns="http://www.w3.org/2000/svg" width="16px" height="16px"
-                                                viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                                class="feather feather-x ms-1" style="height:12.8px;width:12.8px;">
-                                                <line x1="18" y1="6" x2="6" y2="18">
-                                                </line>
-                                                <line x1="6" y1="6" x2="18" y2="18">
-                                                </line>
-                                            </svg></span></td>
                                     <td class="delivery_type align-middle white-space-nowrap text-900 fs--1 text-start">
                                         Cash on delivery</td>
                                     <td class="date align-middle white-space-nowrap text-700 fs--1 ps-4 text-end">Dec 12,
                                         12:56 PM</td>
                                 </tr>
+                                  @endforeach
+                               @endif
                             </tbody>
                         </table>
                     </div>

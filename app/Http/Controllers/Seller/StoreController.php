@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Seller;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreStoreRequest;
@@ -24,7 +24,7 @@ class StoreController extends Controller
     public function index()
     {
         $store =Auth::user()->store;
-        return view('admin.stores.index', compact(['store']));
+        return view('tests.stores.index', compact(['store']));
     }
 
     /**
@@ -34,7 +34,7 @@ class StoreController extends Controller
      */
     public function create()
     {
-        return view('admin.stores.create');
+        return view('tests.stores.create');
     }
 
     /**
@@ -64,7 +64,7 @@ class StoreController extends Controller
     public function edit($id)
     {
         $store = \App\Models\Store::find($id);
-        return view('admin.stores.edit', compact(['store']));
+        return view('tests.stores.edit', compact(['store']));
     }
     public function update(StoreUpdateRequest $request, $id)
     {
