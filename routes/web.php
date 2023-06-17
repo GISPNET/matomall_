@@ -21,7 +21,7 @@ Route::get('/teste', function () {
     return view('login');
 });
 
-Route::prefix('admin')->name('admin.')->namespace('App\Http\Controllers\Seller')->group(function () {
+Route::prefix('seller')->name('seller.')->namespace('App\Http\Controllers\Seller')->group(function () {
     Route::get('/', 'DashboardController@index')->name('painel');
     Route::prefix('/orders')->name('orders.')->group(function () {
         Route::get('/', 'OrdersController@index')->name('index');

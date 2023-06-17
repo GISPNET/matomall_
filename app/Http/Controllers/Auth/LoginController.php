@@ -32,6 +32,9 @@ class LoginController extends Controller
         if(auth()->user()->role=="customer"){
             return url('/customer/dashboard');
         }
+        if(auth()->user()->role=="seller"){
+            return url('/seller/dashboard');
+        }
     }
 
     /**

@@ -15,7 +15,7 @@ class OrdersController extends Controller
      */
     public function __construct()
     {
-        //$this->middleware('auth.seller');
+        $this->middleware('auth.seller');
     }
     public function index()
     {
