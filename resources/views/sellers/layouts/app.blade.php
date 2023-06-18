@@ -364,13 +364,13 @@
                             type="radio" value="light" data-theme-control="phoenixTheme" /><label
                             class="btn d-inline-block btn-navbar-style fs--1" for="themeSwitcherLight"> <span
                                 class="mb-2 rounded d-block"><img class="img-fluid img-prototype mb-0"
-                                    src="assets/img/generic/default-light.png" alt="" /></span><span
+                                    src="{{asset('assets/img/generic/default-light.png') }}" alt="" /></span><span
                                 class="label-text">Light</span></label></div>
                     <div class="col-6"><input class="btn-check" id="themeSwitcherDark" name="theme-color"
                             type="radio" value="dark" data-theme-control="phoenixTheme" /><label
                             class="btn d-inline-block btn-navbar-style fs--1" for="themeSwitcherDark"> <span
                                 class="mb-2 rounded d-block"><img class="img-fluid img-prototype mb-0"
-                                    src="assets/img/generic/default-dark.png" alt="" /></span><span
+                                    src="{{asset('assets/img/generic/default-dark.png') }}" alt="" /></span><span
                                 class="label-text"> Dark</span></label></div>
                 </div>
             </div>
@@ -398,26 +398,26 @@
                             data-theme-control="phoenixNavbarPosition" /><label
                             class="btn d-inline-block btn-navbar-style fs--1" for="navbarPositionVertical"> <span
                                 class="mb-2 rounded d-block"><img class="img-fluid img-prototype d-dark-none"
-                                    src="assets/img/generic/default-light.png" alt="" /><img
+                                    src="{{asset('assets/img/generic/default-light.png') }}" alt="" /><img
                                     class="img-fluid img-prototype d-light-none"
-                                    src="assets/img/generic/default-dark.png" alt="" /></span><span
+                                    src="{{asset('assets/img/generic/default-dark.png') }}" alt="" /></span><span
                                 class="label-text">Vertical</span></label></div>
                     <div class="col-6"><input class="btn-check" id="navbarPositionHorizontal"
                             name="navigation-type" type="radio" value="horizontal"
                             data-theme-control="phoenixNavbarPosition" /><label
                             class="btn d-inline-block btn-navbar-style fs--1" for="navbarPositionHorizontal"> <span
                                 class="mb-2 rounded d-block"><img class="img-fluid img-prototype d-dark-none"
-                                    src="assets/img/generic/top-default.png" alt="" /><img
+                                    src="{{asset('assets/img/generic/top-default.png') }}" alt="" /><img
                                     class="img-fluid img-prototype d-light-none"
-                                    src="assets/img/generic/top-default-dark.png" alt="" /></span><span
+                                    src="{{asset('assets/img/generic/top-default-dark.png') }}" alt="" /></span><span
                                 class="label-text"> Horizontal</span></label></div>
                     <div class="col-6"><input class="btn-check" id="navbarPositionCombo" name="navigation-type"
                             type="radio" value="combo" data-theme-control="phoenixNavbarPosition" /><label
                             class="btn d-inline-block btn-navbar-style fs--1" for="navbarPositionCombo"> <span
                                 class="mb-2 rounded d-block"><img class="img-fluid img-prototype d-dark-none"
-                                    src="assets/img/generic/nav-combo-light.png" alt="" /><img
+                                    src="{{asset('assets/img/generic/nav-combo-light.png') }}" alt="" /><img
                                     class="img-fluid img-prototype d-light-none"
-                                    src="assets/img/generic/nav-combo-dark.png" alt="" /></span><span
+                                    src="{{asset('assets/img/generic/nav-combo-dark.png') }}" alt="" /></span><span
                                 class="label-text"> Combo</span></label></div>
                 </div>
             </div>
@@ -429,9 +429,9 @@
                             data-theme-control="phoenixNavbarVerticalStyle" /><label
                             class="btn d-block w-100 btn-navbar-style fs--1" for="navbar-style-default"> <img
                                 class="img-fluid img-prototype d-dark-none"
-                                src="assets/img/generic/default-light.png" alt="" /><img
+                                src="{{asset('assets/img/generic/default-light.png') }}" alt="" /><img
                                 class="img-fluid img-prototype d-light-none"
-                                src="assets/img/generic/default-dark.png" alt="" /><span
+                                src="{{asset('assets/img/generic/default-dark.png') }}" alt="" /><span
                                 class="label-text d-dark-none"> Default</span><span
                                 class="label-text d-light-none">Default</span></label></div>
                     <div class="col-6"><input class="btn-check" id="navbar-style-dark" type="radio"
@@ -439,9 +439,9 @@
                             data-theme-control="phoenixNavbarVerticalStyle" /><label
                             class="btn d-block w-100 btn-navbar-style fs--1" for="navbar-style-dark"> <img
                                 class="img-fluid img-prototype d-dark-none"
-                                src="assets/img/generic/vertical-darker.png" alt="" /><img
+                                src="{{asset('assets/img/generic/vertical-darker.png') }}" alt="" /><img
                                 class="img-fluid img-prototype d-light-none"
-                                src="assets/img/generic/vertical-lighter.png" alt="" /><span
+                                src="{{asset('assets/img/generic/vertical-lighter.png') }}" alt="" /><span
                                 class="label-text d-dark-none"> Darker</span><span
                                 class="label-text d-light-none">Lighter</span></label></div>
                 </div>
@@ -453,17 +453,17 @@
                             type="radio" value="default" data-theme-control="phoenixNavbarTopShape" /><label
                             class="btn d-inline-block btn-navbar-style fs--1" for="navbarShapeDefault"> <span
                                 class="mb-2 rounded d-block"><img class="img-fluid img-prototype d-dark-none mb-0"
-                                    src="assets/img/generic/top-default.png" alt="" /><img
+                                    src="{{asset('assets/img/generic/top-default.png') }}" alt="" /><img
                                     class="img-fluid img-prototype d-light-none mb-0"
-                                    src="assets/img/generic/top-default-dark.png" alt="" /></span><span
+                                    src="{{asset('assets/img/generic/top-default-dark.png') }}" alt="" /></span><span
                                 class="label-text">Default</span></label></div>
                     <div class="col-6"><input class="btn-check" id="navbarShapeSlim" name="navbar-shape"
                             type="radio" value="slim" data-theme-control="phoenixNavbarTopShape" /><label
                             class="btn d-inline-block btn-navbar-style fs--1" for="navbarShapeSlim"> <span
                                 class="mb-2 rounded d-block"><img class="img-fluid img-prototype d-dark-none mb-0"
-                                    src="assets/img/generic/top-slim.png" alt="" /><img
+                                    src="{{asset('assets/img/generic/top-slim.png') }}" alt="" /><img
                                     class="img-fluid img-prototype d-light-none mb-0"
-                                    src="assets/img/generic/top-slim-dark.png" alt="" /></span><span
+                                    src="{{asset('assets/img/generic/top-slim-dark.png') }}" alt="" /></span><span
                                 class="label-text"> Slim</span></label></div>
                 </div>
             </div>
@@ -474,17 +474,17 @@
                             type="radio" value="default" data-theme-control="phoenixNavbarTopStyle" /><label
                             class="btn d-inline-block btn-navbar-style fs--1" for="navbarTopDefault"> <span
                                 class="mb-2 rounded d-block"><img class="img-fluid img-prototype d-dark-none mb-0"
-                                    src="assets/img/generic/top-default.png" alt="" /><img
+                                    src="{{asset('assets/img/generic/top-default.png') }}" alt="" /><img
                                     class="img-fluid img-prototype d-light-none mb-0"
-                                    src="assets/img/generic/top-style-darker.png" alt="" /></span><span
+                                    src="{{asset('assets/img/generic/top-style-darker.png') }}" alt="" /></span><span
                                 class="label-text">Default</span></label></div>
                     <div class="col-6"><input class="btn-check" id="navbarTopDarker" name="navbar-top-style"
                             type="radio" value="darker" data-theme-control="phoenixNavbarTopStyle" /><label
                             class="btn d-inline-block btn-navbar-style fs--1" for="navbarTopDarker"> <span
                                 class="mb-2 rounded d-block"><img class="img-fluid img-prototype d-dark-none mb-0"
-                                    src="assets/img/generic/navbar-top-style-light.png" alt="" /><img
+                                    src="{{asset('assets/img/generic/navbar-top-style-light.png') }}" alt="" /><img
                                     class="img-fluid img-prototype d-light-none mb-0"
-                                    src="assets/img/generic/top-style-lighter.png" alt="" /></span><span
+                                    src="{{asset('assets/img/generic/top-style-lighter.png') }}" alt="" /></span><span
                                 class="label-text d-dark-none">Darker</span><span
                                 class="label-text d-light-none">Lighter</span></label></div>
                 </div>
