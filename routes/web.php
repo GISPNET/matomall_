@@ -22,7 +22,9 @@ Route::get('/teste', function () {
 });
 
 Route::prefix('seller')->name('seller.')->namespace('App\Http\Controllers\Seller')->group(function () {
-    Route::get('/', 'DashboardController@index')->name('painel');
+    Route::prefix('/dashboard')->name('dashboard.')->group(function () {
+        Route::get('/', 'DashboardController@index')->name('index');
+    });
     Route::prefix('/orders')->name('orders.')->group(function () {
         Route::get('/', 'OrdersController@index')->name('index');
         Route::get('/{id}', 'OrdersController@show')->name('show');

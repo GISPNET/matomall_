@@ -897,10 +897,8 @@ style="display:none;">
                                 <div
                                     class="d-flex align-items-center justify-content-between position-relative">
                                     <div class="d-flex">
-                                        <div class="avatar avatar-m status-online me-3"><img
-                                                class="rounded-circle"
-                                                src="assets/img/team/40x40/30.webp"
-                                                alt="" /></div>
+                                        <div class="avatar avatar-m status-online me-3">                                    <img class="rounded-circle " src="{{ auth()->user()->profile_picture ? asset('storage/'.auth()->user()->profile_picture) : asset('assets/images/users/avatar.png') }}" alt="{{ auth()->user()->name }}" />
+                                        </div>
                                         <div class="flex-1 me-sm-3">
                                             <h4 class="fs--1 text-black">Jessie Samson</h4>
                                             <p class="fs--1 text-1000 mb-2 mb-sm-3 fw-normal"><span

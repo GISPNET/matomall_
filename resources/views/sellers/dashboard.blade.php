@@ -13,7 +13,7 @@
                 <div class="row align-items-center g-4">
                     <div class="col-12 col-md-auto">
                         <div class="d-flex align-items-center"><img
-                                src="assets/img/icons/illustrations/4l.png" alt=""
+                                src="{{asset('assets/img/icons/illustrations/4l.png')}}" alt=""
                                 height="46" width="46" />
                             <div class="ms-3">
                                 <h4 class="mb-0">57 new orders</h4>
@@ -23,7 +23,7 @@
                     </div>
                     <div class="col-12 col-md-auto">
                         <div class="d-flex align-items-center"><img
-                                src="assets/img/icons/illustrations/3l.png" alt=""
+                                src="{{asset('assets/img/icons/illustrations/3l.png')}}" alt=""
                                 height="46" width="46" />
                             <div class="ms-3">
                                 <h4 class="mb-0">5 orders</h4>
@@ -33,7 +33,7 @@
                     </div>
                     <div class="col-12 col-md-auto">
                         <div class="d-flex align-items-center"><img
-                                src="assets/img/icons/illustrations/2l.png" alt=""
+                                src="{{asset('assets/img/icons/illustrations/2l.png') }}" alt=""
                                 height="46" width="46" />
                             <div class="ms-3">
                                 <h4 class="mb-0">15 products</h4>

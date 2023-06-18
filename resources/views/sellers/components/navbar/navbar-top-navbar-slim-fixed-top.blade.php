@@ -53,7 +53,7 @@
                                             <div class="d-flex">
                                                 <div class="avatar avatar-m status-online me-3"><img
                                                         class="rounded-circle"
-                                                        src="assets/img/team/40x40/30.webp"
+                                                        src="{{ auth()->user()->profile_picture ? asset('storage/'.auth()->user()->profile_picture) : asset('assets/images/users/avatar.png') }}" alt="{{ auth()->user()->name }}"
                                                         alt="" /></div>
                                                 <div class="flex-1 me-sm-3">
                                                     <h4 class="fs--1 text-black">Jessie Samson</h4>

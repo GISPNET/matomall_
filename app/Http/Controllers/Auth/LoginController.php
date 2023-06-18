@@ -55,6 +55,9 @@ class LoginController extends Controller
         else if($user->role=="customer"){
             return redirect()->route('customer.dashboard.index');
         }
+        else if($user->role=="seller"){
+            return redirect()->route('seller.dashboard.index');
+        }
         return null;
     }
 }
