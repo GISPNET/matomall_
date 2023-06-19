@@ -75,7 +75,7 @@
                                         @endif
                                     </div>
                                     <p class="text-success fw-semi-bold fs-1 mb-2">Em estoque</p>
-                                    <p class="mb-2 text-800">{{ $product->description }}</p>
+                                    <p class="mb-2 text-800"> {!! $product->body !!}</p>
                                 </div>
                                 <div>
 

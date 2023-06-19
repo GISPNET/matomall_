@@ -35,7 +35,7 @@ class ProductsController extends Controller
     public function store(Request $request)
     {
 
-        $data = $request->only('name','regular_price','sale_price','shipping_type','product_id_type','product_id','files','description');
+        $data = $request->only('name','regular_price','sale_price','shipping_type','product_id_type','product_id','files','description','body');
         $store = auth()->user()->store;
         $product = $store->products()->create($data);
 
