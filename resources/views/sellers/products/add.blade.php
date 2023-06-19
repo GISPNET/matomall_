@@ -593,8 +593,25 @@
                                     </div>
                                 </div>
                             </div>
-                            <h4 class="mb-3">Descrição do Produto</h4>
-                            <textarea name="description" style="height: 100px;"></textarea>
+                            <h4 class="mb-3">Descrição resumida</h4>
+                            <textarea name="description"  id="textarea2"></textarea>
+                            <script>
+                                tinymce.init({
+                                    selector: '#textarea2',
+                                    height: 230, plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage tinycomments tableofcontents footnotes mergetags autocorrect typography inlinecss',
+                                    toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
+                                    menubar: false,
+                                    branding: false,
+                                    tinycomments_mode: 'embedded',
+                                    tinycomments_author: 'Author name',
+                                    language_url: '/js/tinymce/langs/pt_BR.js',
+                                    language: 'pt_BR',
+                                    mergetags_list: [
+                                      { value: 'First.Name', title: 'First Name' },
+                                      { value: 'Email', title: 'Email' },
+                                    ],
+                                });
+                            </script>
                             </div>
                         </div>
                         <div class="col-12 col-xl-4">
@@ -723,8 +740,8 @@
           branding: false,
           tinycomments_mode: 'embedded',
           tinycomments_author: 'Author name',
-          language_url: '/js/tinymce/langs/pt_BR.js', // Caminho para o arquivo de idioma em Português
-          language: 'pt_BR', // Defina o idioma para Português
+          language_url: '/js/tinymce/langs/pt_BR.js',
+          language: 'pt_BR',
           mergetags_list: [
             { value: 'First.Name', title: 'First Name' },
             { value: 'Email', title: 'Email' },
