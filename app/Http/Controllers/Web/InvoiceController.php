@@ -12,7 +12,7 @@ class InvoiceController extends Controller
         $this->middleware('auth');
     }
     public function index($reference){
-        $order=\App\Models\CustomerOrder::where('reference','=',$reference)->first();
+        $order=\App\Models\OrderUser::where('reference','=',$reference)->first();
         return view('web.invoice',compact(['order']))->with('payment-success','Pedido feito com sucesso');
     }
 }

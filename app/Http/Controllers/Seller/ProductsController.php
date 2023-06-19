@@ -40,7 +40,7 @@ class ProductsController extends Controller
 
         $selectedCategories = $request->input('categories', []);
 
-        $product->categories()->sync($selectedCategories);
+       // $product->categories()->sync($selectedCategories);
 
         if ($images) {
             $imageUploaded = [];

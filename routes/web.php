@@ -101,7 +101,3 @@ Route::get('paywithpaypal',[\App\Http\Controllers\PaypalController::class,'payWi
 Route::post('paypal', [\App\Http\Controllers\PaypalController::class, 'postPaymentWithpaypal'])->name('addmoney.paypal');
 Route::get('paypal',[\App\Http\Controllers\PaypalController::class,'getPaymentStatus'])->name('payment.status');
 
-
-Route::get('post',[PostController::class,'exibirConteudo']);
-Route::post('posts/store',[PostController::class,'store'])->name('posts.store');
-
