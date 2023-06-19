@@ -105,7 +105,7 @@
                                             $total = 0;
                                         @endphp
 
-                                        @foreach ($user->customerorder as $order)
+                                        @foreach ($user->orders as $order)
                                             @foreach (json_decode($order->items) as $key => $item)
                                                 @php
                                                     $total += $item->total;
@@ -117,7 +117,7 @@
                                         <h4 class="fs-1 text-1000 mb-0">{{ \App\Helpers\ptBRHelper::real($total) }}</h4>
                                     </div>
                                     <div class="text-end">
-                                        @if ($lastOrder = auth()->user()->customerorder()->latest()->first())
+                                        @if ($lastOrder = auth()->user()->orders()->latest()->first())
                                             <h6 class="mb-2 text-800">Último Pedido</h6>
                                             <h4 class="fs-1 text-1000 mb-0">{{ $lastOrder->created_at->diffForHumans() }}
                                             </h4>
@@ -126,7 +126,7 @@
                                     </div>
                                     <div class="text-end">
                                         <h6 class="mb-2 text-800">Número de Pedidos</h6>
-                                        <h4 class="fs-1 text-1000 mb-0">{{ count(auth()->user()->customerorder()->get()) }}
+                                        <h4 class="fs-1 text-1000 mb-0">{{ count(auth()->user()->orders()->get()) }}
                                         </h4>
                                     </div>
                                 </div>
@@ -219,7 +219,7 @@
                                     </svg>
                                     <!-- <span class="fas fa-shopping-cart me-2"></span> Font Awesome fontawesome.com -->Pedidos
                                     <span class="text-700 fw-normal">
-                                        ({{ count(auth()->user()->customerorder()->get()) }})</span></a></li>
+                                        ({{ count(auth()->user()->orders()->get()) }})</span></a></li>
                             <li class="nav-item me-3" role="presentation"><a class="nav-link text-nowrap"
                                     id="wishlist-tab" data-bs-toggle="tab" href="#tab-wishlist" role="tab"
                                     aria-controls="tab-orders" aria-selected="false" tabindex="-1"><svg

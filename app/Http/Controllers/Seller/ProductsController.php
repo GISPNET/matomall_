@@ -34,25 +34,8 @@ class ProductsController extends Controller
 
     public function store(Request $request)
     {
-
-        $data = $request->only('name','regular_price','sale_price','shipping_type','product_id_type','product_id','files','description','body');
-        $store = auth()->user()->store;
-        $product = $store->products()->create($data);
-
-        $selectedCategories = $request->input('categories', []);
-
-        $product->categories()->sync($selectedCategories);
-
-        if ($images) {
-            $imageUploaded = [];
-            foreach ($images as $image) {
-                $path = $image->store('products', 'public');
-                $imageUploaded[] = ['image' => $path];
-            }
-            $product->photos()->createMany($imageUploaded);
-        }
-
-        return back()->with('message', 'O produto foi salvo com sucesso');
+        dd($request->all());
+        // Restante do código...
     }
 
 

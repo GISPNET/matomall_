@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Store;
 
-class CustomerOrder extends Model
+class UserOrder extends Model
 {
     use HasFactory;
 
