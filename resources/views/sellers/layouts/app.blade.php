@@ -582,7 +582,6 @@
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbaQGvhe7Af-uOMJz68NWHnO34UjjE7Lo&callback=revenueMapInit"
         async></script>
     <script src="{{ asset('assets/js/ecommerce-dashboard.js') }}"></script>
-    <script src="{{asset('vendors/tinymce/tinymce.min.js') }}"></script>
     <script src="{{asset('vendors/choices/choices.min.js') }}"></script>
 </body>
 

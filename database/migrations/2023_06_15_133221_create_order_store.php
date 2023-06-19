@@ -16,7 +16,8 @@ return new class extends Migration
         Schema::create('order_store', function (Blueprint $table) {
             $table->id();
             $table->foreignId('store_id')->constrained()->onDelete('cascade');
-            $table->foreignId('customer_order_id')->constrained()->onDelete('cascade');
+            $table->unsignedBigInteger('order_user_id');
+            $table->foreign('order_user_id')->references('id')->on('order_user');
             $table->timestamps();
         });
     }
