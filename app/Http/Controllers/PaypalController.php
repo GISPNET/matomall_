@@ -190,6 +190,7 @@ class PaypalController extends Controller
                             'parent_payment' => $sale->getParentPayment(),
                             'payment_mode' => $sale->getPaymentMode(),
                             'items' => json_encode($items),
+                            'order_status'=>1,
                         ];
 
                         // Salvar as informações no banco de dados ou fazer o que for necessário

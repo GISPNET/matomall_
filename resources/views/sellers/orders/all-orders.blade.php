@@ -147,7 +147,7 @@
                                                 </div>
                                             </td>
                                             <td class="order align-middle white-space-nowrap py-0"><a class="fw-semi-bold"
-                                                    href="{{ route('admin.orders.show',$order->id) }}">#00{{ $key + 1 }}</a></td>
+                                                    href="{{ route('seller.orders.show',$order->id) }}">#0{{ $key + 1 }}</a></td>
                                             <td class="total align-middle text-end fw-semi-bold text-1000">
                                                 {{ \App\Helpers\ptBRHelper::real($total) }}</td>
                                             <td class="customer align-middle white-space-nowrap ps-8"><a
