@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\PostController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -39,7 +41,7 @@ Route::prefix('seller')->name('seller.')->namespace('App\Http\Controllers\Seller
     });
     Route::prefix('/products')->name('product.')->group(function () {
         Route::get('/', 'ProductsController@index')->name('index');
-        Route::get('/create', 'ProductsController@create')->name('create');
+        Route::get('/add', 'ProductsController@create')->name('add');
         Route::post('/', 'ProductsController@store')->name('store');
         Route::get('/{id}', 'ProductsController@edit')->name('edit');
         Route::delete('/{id}', 'ProductsController@destroy')->name('destroy');
@@ -99,4 +101,7 @@ Route::get('paywithpaypal',[\App\Http\Controllers\PaypalController::class,'payWi
 Route::post('paypal', [\App\Http\Controllers\PaypalController::class, 'postPaymentWithpaypal'])->name('addmoney.paypal');
 Route::get('paypal',[\App\Http\Controllers\PaypalController::class,'getPaymentStatus'])->name('payment.status');
 
+
+Route::get('post',[PostController::class,'exibirConteudo']);
+Route::post('posts/store',[PostController::class,'store'])->name('posts.store');
 

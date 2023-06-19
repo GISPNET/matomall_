@@ -27,6 +27,11 @@
     <link href="{{ asset('assets/css/theme.min.css') }}" type="text/css" rel="stylesheet" id="style-default">
     <link href="{{ asset('assets/css/user-rtl.min.css') }}" type="text/css" rel="stylesheet" id="user-style-rtl">
     <link href="{{ asset('assets/css/user.min.css') }}" type="text/css" rel="stylesheet" id="user-style-default">
+    <link href="{{ asset('vendors/dropzone/dropzone.min.css') }}" rel="stylesheet">
+    <link href="{{asset('vendors/choices/choices.min.css') }}" rel="stylesheet">
+    <link href="{{asset('vendors/flatpickr/flatpickr.min.css') }}" rel="stylesheet">
+
+
     <script>
         var phoenixIsRTL = window.config.config.phoenixIsRTL;
         if (phoenixIsRTL) {
@@ -571,11 +576,14 @@
     <script src="{{ asset('vendors/dayjs/dayjs.min.js') }}"></script>
     <script src="{{ asset('assets/js/phoenix.js') }}"></script>
     <script src="{{ asset('vendors/echarts/echarts.min.js') }}"></script>
+    <script src="{{ asset('vendors/dropzone/dropzone.min.js') }}"></script>
     <script src="https://unpkg.com/@googlemaps/markerclusterer/dist/index.min.js"></script>
     <script
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbaQGvhe7Af-uOMJz68NWHnO34UjjE7Lo&callback=revenueMapInit"
         async></script>
     <script src="{{ asset('assets/js/ecommerce-dashboard.js') }}"></script>
+    <script src="{{asset('vendors/tinymce/tinymce.min.js') }}"></script>
+    <script src="{{asset('vendors/choices/choices.min.js') }}"></script>
 </body>
 
 </html>

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Seller;
 
 use App\Models\Product;
 use App\Http\Controllers\Controller;
@@ -29,13 +29,13 @@ class ProductsController extends Controller
     {
         $product = new Product;
         $categories = \App\Models\Category::all();
-        return view('admin.products.create', compact('product', 'categories'));
+        return view('sellers.products.add', compact('product', 'categories'));
     }
 
-    public function store(ProductStoreRequest $request)
+    public function store(Request $request)
     {
-        $images = $request->file('photos');
-        $data = $request->all();
+
+        $data = $request->only('name','regular_price','sale_price','shipping_type','product_id_type','product_id','files','description');
         $store = auth()->user()->store;
         $product = $store->products()->create($data);
 
