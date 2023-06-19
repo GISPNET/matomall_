@@ -36,7 +36,7 @@
         rel="stylesheet">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     <link rel="stylesheet" href="{{ asset('css/toastr.min.css') }}">
-    <script src="https://cdn.tiny.cloud/1/trfv2fus0c841r77ur20nkjtxl1j9aqfmc23t26kf3axvnwu/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="{{ asset('js/tinymce/tinymce.min.js') }}"></script>
 
     <script>
         var phoenixIsRTL = window.config.config.phoenixIsRTL;
@@ -79,7 +79,6 @@
     <script src="{{ asset('vendors/rater-js/index.j') }}s"></script>
     <script src="{{ asset('vendors/glightbox/glightbox.min.js') }}"></script>
     <script src="{{ asset('assets/js/phoenix.js') }}"></script>
-    <script src="{{asset('js/toastr.min.js') }}"></script>
 
     @yield('js')
 </body>

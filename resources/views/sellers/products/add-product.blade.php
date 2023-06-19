@@ -16,8 +16,7 @@
     <script src="../../../vendors/imagesloaded/imagesloaded.pkgd.min.js"></script>
     <script src="../../../vendors/simplebar/simplebar.min.js"></script>
     <script src="../../../assets/js/config.js"></script>
-    <script src="https://cdn.tiny.cloud/1/trfv2fus0c841r77ur20nkjtxl1j9aqfmc23t26kf3axvnwu/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
-    <link href="../../../vendors/dropzone/dropzone.min.css" rel="stylesheet">
+    <script src="{{ asset('js/tinymce/tinymce.min.js') }}"></script>    <link href="../../../vendors/dropzone/dropzone.min.css" rel="stylesheet">
     <link href="../../../vendors/choices/choices.min.css" rel="stylesheet">
     <link href="../../../vendors/flatpickr/flatpickr.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">

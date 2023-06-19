@@ -12,8 +12,7 @@
         "laravel/tinker": "^2.7",
         "laravel/ui": "^4.2",
         "paypal/rest-api-sdk-php": "*",
-        "spatie/laravel-sluggable": "^3.4",
-        "tinymce/tinymce": "^6.5"
+        "spatie/laravel-sluggable": "^3.4"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
