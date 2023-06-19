@@ -589,8 +589,12 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        
                                     </div>
                                 </div>
+                            </div>
+                            <h4 class="mb-3">Descrição do Produto</h4>
+                            <textarea name="description" style="height: 100px;"></textarea>
                             </div>
                         </div>
                         <div class="col-12 col-xl-4">
