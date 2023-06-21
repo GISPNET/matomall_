@@ -72,7 +72,21 @@
                                 </div>
                                 <div class="col-12 col-lg-4">
                                     <h6 class="mb-2"> Modo de Pagamento :</h6>
-                                    <p class="fs--1 text-800 fw-semi-bold mb-0">{{ $order->payment_mode }}</p>
+                                    <p class="fs--1 text-800 fw-semi-bold mb-0">
+                                        @if ($order->payment_mode == 'INSTANT_TRANSFER')
+                                            Transferência instantânea
+                                        @elseif($order->payment_mode == 'CREDIT_CARD')
+                                            Cartão de crédito/débito
+                                        @elseif($order->payment_mode == 'BALANCE')
+                                            Saldo disponível
+                                        @elseif($order->payment_mode == 'INSTALLMENT')
+                                            Pagamento parcelado
+                                        @elseif($order->payment_mode == 'ECHECK')
+                                            Cheque eletrônico
+                                        @else
+                                            Modo de pagamento desconhecido
+                                        @endif
+                                    </p>
                                 </div>
                                 <div class="col-12 col-lg-4">
                                     <h6 class="mb-2"> Status do Cumprimento :</h6>
@@ -194,7 +208,7 @@
                             </path>
                         </svg>
                         <!-- <span class="fa-solid fa-bag-shopping me-2"></span>
-                                     Font Awesome fontawesome.com -->Procurar mais itens
+                                         Font Awesome fontawesome.com -->Procurar mais itens
                     </a>
 
                     <div><button class="btn btn-phoenix-secondary me-2">
