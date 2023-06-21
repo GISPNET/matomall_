@@ -19,7 +19,7 @@ class OrdersController extends Controller
     }
     public function index()
     {
-       $orders =Auth::user()->store->orders()->paginate(10);
+       $orders =Auth::user()->store->orders()->latest()->paginate(10);
        return view('sellers.orders.all-orders', compact(['orders']));
     }
     public function show($id)
