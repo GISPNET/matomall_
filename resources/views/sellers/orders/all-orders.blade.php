@@ -125,6 +125,8 @@
                                         style="width:40%; min-width: 300px;">CLIENTE</th>
                                     <th class="sort align-middle pe-3" scope="col" data-sort="payment_status"
                                         style="width:10%;">STATUS DO PAGAMENTO</th>
+                                    <th class="sort align-middle pe-3" scope="col" data-sort="payment_status"
+                                        style="width:10%;">STATUS DO CUMPRIMENTO</th>
                                     <th class="sort align-middle text-end pe-0" scope="col" data-sort="date">DATA</th>
                                 </tr>
                             </thead>
@@ -147,7 +149,8 @@
                                                 </div>
                                             </td>
                                             <td class="order align-middle white-space-nowrap py-0"><a class="fw-semi-bold"
-                                                    href="{{ route('seller.orders.show',$order->id) }}">#0{{ $key + 1 }}</a></td>
+                                                    href="{{ route('seller.orders.show', $order->id) }}">#0{{ $key + 1 }}</a>
+                                            </td>
                                             <td class="total align-middle text-end fw-semi-bold text-1000">
                                                 {{ \App\Helpers\ptBRHelper::real($total) }}</td>
                                             <td class="customer align-middle white-space-nowrap ps-8"><a
@@ -156,8 +159,42 @@
                                                             src="{{ $order->user->profile_picture ? asset('storage/' . $order->user->profile_picture) : asset('assets/images/users/avatar.png') }}"
                                                             alt="{{ $order->user->name }}"></div>
                                                     <h6 class="mb-0 ms-3 text-900">{{ $order->user->name }}</h6>
-                                                </a></td>
-                                            <td @if ($order->state == 'completed') class="status align-middle white-space-nowrap text-start fw-bold text-700 py-2">
+                                                </a>
+                                            </td>
+                                            @if ($order->order_status == 1)
+                                                <td
+                                                    class="payment_status align-middle white-space-nowrap text-start fw-bold text-700">
+                                                    <span class="badge badge-phoenix fs--2 badge-phoenix-warning"><span
+                                                            class="badge-label">Processando</span><svg
+                                                            xmlns="http://www.w3.org/2000/svg" width="16px"
+                                                            height="16px" viewBox="0 0 24 24" fill="none"
+                                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                            stroke-linejoin="round" class="feather feather-clock ms-1"
+                                                            style="height:12.8px;width:12.8px;">
+                                                            <circle cx="12" cy="12" r="10">
+                                                            </circle>
+                                                            <polyline points="12 6 12 12 16 14"></polyline>
+                                                        </svg></span>
+                                                </td>
+                                            @elseif($order->order_status == 2)
+                                                <td
+                                                    class="payment_status align-middle white-space-nowrap text-start fw-bold text-700">
+                                                    <span class="badge badge-phoenix fs--2 badge-phoenix-secondary"><span
+                                                            class="badge-label">Cancelado</span><svg
+                                                            xmlns="http://www.w3.org/2000/svg" width="16px"
+                                                            height="16px" viewBox="0 0 24 24" fill="none"
+                                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                            stroke-linejoin="round" class="feather feather-x ms-1"
+                                                            style="height:12.8px;width:12.8px;">
+                                                            <line x1="18" y1="6" x2="6"
+                                                                y2="18"></line>
+                                                            <line x1="6" y1="6" x2="18"
+                                                                y2="18"></line>
+                                                        </svg></span>
+                                                </td>
+                                            @elseif($order->order_status == 3)
+                                                <td
+                                                    class="fulfilment_status align-middle white-space-nowrap text-start fw-bold text-700">
                                                     <span class="badge badge-phoenix fs--2 badge-phoenix-success"><span
                                                             class="badge-label">Concluído</span><svg
                                                             xmlns="http://www.w3.org/2000/svg" width="16px"
@@ -166,12 +203,41 @@
                                                             stroke-linejoin="round" class="feather feather-check ms-1"
                                                             style="height:12.8px;width:12.8px;">
                                                             <polyline points="20 6 9 17 4 12"></polyline>
-                                                        </svg></span> @endif
+                                                        </svg></span>
+                                                </td>
+                                            @else
+                                                <td
+                                                    class="payment_status align-middle white-space-nowrap text-start fw-bold text-700">
+                                                    <span class="badge badge-phoenix fs--2 badge-phoenix-secondary"><span
+                                                            class="badge-label">Desconhecido</span><svg
+                                                            xmlns="http://www.w3.org/2000/svg" width="16px"
+                                                            height="16px" viewBox="0 0 24 24" fill="none"
+                                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                            stroke-linejoin="round" class="feather feather-x ms-1"
+                                                            style="height:12.8px;width:12.8px;">
+                                                            <line x1="18" y1="6" x2="6"
+                                                                y2="18"></line>
+                                                            <line x1="6" y1="6" x2="18"
+                                                                y2="18"></line>
+                                                        </svg></span>
+                                                </td>
+                                            @endif
+                                            <td @if ($order->state == 'completed') class="status align-middle white-space-nowrap text-start fw-bold text-700 py-2">
+                                                <span class="badge badge-phoenix fs--2 badge-phoenix-success"><span
+                                                        class="badge-label">Concluído</span><svg
+                                                        xmlns="http://www.w3.org/2000/svg" width="16px"
+                                                        height="16px" viewBox="0 0 24 24" fill="none"
+                                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                        stroke-linejoin="round" class="feather feather-check ms-1"
+                                                        style="height:12.8px;width:12.8px;">
+                                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                                    </svg></span> @endif
                                                 @if ($order->state == 'created') <td class="status align-middle white-space-nowrap text-start fw-bold text-700 py-2"><span class="badge badge-phoenix fs--2 badge-phoenix-info"><span class="badge-label">Criado</span><svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-info ms-1" style="height:12.8px;width:12.8px;"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg></span></td> @endif
                                                 @if ($order->state == 'failed') <td class="status align-middle white-space-nowrap text-start fw-bold text-700 py-2"><span class="badge badge-phoenix fs--2 badge-phoenix-danger"><span class="badge-label">Falhou</span><svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check ms-1" style="height:12.8px;width:12.8px;"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td> @endif
                                                 @if ($order->state != 'failed' && $order->state != 'created' && $order->state != 'completed') <td class="status align-middle white-space-nowrap text-start fw-bold text-700 py-2"><span class="badge badge-phoenix fs--2 badge-phoenix-secondary"><span class="badge-label">{{ $order->state }}</span><svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x ms-1" style="height:12.8px;width:12.8px;"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></span></td> @endif
                                                 </td>
-                                            <td class="date align-middle white-space-nowrap text-700 fs--1 ps-4 text-end">{{ $order->created_at->format('d/m/Y H:i') }}</td>
+                                            <td class="date align-middle white-space-nowrap text-700 fs--1 ps-4 text-end">
+                                                {{ $order->created_at->format('d/m/Y H:i') }}</td>
                                         </tr>
                                     @endforeach
                                 @endif
