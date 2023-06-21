@@ -212,7 +212,7 @@
                                     aria-controls="tab-orders" aria-selected="true"><svg
                                         class="svg-inline--fa fa-cart-shopping me-2" aria-hidden="true" focusable="false"
                                         data-prefix="fas" data-icon="cart-shopping" role="img"
-                                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg="">
+                                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg="">stat
                                         <path fill="currentColor"
                                             d="M96 0C107.5 0 117.4 8.19 119.6 19.51L121.1 32H541.8C562.1 32 578.3 52.25 572.6 72.66L518.6 264.7C514.7 278.5 502.1 288 487.8 288H170.7L179.9 336H488C501.3 336 512 346.7 512 360C512 373.3 501.3 384 488 384H159.1C148.5 384 138.6 375.8 136.4 364.5L76.14 48H24C10.75 48 0 37.25 0 24C0 10.75 10.75 0 24 0H96zM128 464C128 437.5 149.5 416 176 416C202.5 416 224 437.5 224 464C224 490.5 202.5 512 176 512C149.5 512 128 490.5 128 464zM512 464C512 490.5 490.5 512 464 512C437.5 512 416 490.5 416 464C416 437.5 437.5 416 464 416C490.5 416 512 437.5 512 464z">
                                         </path>
@@ -259,8 +259,10 @@
                                                 <th class="sort white-space-nowrap align-middle pe-3 ps-0" scope="col"
                                                     data-sort="order" style="width:15%; min-width:140px" colspan="3">
                                                     PEDIDO</th>
-                                                <th class="sort align-middle pe-3" scope="col" data-sort="status"
-                                                    style="width:15%; min-width:180px">STATUS</th>
+                                                    <th class="sort align-middle pe-3" scope="col" data-sort="payment_status"
+                                                    style="width:10%;">STATUS DO PAGAMENTO</th>
+                                                <th class="sort align-middle pe-3" scope="col" data-sort="payment_status"
+                                                    style="width:10%;">STATUS DO CUMPRIMENTO</th>
                                                 <th class="sort align-middle pe-0 text-end" scope="col"
                                                     data-sort="date" style="width:15%; min-width:160px">DATA</th>
                                                 <th class="sort align-middle text-end" scope="col" data-sort="total"
@@ -298,6 +300,67 @@
                                                         @if ($order->state == 'failed') <td class="status align-middle white-space-nowrap text-start fw-bold text-700 py-2"><span class="badge badge-phoenix fs--2 badge-phoenix-danger"><span class="badge-label">Falhou</span><svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check ms-1" style="height:12.8px;width:12.8px;"><polyline points="20 6 9 17 4 12"></polyline></svg></span></td> @endif
                                                         @if ($order->state != 'failed' && $order->state != 'created' && $order->state != 'completed') <td class="status align-middle white-space-nowrap text-start fw-bold text-700 py-2"><span class="badge badge-phoenix fs--2 badge-phoenix-secondary"><span class="badge-label">{{ $order->state }}</span><svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x ms-1" style="height:12.8px;width:12.8px;"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></span></td> @endif
                                                         </td>
+                                                        @if ($order->order_status == 1)
+                                                        <td
+                                                            class="payment_status align-middle white-space-nowrap text-start fw-bold text-700">
+                                                            <span class="badge badge-phoenix fs--2 badge-phoenix-warning"><span
+                                                                    class="badge-label">Processando</span><svg
+                                                                    xmlns="http://www.w3.org/2000/svg" width="16px" height="16px"
+                                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                                    class="feather feather-clock ms-1"
+                                                                    style="height:12.8px;width:12.8px;">
+                                                                    <circle cx="12" cy="12" r="10">
+                                                                    </circle>
+                                                                    <polyline points="12 6 12 12 16 14"></polyline>
+                                                                </svg></span>
+                                                        </td>
+                                                    @elseif($order->order_status == 2)
+                                                        <td
+                                                            class="payment_status align-middle white-space-nowrap text-start fw-bold text-700">
+                                                            <span class="badge badge-phoenix fs--2 badge-phoenix-secondary"><span
+                                                                    class="badge-label">Cancelado</span><svg
+                                                                    xmlns="http://www.w3.org/2000/svg" width="16px" height="16px"
+                                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                                    class="feather feather-x ms-1"
+                                                                    style="height:12.8px;width:12.8px;">
+                                                                    <line x1="18" y1="6" x2="6"
+                                                                        y2="18"></line>
+                                                                    <line x1="6" y1="6" x2="18"
+                                                                        y2="18"></line>
+                                                                </svg></span>
+                                                        </td>
+                                                    @elseif($order->order_status == 3)
+                                                        <td
+                                                            class="fulfilment_status align-middle white-space-nowrap text-start fw-bold text-700">
+                                                            <span class="badge badge-phoenix fs--2 badge-phoenix-success"><span
+                                                                    class="badge-label">Concluído</span><svg
+                                                                    xmlns="http://www.w3.org/2000/svg" width="16px" height="16px"
+                                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                                    class="feather feather-check ms-1"
+                                                                    style="height:12.8px;width:12.8px;">
+                                                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                                                </svg></span>
+                                                        </td>
+                                                    @else
+                                                        <td
+                                                            class="payment_status align-middle white-space-nowrap text-start fw-bold text-700">
+                                                            <span class="badge badge-phoenix fs--2 badge-phoenix-secondary"><span
+                                                                    class="badge-label">Desconhecido</span><svg
+                                                                    xmlns="http://www.w3.org/2000/svg" width="16px" height="16px"
+                                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                                    class="feather feather-x ms-1"
+                                                                    style="height:12.8px;width:12.8px;">
+                                                                    <line x1="18" y1="6" x2="6"
+                                                                        y2="18"></line>
+                                                                    <line x1="6" y1="6" x2="18"
+                                                                        y2="18"></line>
+                                                                </svg></span>
+                                                        </td>
+                                                @endif
                                                     <td class="total align-middle text-700 text-end py-2">
                                                         {{ $order->created_at->format('d/m/Y H:i') }}</td>
 
