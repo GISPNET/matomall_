@@ -184,13 +184,13 @@ class PaypalController extends Controller
                     if (!empty($sale)) {
                         // Salvar as informações no array $customerOrder
                         $customerOrder = [
+                            'order_status'=>1,
                             'reference' => $sale->getId(),
                             'state' => $sale->getState(),
                             'exchange_rate' => $sale->getExchangeRate(),
                             'parent_payment' => $sale->getParentPayment(),
                             'payment_mode' => $sale->getPaymentMode(),
                             'items' => json_encode($items),
-                            'order_status'=>1,
                         ];
 
                         // Salvar as informações no banco de dados ou fazer o que for necessário

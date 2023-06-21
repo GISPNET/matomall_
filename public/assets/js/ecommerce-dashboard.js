@@ -15,7 +15,152 @@
 
   const{echarts:echarts$2}=window,topCouponsChartInit=()=>{const{getData:t,getColor:e}=window.phoenix.utils,o=document.querySelector(".echart-top-coupons");if(o){const r=t(o,"options"),a=echarts$2.init(o);echartSetOption(a,r,(()=>({color:[e("primary"),e("primary-200"),e("info-500")],tooltip:{trigger:"item",padding:[7,10],backgroundColor:e("gray-100"),borderColor:e("gray-300"),textStyle:{color:e("dark")},borderWidth:1,transitionDuration:0,formatter:t=>`<strong>${t.data.name}:</strong> ${t.percent}%`},legend:{show:!1},series:[{name:"72%",type:"pie",radius:["100%","87%"],avoidLabelOverlap:!1,emphasis:{scale:!1,itemStyle:{color:"inherit"}},itemStyle:{borderWidth:2,borderColor:e("white")},label:{show:!0,position:"center",formatter:"{a}",fontSize:23,color:e("dark")},data:[{value:72e5,name:"Percentage discount"},{value:18e5,name:"Fixed card discount"},{value:1e6,name:"Fixed product discount"}]}],grid:{containLabel:!0}})));}};
 
-  const totalSalesChartInit=()=>{const{getColor:t,getData:o,getDates:a}=window.phoenix.utils,e=document.querySelector(".echart-total-sales-chart"),i=a(new Date("5/1/2022"),new Date("5/30/2022"),864e5),n=[100,200,300,300,300,250,200,200,200,200,200,500,500,500,600,700,800,900,1e3,1100,850,600,600,600,400,200,200,300,300,300],r=[200,200,100,50,50,50,50,50,50,50,50,50,50,50,200,400,600,600,600,800,1e3,700,400,450,500,600,700,650,600,550],s=t=>{const o=window.dayjs(t[0].axisValue),a=window.dayjs(t[0].axisValue).subtract(1,"month"),e=t.map(((t,e)=>({value:t.value,date:e>0?a:o,color:t.color})));let i="";return e.forEach(((t,o)=>{i+=`<h6 class="fs--1 text-700 ${o>0&&"mb-0"}"><span class="fas fa-circle me-2" style="color:${t.color}"></span>\n      ${t.date.format("MMM DD")} : ${t.value}\n    </h6>`;})),`<div class='ms-1'>\n              ${i}\n            </div>`};if(e){const a=o(e,"echarts"),l=window.echarts.init(e);echartSetOption(l,a,(()=>({color:[t("primary"),t("info")],tooltip:{trigger:"axis",padding:10,backgroundColor:t("gray-100"),borderColor:t("gray-300"),textStyle:{color:t("dark")},borderWidth:1,transitionDuration:0,axisPointer:{type:"none"},formatter:s},xAxis:[{type:"category",data:i,axisLabel:{formatter:t=>window.dayjs(t).format("DD MMM"),interval:13,showMinLabel:!0,showMaxLabel:!1,color:t("gray-800"),align:"left",fontFamily:"Nunito Sans",fontWeight:600,fontSize:12.8},axisLine:{show:!0,lineStyle:{color:t("gray-200")}},axisTick:{show:!1},splitLine:{show:!0,interval:0,lineStyle:{color:"dark"===window.config.config.phoenixTheme?t("gray-100"):t("gray-200")}},boundaryGap:!1},{type:"category",position:"bottom",data:i,axisLabel:{formatter:t=>window.dayjs(t).format("DD MMM"),interval:130,showMaxLabel:!0,showMinLabel:!1,color:t("gray-800"),align:"right",fontFamily:"Nunito Sans",fontWeight:600,fontSize:12.8},axisLine:{show:!1},axisTick:{show:!1},splitLine:{show:!1},boundaryGap:!1}],yAxis:{position:"right",axisPointer:{type:"none"},axisTick:"none",splitLine:{show:!1},axisLine:{show:!1},axisLabel:{show:!1}},series:[{name:"d",type:"line",data:n,showSymbol:!1,symbol:"circle"},{name:"e",type:"line",data:r,lineStyle:{type:"dashed",width:1,color:t("info")},showSymbol:!1,symbol:"circle"}],grid:{right:2,left:5,bottom:"20px",top:"2%",containLabel:!1},animation:!1})));}};
+  const totalSalesChartInit = () => {
+    const { getColor, getDates } = window.phoenix.utils;
+    const e = document.querySelector(".echart-total-sales-chart");
+    const i = getDates(new Date("5/1/2022"), new Date("5/30/2022"), 864e5);
+
+    // Substitua o código abaixo com a lógica para obter os dados de vendas
+
+    const getSalesData = () => {
+      // Aqui você pode adicionar a lógica para obter os dados de vendas usando JavaScript ou AJAX
+      // Por exemplo, você pode fazer uma solicitação para a rota /api/sales-data no seu aplicativo
+      // e receber os dados de vendas como resposta
+
+      // Exemplo de dados de vendas
+      const salesData = [
+        { total_sales: 100, month: 1 },
+        { total_sales: 200, month: 2 },
+        { total_sales: 300, month: 3 },
+        // ... adicione os demais dados de vendas aqui
+      ];
+
+      return salesData;
+    };
+
+    const salesData = getSalesData();
+
+    // Montar os arrays de valores para o gráfico
+    const n = salesData.map((data) => data.total_sales);
+    const r = salesData.map((data) => data.total_sales);
+
+    const s = (t) => {
+      const o = window.dayjs(t[0].axisValue);
+      const a = window.dayjs(t[0].axisValue).subtract(1, "month");
+      const e = t.map((item, index) => ({
+        value: item.value,
+        date: index > 0 ? a : o,
+        color: item.color,
+      }));
+      let i = "";
+      e.forEach((item, index) => {
+        i += `<h6 class="fs--1 text-700 ${index > 0 && "mb-0"}">
+          <span class="fas fa-circle me-2" style="color:${item.color}"></span>
+          ${item.date.format("MMM DD")} : ${item.value}
+        </h6>`;
+      });
+      return `<div class='ms-1'>
+        ${i}
+      </div>`;
+    };
+
+    if (e) {
+      const a = o(e, "echarts");
+      const l = window.echarts.init(e);
+      echartSetOption(
+        l,
+        a,
+        () => ({
+          color: [getColor("primary"), getColor("info")],
+          tooltip: {
+            trigger: "axis",
+            padding: 10,
+            backgroundColor: getColor("gray-100"),
+            borderColor: getColor("gray-300"),
+            textStyle: { color: getColor("dark") },
+            borderWidth: 1,
+            transitionDuration: 0,
+            axisPointer: { type: "none" },
+            formatter: s,
+          },
+          xAxis: [
+            {
+              type: "category",
+              data: i,
+              axisLabel: {
+                formatter: (t) => window.dayjs(t).format("DD MMM"),
+                interval: 13,
+                showMinLabel: true,
+                showMaxLabel: false,
+                color: getColor("gray-800"),
+                align: "left",
+                fontFamily: "Nunito Sans",
+                fontWeight: 600,
+                fontSize: 12.8,
+              },
+              axisLine: { show: true, lineStyle: { color: getColor("gray-200") } },
+              axisTick: { show: false },
+              splitLine: {
+                show: true,
+                interval: 0,
+                lineStyle: {
+                  color:
+                    window.config.config.phoenixTheme === "dark"
+                      ? getColor("gray-100")
+                      : getColor("gray-200"),
+                },
+              },
+              boundaryGap: false,
+            },
+            {
+              type: "category",
+              position: "bottom",
+              data: i,
+              axisLabel: {
+                formatter: (t) => window.dayjs(t).format("DD MMM"),
+                interval: 130,
+                showMaxLabel: true,
+                showMinLabel: false,
+                color: getColor("gray-800"),
+                align: "right",
+                fontFamily: "Nunito Sans",
+                fontWeight: 600,
+                fontSize: 12.8,
+              },
+              axisLine: { show: false },
+              axisTick: { show: false },
+              splitLine: { show: false },
+              boundaryGap: false,
+            },
+          ],
+          yAxis: {
+            position: "right",
+            axisPointer: { type: "none" },
+            axisTick: "none",
+            splitLine: { show: false },
+            axisLine: { show: false },
+            axisLabel: { show: false },
+          },
+          series: [
+            { name: "d", type: "line", data: n, showSymbol: false, symbol: "circle" },
+            {
+              name: "e",
+              type: "line",
+              data: r,
+              lineStyle: { type: "dashed", width: 1, color: getColor("info") },
+              showSymbol: false,
+              symbol: "circle",
+            },
+          ],
+          grid: { right: 2, left: 5, bottom: "20px", top: "2%", containLabel: false },
+          animation: false,
+        })
+      );
+    }
+  };
+
+  // Chame a função para inicializar o gráfico de vendas totais
+  totalSalesChartInit();
 
   const{echarts:echarts$1}=window,payingCustomerChartInit=()=>{const{getData:t,getColor:e}=window.phoenix.utils,o=document.querySelector(".echarts-paying-customer-chart");if(o){const r=t(o,"options"),i=echarts$1.init(o);echartSetOption(i,r,(()=>({tooltip:{trigger:"item",padding:[7,10],backgroundColor:e("gray-100"),borderColor:e("gray-300"),textStyle:{color:e("dark")},borderWidth:1,transitionDuration:0,formatter:t=>`<strong>${t.seriesName}:</strong> ${t.value}%`},legend:{show:!1},series:[{type:"gauge",center:["50%","60%"],name:"Paying customer",startAngle:180,endAngle:0,min:0,max:100,splitNumber:12,itemStyle:{color:e("primary")},progress:{show:!0,roundCap:!0,width:12,itemStyle:{shadowBlur:0,shadowColor:"#0000"}},pointer:{show:!1},axisLine:{roundCap:!0,lineStyle:{width:12,color:[[1,e("primary-100")]]}},axisTick:{show:!1},splitLine:{show:!1},axisLabel:{show:!1},title:{show:!1},detail:{show:!1},data:[{value:30}]}]})));}};
 
