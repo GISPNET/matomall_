@@ -233,19 +233,20 @@
                                     <h3 class="card-title mb-4">Status do Pedido</h3>
                                     <h6 class="mb-2">Status do Pagamento</h6>
                                     <select class="form-select mb-4" aria-label="tipo de entrega">
-                                        <option value="cod">Processando</option>
-                                        <option value="card">Cancelado</option>
-                                        <option value="paypal">Concluído</option>
+                                        <option value="cod">teste</option>
+                                        <option value="cod" @if( $order->order_status==1) selected @else @endif >Processando</option>
+                                        <option value="card" @if( $order->order_status==2) selected @else @endif>Cancelado</option>
+                                        <option value="paypal" @if( $order->order_status==3) selected @else @endif>Concluído</option>
                                     </select>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                
-                
-                
-                
+
+
+
+
             </div>
         </div>
         @component('sellers.components.footer')
