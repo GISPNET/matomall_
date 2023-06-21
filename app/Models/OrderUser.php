@@ -20,6 +20,7 @@ class OrderUser extends Model
         'payment_mode',
         'items',
         'store_id',
+        'order_status',
     ];
 
     public function user()
