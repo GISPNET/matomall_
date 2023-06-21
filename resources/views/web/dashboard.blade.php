@@ -4,10 +4,8 @@
     <main class="main" id="top">
         @component('web.components.top')
         @endcomponent
-
         @component('web.components.nav')
         @endcomponent
-
         <section class="pt-5 pb-9">
             <div class="container-small">
                 <div class="row align-items-center justify-content-between g-3 mb-4">

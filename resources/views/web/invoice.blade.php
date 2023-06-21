@@ -75,8 +75,16 @@
                                     <p class="fs--1 text-800 fw-semi-bold mb-0">{{ $order->payment_mode }}</p>
                                 </div>
                                 <div class="col-12 col-lg-4">
-                                    <h6 class="mb-2"> Pagamento Principal :</h6>
-                                    <p class="fs--1 text-800 fw-semi-bold mb-0">{{ $order->parent_payment }}</p>
+                                    <h6 class="mb-2"> Status do Cumprimento :</h6>
+                                    <p class="fs--1 text-800 fw-semi-bold mb-0">
+                                        @if ($order->order_status == 1)
+                                            Processando
+                                        @elseif ($order->order_status == 2)
+                                            Cancelado
+                                        @elseif ($order->order_status == 3)
+                                            Concluído
+                                        @endif
+                                    </p>
                                 </div>
                                 <div class="col-12 col-lg-4">
                                     <h6 class="mb-2"> Data do Pedido:</h6>
@@ -126,23 +134,25 @@
                             </thead>
                             <tbody>
                                 @php
-                                    $total=0;
+                                    $total = 0;
                                 @endphp
-                                @foreach (json_decode($order->items) as $key=>$item)
-                                @php
-                                    $total=$total+$item->total;
-                                @endphp
+                                @foreach (json_decode($order->items) as $key => $item)
+                                    @php
+                                        $total = $total + $item->total;
+                                    @endphp
                                     <tr>
                                         <td class="border-0"></td>
-                                        <td class="align-middle">{{$key+1}}</td>
+                                        <td class="align-middle">{{ $key + 1 }}</td>
                                         <td class="align-middle" colspan="3">
                                             <p class="line-clamp-1 mb-0 fw-semi-bold">{{ $item->name }}</p>
                                         </td>
                                         <td class="align-middle text-end text-1000 fw-semi-bold">{{ $item->quantity }}
                                         </td>
-                                        <td class="align-middle text-end fw-semi-bold" colspan="2">{{  \App\Helpers\ptBRHelper::real($item->price) }}
+                                        <td class="align-middle text-end fw-semi-bold" colspan="2">
+                                            {{ \App\Helpers\ptBRHelper::real($item->price) }}
                                         </td>
-                                        <td class="align-middle text-end fw-semi-bold" colspan="2">{{  \App\Helpers\ptBRHelper::real($item->total) }}
+                                        <td class="align-middle text-end fw-semi-bold" colspan="2">
+                                            {{ \App\Helpers\ptBRHelper::real($item->total) }}
                                         </td>
                                         <td class="border-0"></td>
                                     </tr>
@@ -150,20 +160,23 @@
                                 <tr class="bg-200">
                                     <td></td>
                                     <td class="align-middle fw-semi-bold" colspan="5">Subtotal</td>
-                                    <td class="align-middle text-end fw-bold" colspan="4">{{  \App\Helpers\ptBRHelper::real($total) }}</td>
+                                    <td class="align-middle text-end fw-bold" colspan="4">
+                                        {{ \App\Helpers\ptBRHelper::real($total) }}</td>
                                     <td></td>
                                 </tr>
                                 <tr>
                                     <td class="border-0"></td>
                                     <td colspan="5"></td>
                                     <td class="align-middle fw-bold ps-15" colspan="2">Frete</td>
-                                    <td class="align-middle text-end fw-semi-bold" colspan="2">{{  \App\Helpers\ptBRHelper::real(0) }}</td>
+                                    <td class="align-middle text-end fw-semi-bold" colspan="2">
+                                        {{ \App\Helpers\ptBRHelper::real(0) }}</td>
                                     <td class="border-0"></td>
                                 </tr>
                                 <tr class="bg-200">
                                     <td class="align-middle ps-4 fw-bold text-1000" colspan="3">Grand Total</td>
                                     <td class="align-middle fw-bold text-1000" colspan="4"></td>
-                                    <td class="align-middle text-end fw-bold" colspan="3">{{  \App\Helpers\ptBRHelper::real($total) }}</td>
+                                    <td class="align-middle text-end fw-bold" colspan="3">
+                                        {{ \App\Helpers\ptBRHelper::real($total) }}</td>
                                     <td></td>
                                 </tr>
                             </tbody>
@@ -181,7 +194,7 @@
                             </path>
                         </svg>
                         <!-- <span class="fa-solid fa-bag-shopping me-2"></span>
-                                 Font Awesome fontawesome.com -->Procurar mais itens
+                                     Font Awesome fontawesome.com -->Procurar mais itens
                     </a>
 
                     <div><button class="btn btn-phoenix-secondary me-2">
@@ -212,12 +225,12 @@
     @endsection
 
     @section('js')
-    @if (Session::has('payment-success'))
-        <script>
-            setTimeout(function() {
-                toastr.options.progressBar = true;
-                toastr.success("{{ Session::get('payment-success') }}");
-            }, 100);
-        </script>
-    @endif
-@endsection
+        @if (Session::has('payment-success'))
+            <script>
+                setTimeout(function() {
+                    toastr.options.progressBar = true;
+                    toastr.success("{{ Session::get('payment-success') }}");
+                }, 100);
+            </script>
+        @endif
+    @endsection
