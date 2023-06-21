@@ -19,18 +19,17 @@ Auth::routes();
 
 Route::get('/', [App\Http\Controllers\Web\HomePageController::class, 'index']);
 
-Route::get('/teste', function () {
-    return view('login');
-});
-
 Route::prefix('seller')->name('seller.')->namespace('App\Http\Controllers\Seller')->group(function () {
     Route::prefix('/dashboard')->name('dashboard.')->group(function () {
         Route::get('/', 'DashboardController@index')->name('index');
     });
+
     Route::prefix('/orders')->name('orders.')->group(function () {
         Route::get('/', 'OrdersController@index')->name('index');
         Route::get('/{id}', 'OrdersController@show')->name('show');
+        Route::post('/{id}', 'OrdersController@update')->name('update');
     });
+
     Route::prefix('/stores')->name('store.')->group(function () {
         Route::get('/', 'StoreController@index')->name('index');
         Route::get('/create', 'StoreController@create')->name('create')->middleware('userhasonestore');

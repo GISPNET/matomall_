@@ -27,4 +27,18 @@ class OrdersController extends Controller
        $order=\App\Models\OrderUser::find($id);
        return view('sellers.orders.order-details', compact(['order']));
     }
+
+    public function update(Request $request, $id)
+    {
+       $data=$request->only('order_status');
+
+       $order = \App\Models\OrderUser::find($id);
+
+        if ($order) {
+            $order->update($data);
+            return redirect()->route('seller.orders.show', $order->id);
+        } else {
+            dd("PEdido nao existe");
+        }
+    }
 }

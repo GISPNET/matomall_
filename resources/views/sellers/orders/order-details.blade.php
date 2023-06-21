@@ -232,12 +232,16 @@
                                 <div class="card-body">
                                     <h3 class="card-title mb-4">Status do Pedido</h3>
                                     <h6 class="mb-2">Status do Pagamento</h6>
-                                    <select class="form-select mb-4" aria-label="tipo de entrega">
-                                        <option value="cod">teste</option>
-                                        <option value="cod" @if( $order->order_status==1) selected @else @endif >Processando</option>
-                                        <option value="card" @if( $order->order_status==2) selected @else @endif>Cancelado</option>
-                                        <option value="paypal" @if( $order->order_status==3) selected @else @endif>Concluído</option>
-                                    </select>
+                                    <form action="{{ route('seller.orders.update',$order->id) }}" method="POST">
+                                        @csrf
+                                        <select class="form-select mb-4" aria-label="tipo de entrega" name="order_status">
+                                            <option value="cod">teste</option>
+                                            <option value="1" @if( $order->order_status==1) selected @else @endif >Processando</option>
+                                            <option value="2" @if( $order->order_status==2) selected @else @endif>Cancelado</option>
+                                            <option value="3" @if( $order->order_status==3) selected @else @endif>Concluído</option>
+                                        </select>
+                                        <button class="btn btn-primary w-100">Actualizar</button>
+                                    </form>
                                 </div>
                             </div>
                         </div>
