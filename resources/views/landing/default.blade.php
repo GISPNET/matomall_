@@ -229,15 +229,13 @@
               </div>
             </div>
           </div>
-        </div><!-- end of .container-->
+        </div>
       </section>
 
 
       <div class="position-relative">
         <div class="bg-holder z-index-2 d-none d-md-block" style="background-image:url(assets/img/bg/13.png);background-size:auto;background-position:right;"></div>
-        <!--/.bg-holder-->
         <div class="bg-holder z-index-2 d-none d-md-block d-lg-none d-xl-block" style="background-image:url(assets/img/bg/bg-12.png);background-size:auto;background-position:left;"></div>
-        <!--/.bg-holder-->
         <div class="bottom-0 start-0 end-0 bg-white"><svg class="w-100 text-soft" viewBox="0 0 1920 368" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M1920 0.44L0 367.74V0H1920V0.44Z" fill="currentColor"></path>
           </svg></div>
@@ -341,48 +339,7 @@
           <path d="M0 368L1920 0.730011L1920 368L0 368Z" fill="currentColor"></path>
         </svg>
       </div>
-      <section class="bg-white">
-        <div class="bg-holder d-dark-none" style="background-image:url(assets/img/bg/bg-5.png);background-size:auto;"></div>
-        <!--/.bg-holder-->
-        <div class="bg-holder d-light-none" style="background-image:url(assets/img/bg/bg-dark-5.png);background-size:auto;"></div>
-        <!--/.bg-holder-->
-        <div class="bg-holder" style="background-image:url(assets/img/bg/bg-left-5.png);background-position:left;background-size:auto;"></div>
-        <!--/.bg-holder-->
-        <div class="bg-holder" style="background-image:url(assets/img/bg/bg-right-6.png);background-position:right;background-size:auto;"></div>
-        <!--/.bg-holder-->
-        <div class="container-small position-relative px-lg-7 px-xxl-3">
-          <div class="row mb-8 text-center text-sm-start">
-            <div class="col-12 mb-4">
-              <h4 class="text-primary fw-bolder mb-3">Gallery</h4>
-              <h2>Some of Our Best Works</h2>
-            </div>
-            <div class="col-lg-6">
-              <p>Rise like Phoenix focusing only on functionalities for your digital products leaving the design for us. Show what you do, with our latest admin dashboard. Check our best works and let us know what you want to find.</p>
-            </div>
-            <div class="col-lg-6">
-              <p>Want to tell your customers about the details of how and what? Tell them with all the posts at one place without them ridirecting to another page or site.</p>
-            </div>
-          </div>
-          <ul class="nav font-sans-serif mb-6 justify-content-center justify-content-sm-start w-max-content" data-filter-nav="data-filter-nav">
-            <li class="nav-item"><a class="isotope-nav active" href="#!" data-filter="*">First</a></li>
-            <li class="nav-item"><a class="isotope-nav" href="#!" data-filter=".second">Second</a></li>
-            <li class="nav-item"><a class="isotope-nav" href="#!" data-filter=".third">Third</a></li>
-            <li class="nav-item"> <a class="isotope-nav" href="#!" data-filter=".fourth">Fourth</a></li>
-          </ul>
-          <div class="row g-3" id="image_gallery" style="min-height: 948px" data-sl-isotope='{"layoutMode":"packery"}'>
-            <div class="col-6 col-md-4 col-lg-3 px-2 isotope-item fourth"><a href="#!" data-caption="caption" data-bigpicture='{"gallery":"#image_gallery"}' data-bp="assets/img/gallery/1.png"><img class="rounded img-fluid w-100" src="assets/img/gallery/1.png" alt="" /></a></div>
-            <div class="col-6 col-md-4 col-lg-3 px-2 isotope-item third"><a href="#!" data-caption="caption" data-bigpicture='{"gallery":"#image_gallery"}' data-bp="assets/img/gallery/2.png"><img class="rounded img-fluid w-100" src="assets/img/gallery/2.png" alt="" /></a></div>
-            <div class="col-6 col-md-4 col-lg-3 px-2 isotope-item second"><a href="#!" data-caption="caption" data-bigpicture='{"gallery":"#image_gallery"}' data-bp="assets/img/gallery/3.png"><img class="rounded img-fluid w-100" src="assets/img/gallery/3.png" alt="" /></a></div>
-            <div class="col-6 col-md-4 col-lg-3 px-2 isotope-item third"><a href="#!" data-caption="caption" data-bigpicture='{"gallery":"#image_gallery"}' data-bp="assets/img/gallery/5.png"><img class="rounded img-fluid w-100" src="assets/img/gallery/5.png" alt="" /></a></div>
-            <div class="col-6 col-md-4 col-lg-3 px-2 isotope-item third second"><a href="#!" data-caption="caption" data-bigpicture='{"gallery":"#image_gallery"}' data-bp="assets/img/gallery/4.png"><img class="rounded img-fluid w-100" src="assets/img/gallery/4.png" alt="" /></a></div>
-            <div class="col-6 col-md-4 col-lg-3 px-2 isotope-item second"><a href="#!" data-caption="caption" data-bigpicture='{"gallery":"#image_gallery"}' data-bp="assets/img/gallery/6.png"><img class="rounded img-fluid w-100" src="assets/img/gallery/6.png" alt="" /></a></div>
-            <div class="col-6 col-md-4 col-lg-3 px-2 isotope-item second"><a href="#!" data-caption="caption" data-bigpicture='{"gallery":"#image_gallery"}' data-bp="assets/img/gallery/7.png"><img class="rounded img-fluid w-100" src="assets/img/gallery/7.png" alt="" /></a></div>
-            <div class="col-6 col-md-4 col-lg-6 px-2 isotope-item second"><a href="#!" data-caption="caption" data-bigpicture='{"gallery":"#image_gallery"}' data-bp="assets/img/gallery/9.png"><img class="rounded img-fluid w-100" src="assets/img/gallery/9.png" alt="" /></a></div>
-            <div class="col-6 col-md-4 col-lg-3 px-2 isotope-item fourth"><a href="#!" data-caption="caption" data-bigpicture='{"gallery":"#image_gallery"}' data-bp="assets/img/gallery/8.png"><img class="rounded img-fluid w-100" src="assets/img/gallery/8.png" alt="" /></a></div>
-            <div class="col-6 col-md-4 col-lg-6 px-2 isotope-item second"><a href="#!" data-caption="caption" data-bigpicture='{"gallery":"#image_gallery"}' data-bp="assets/img/gallery/10.png"><img class="rounded img-fluid w-100" src="assets/img/gallery/10.png" alt="" /></a></div>
-          </div>
-        </div>
-      </section>
+
       <section class="bg-white">
         <div class="bg-holder d-none d-md-block" style="background-image:url(assets/img/bg/bg-left-15.png);background-position:left;background-size:auto;"></div>
         <!--/.bg-holder-->
