@@ -17,6 +17,10 @@ use App\Http\Controllers\PostController;
 
 Auth::routes();
 
+Route::get('/landing', function(){
+    return view('landing.default');
+});
+
 Route::get('/', [App\Http\Controllers\Web\HomePageController::class, 'index']);
 
 Route::prefix('seller')->name('seller.')->namespace('App\Http\Controllers\Seller')->group(function () {
