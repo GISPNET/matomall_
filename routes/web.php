@@ -100,7 +100,6 @@ Route::prefix('customer')->name('customer.')->namespace('App\Http\Controllers\Au
         Route::get('/', 'CustomerAuthController@index')->name('index');
     });
 });
-Route::get('paywithpaypal',[\App\Http\Controllers\PaypalController::class,'payWithPaypal'])->name('addmoney.paywithpaypal');
-Route::post('paypal', [\App\Http\Controllers\PaypalController::class, 'postPaymentWithpaypal'])->name('addmoney.paypal');
-Route::get('paypal',[\App\Http\Controllers\PaypalController::class,'getPaymentStatus'])->name('payment.status');
+Route::post('paypal', [\App\Http\Controllers\Payment\CheckoutPaypalController::class, 'postPaymentWithpaypal'])->name('addmoney.paypal');
+Route::get('paypal',[\App\Http\Controllers\Payment\CheckoutPaypalController::class,'getPaymentStatus'])->name('payment.status');
 
