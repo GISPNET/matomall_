@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-    <title>Phoenix</title>
+    <title>Matomall</title>
 
 
     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('assets/img/favicons/apple-touch-icon.png') }}">
@@ -167,9 +167,9 @@
                                 class="text-primary me-3">Venda seus produtos</span>no Matomall</h1>
                         <p class="mb-5">Aproveite as vantagens do Matomall, o marketplace líder para vendedores.
                             Alcance uma ampla base de clientes, gerencie facilmente seus produtos e impulsione suas
-                            vendas. Cadastre-se ou confira a demonstração abaixo.</p>
-                        <a class="btn btn-lg btn-primary rounded-pill me-3" href="#!"
-                            role="button">Cadastre-se</a>
+                            vendas. assine ou confira a demonstração abaixo.</p>
+                        <a class="btn btn-lg btn-primary rounded-pill me-3" href="#planos"
+                            role="button">Planos</a>
                         <a class="btn btn-link me-2 fs-0 p-0 text-decoration-none" href="#!" role="button">Ver
                             Demonstração<span class="fa-solid fa-angle-right ms-2 fs--1"></span></a>
                     </div>
@@ -526,7 +526,7 @@
                         <div class="card h-100 rounded-xl-end-0 rounded-start">
                             <form action="">
                                 <div class="card-body px-6">
-                                    <div class="px-5">
+                                    <div class="px-5"  id="planos">
                                         <div class="text-center pt-5"><img
                                                 src="{{ asset('assets/img/icons/illustrations/pie.png') }}"
                                                 width="48" height="48" alt="" />
@@ -538,7 +538,7 @@
                                                     class="text-black fs-1 ms-1 fw-bolder">R$</span></h1>
                                             <h5 class="mb-4 text-900">Comece a vender seus produtos</h5><button
                                                 type="submit"
-                                                class="btn btn-lg mb-6 w-100 btn-outline-primary">Comprar</button>
+                                                class="btn btn-lg mb-6 w-100 btn-outline-primary">Assinar</button>
                                         </div>
                                     </div>
                                     <ul class="fa-ul pricing-list">
@@ -576,7 +576,7 @@
                                         <h1 class="fw-semi-bold text-primary"><span class="fw-bolder">19</span><span
                                                 class="text-black fs-1 ms-1 fw-bolder">R$</span></h1>
                                         <h5 class="mb-4 text-900">Destaque seus produtos e alcance mais clientes</h5>
-                                        <button class="btn btn-lg mb-6 w-100 btn-outline-primary">Comprar</button>
+                                        <button class="btn btn-lg mb-6 w-100 btn-outline-primary">Assinar</button>
                                     </div>
                                 </div>
                                 <ul class="fa-ul pricing-list">
@@ -611,7 +611,7 @@
                                                 class="text-black fs-1 ms-1 fw-bolder">R$</span></h1>
                                         <h5 class="mb-4 text-900">Desbloqueie recursos avançados para expandir seus
                                             negócios</h5><button
-                                            class="btn btn-lg mb-6 w-100 btn-outline-primary">Comprar</button>
+                                            class="btn btn-lg mb-6 w-100 btn-outline-primary">Assinar</button>
                                     </div>
                                 </div>
                                 <ul class="fa-ul pricing-list">
@@ -649,7 +649,7 @@
                                                 class="text-black fs-1 ms-1 fw-bolder">R$</span></h1>
                                         <h5 class="mb-4 text-900">Precisa de uma solução personalizada? Nós temos a
                                             resposta.</h5><button
-                                            class="btn btn-lg mb-6 w-100 btn-outline-primary">Comprar</button>
+                                            class="btn btn-lg mb-6 w-100 btn-outline-primary">Assinar</button>
                                     </div>
                                 </div>
                                 <ul class="fa-ul pricing-list">
