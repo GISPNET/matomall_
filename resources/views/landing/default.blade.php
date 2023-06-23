@@ -94,27 +94,34 @@
           <div class="row align-items-center">
             <div class="col-12 col-lg-auto order-0 order-md-1 text-end order-1">
               <div class="position-relative p-5 p-md-7 d-lg-none">
-                <div class="bg-holder" style="background-image:url(assets/img/bg/bg-23.png);background-size:contain;"></div>
+                <div class="bg-holder" style="background-image:url({{ asset('assets/img/bg/bg-23.png') }});background-size:contain;"></div>
                 <!--/.bg-holder-->
-                <div class="position-relative"><img class="w-100 shadow-lg d-dark-none rounded-2" src="assets/img/bg/bg-31.png" alt="hero-header" /><img class="w-100 shadow-lg d-light-none rounded-2" src="assets/img/bg/bg-30.png" alt="hero-header" /></div>
+                <div class="position-relative">
+                  <img class="w-100 shadow-lg d-dark-none rounded-2" src="{{ asset('assets/img/bg/bg-31.png') }}" alt="hero-header" />
+                  <img class="w-100 shadow-lg d-light-none rounded-2" src="{{ asset('assets/img/bg/bg-30.png') }}" alt="hero-header" />
+                </div>
               </div>
               <div class="hero-image-container position-absolute top-0 bottom-0 end-0 d-none d-lg-block">
                 <div class="position-relative h-100 w-100">
-                  <div class="position-absolute h-100 top-0 d-flex align-items-center end-0 hero-image-container-bg"><img class="pt-7 pt-md-0 w-100" src="assets/img/bg/bg-1-2.png" alt="hero-header" /></div>
-                  <div class="position-absolute h-100 top-0 d-flex align-items-center end-0"><img class="pt-7 pt-md-0 w-100 shadow-lg d-dark-none rounded-2" src="assets/img/bg/bg-28.png" alt="hero-header" /><img class="pt-7 pt-md-0 w-100 shadow-lg d-light-none rounded-2" src="assets/img/bg/bg-29.png" alt="hero-header" /></div>
+                  <div class="position-absolute h-100 top-0 d-flex align-items-center end-0 hero-image-container-bg">
+                    <img class="pt-7 pt-md-0 w-100" src="{{ asset('assets/img/bg/bg-1-2.png') }}" alt="hero-header" />
+                  </div>
+                  <div class="position-absolute h-100 top-0 d-flex align-items-center end-0">
+                    <img class="pt-7 pt-md-0 w-100 shadow-lg d-dark-none rounded-2" src="{{ asset('assets/img/bg/bg-28.png') }}" alt="hero-header" />
+                    <img class="pt-7 pt-md-0 w-100 shadow-lg d-light-none rounded-2" src="{{ asset('assets/img/bg/bg-29.png') }}" alt="hero-header" />
+                  </div>
                 </div>
               </div>
             </div>
             <div class="col-12 col-lg-6 text-lg-start text-center pt-8 pb-6 order-0 position-relative">
-              <h1 class="fs-5 fs-lg-6 fs-md-7 fs-lg-6 fs-xl-7 fs fw-black mb-4"><span class="text-primary me-3">Elegance</span>for<br />your web app</h1>
-              <p class="mb-5">Standard, modern and Elegant solution for your next web app so you don’t have to look further. Sign up or check the demo below.</p><a class="btn btn-lg btn-primary rounded-pill me-3" href="#!" role="button">Sign up</a><a class="btn btn-link me-2 fs-0 p-0 text-decoration-none" href="#!" role="button">Check Demo<span class="fa-solid fa-angle-right ms-2 fs--1"></span></a>
+                <h1 class="fs-5 fs-lg-6 fs-md-7 fs-lg-6 fs-xl-7 fs fw-black mb-4"><span class="text-primary me-3">Venda seus produtos</span>no Matomall</h1>              <p class="mb-5">Aproveite as vantagens do Matomall, o marketplace líder para vendedores. Alcance uma ampla base de clientes, gerencie facilmente seus produtos e impulsione suas vendas. Cadastre-se ou confira a demonstração abaixo.</p>
+              <a class="btn btn-lg btn-primary rounded-pill me-3" href="#!" role="button">Cadastre-se</a>
+              <a class="btn btn-link me-2 fs-0 p-0 text-decoration-none" href="#!" role="button">Ver Demonstração<span class="fa-solid fa-angle-right ms-2 fs--1"></span></a>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- ============================================-->
-      <!-- <section> begin ============================-->
       <section class="py-5 pt-xl-13 bg-white">
         <div class="container-small px-lg-7 px-xxl-3">
           <div class="row g-0">
@@ -143,74 +150,88 @@
               <div class="p-2 p-lg-5 d-flex flex-center h-100 border-1 border-dashed border-end-lg-0"><img class="w-100" src="assets/img/brand2/google-g.png" alt="" /></div>
             </div>
           </div>
-        </div><!-- end of .container-->
-      </section><!-- <section> close ============================-->
-      <!-- ============================================-->
+        </div>
+      </section>
 
-
-
-      <!-- ============================================-->
-      <!-- <section> begin ============================-->
       <section class="pt-15 pb-0" id="feature">
         <div class="container-small px-lg-7 px-xxl-3">
           <div class="position-relative z-index-2">
             <div class="row">
               <div class="col-lg-6 text-center text-lg-start pe-xxl-3">
-                <h4 class="text-primary fw-bolder mb-4">Features</h4>
-                <h2 class="mb-3 text-black lh-base">A fully integrated suite<br />of payments products</h2>
-                <p class="mb-5">With the power of Phoenix, you can now focus only on functionaries for your digital products, while leaving the UI design on us!With the power of Phoenix, you can now focus only on functionaries for your digital products, while leaving the UI design on us!</p><a class="btn btn-lg btn-outline-primary rounded-pill me-2" href="#!" role="button">Find out more<i class="fa-solid fa-angle-right ms-2"></i></a>
+                <h4 class="text-primary fw-bolder mb-4">Recursos</h4>
+                <h2 class="mb-3 text-black lh-base">Um conjunto totalmente integrado<br />de produtos de pagamento</h2>
+                <p class="mb-5">Com o poder do Matomall, você pode se concentrar apenas nas funcionalidades para seus produtos digitais, deixando o design da interface por nossa conta! Com o poder do Matomall, você pode se concentrar apenas nas funcionalidades para seus produtos digitais, deixando o design da interface por nossa conta!</p>
+                <a class="btn btn-lg btn-outline-primary rounded-pill me-2" href="#!" role="button">Saiba mais<i class="fa-solid fa-angle-right ms-2"></i></a>
               </div>
               <div class="col-sm-6 col-lg-3 mt-7 text-center text-lg-start">
                 <div class="h-100 d-flex flex-column justify-content-between">
-                  <div class="border-start-lg border-dashed ps-4"><img class="mb-4" src="assets/img/icons/illustrations/bolt.png" width="48" height="48" alt="" />
+                  <div class="border-start-lg border-dashed ps-4">
+                    <img class="mb-4" src="{{ asset('assets/img/icons/illustrations/bolt.png') }}" width="48" height="48" alt="" />
                     <div>
-                      <h5 class="fw-bolder mb-2">Lightning Speed</h5>
-                      <p class="fw-semi-bold lh-sm">Present everything you need in one place within minutes! Grow with Phoenix!</p>
+                      <h5 class="fw-bolder mb-2">Velocidade Relâmpago</h5>
+                      <p class="fw-semi-bold lh-sm">Apresente tudo o que você precisa em um só lugar em questão de minutos! Cresça com o Matomall!</p>
                     </div>
-                    <div><a class="btn btn-link me-2 p-0 fs--1" href="#!" role="button">Check Demo<span class="fa-solid fa-angle-right ms-2"></span></a></div>
+                    <div>
+                      <a class="btn btn-link me-2 p-0 fs--1" href="#!" role="button">Ver Demonstração<span class="fa-solid fa-angle-right ms-2"></span></a>
+                    </div>
                   </div>
                 </div>
               </div>
               <div class="col-sm-6 col-lg-3 mt-7 text-center text-lg-start">
                 <div class="h-100 d-flex flex-column">
-                  <div class="border-start-lg border-dashed ps-4"><img class="mb-4" src="assets/img/icons/illustrations/pie.png" width="48" height="48" alt="" />
+                  <div class="border-start-lg border-dashed ps-4">
+                    <img class="mb-4" src="{{ asset('assets/img/icons/illustrations/pie.png') }}" width="48" height="48" alt="" />
                     <div>
-                      <h5 class="fw-bolder mb-2">All-in-one solution</h5>
-                      <p class="fw-semi-bold lh-sm">Show your production and growth graph in one place with Phoenix!</p>
+                      <h5 class="fw-bolder mb-2">Solução Tudo-em-um</h5>
+                      <p class="fw-semi-bold lh-sm">Mostre seu crescimento e produção em um só lugar com o Matomall!</p>
                     </div>
-                    <div><a class="btn btn-link me-2 p-0 fs--1" href="#!" role="button">Check Demo<i class="fa-solid fa-angle-right ms-2"></i></a></div>
+                    <div>
+                      <a class="btn btn-link me-2 p-0 fs--1" href="#!" role="button">Ver Demonstração<i class="fa-solid fa-angle-right ms-2"></i></a>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
             <div class="row mt-12 align-items-center justify-content-between text-center text-lg-start mb-6 mb-lg-0">
-              <div class="col-lg-5"><img class="feature-image mb-9 mb-lg-0 d-dark-none" src="assets/img/spot-illustrations/22_2.png" alt="" /><img class="feature-image mb-9 mb-lg-0 d-light-none" src="assets/img/spot-illustrations/dark_22.png" alt="" /></div>
+              <div class="col-lg-5">
+                <img class="feature-image mb-9 mb-lg-0 d-dark-none" src="{{ asset('assets/img/spot-illustrations/22_2.png') }}" alt="" />
+                <img class="feature-image mb-9 mb-lg-0 d-light-none" src="{{ asset('assets/img/spot-illustrations/dark_22.png') }}" alt="" />
+              </div>
               <div class="col-lg-6">
-                <h6 class="text-primary mb-2 ls-2">SIGNAL</h6>
-                <h3 class="fw-bolder mb-3">Recieve the signals instantly</h3>
-                <p class="mb-4 px-md-7 px-lg-0">Phoenix makes it possible for you to quickly and effectively receive every signal. No need for drawn-out waiting.</p><a class="btn btn-link me-2 p-0 fs--1" href="#!" role="button">Check Demo<i class="fa-solid fa-angle-right ms-2"></i></a>
+                <h6 class="text-primary mb-2 ls-2">SINAL</h6>
+                <h3 class="fw-bolder mb-3">Receba os sinais instantaneamente</h3>
+                <p class="mb-4 px-md-7 px-lg-0">O Matomall torna possível receber rapidamente e de forma eficaz todos os sinais. Não há necessidade de esperas demoradas.</p>
+                <a class="btn btn-link me-2 p-0 fs--1" href="#!" role="button">Ver Demonstração<i class="fa-solid fa-angle-right ms-2"></i></a>
               </div>
             </div>
             <div class="row mt-2 align-items-center justify-content-between text-center text-lg-start mb-6 mb-lg-0">
-              <div class="col-lg-5 order-0 order-lg-1"><img class="feature-image mb-9 mb-lg-0 d-dark-none" src="assets/img/spot-illustrations/23_2.png" height="394" alt="" /><img class="feature-image mb-9 mb-lg-0 d-light-none" src="assets/img/spot-illustrations/dark_23.png" height="394" alt="" /></div>
+              <div class="col-lg-5 order-0 order-lg-1">
+                <img class="feature-image mb-9 mb-lg-0 d-dark-none" src="{{ asset('assets/img/spot-illustrations/23_2.png') }}" height="394" alt="" />
+                <img class="feature-image mb-9 mb-lg-0 d-light-none" src="{{ asset('assets/img/spot-illustrations/dark_23.png') }}" height="394" alt="" />
+              </div>
               <div class="col-lg-6">
-                <h6 class="text-primary mb-2 ls-2">REVENUE</h6>
-                <h3 class="fw-bolder mb-3">See Your Revenue Grow</h3>
-                <p class="mb-4 px-md-7 px-lg-0">Grow with Phoenix. We help you with everything you might need., We make it easy and keep it simple.</p><a class="btn btn-link me-2 p-0 fs--1" href="#!" role="button">Check Demo<i class="fa-solid fa-angle-right ms-2"></i></a>
+                <h6 class="text-primary mb-2 ls-2">RECEITA</h6>
+                <h3 class="fw-bolder mb-3">Veja sua receita crescer</h3>
+                <p class="mb-4 px-md-7 px-lg-0">Cresça com o Matomall. Nós ajudamos você com tudo o que você precisa. Tornamos tudo fácil e simples.</p>
+                <a class="btn btn-link me-2 p-0 fs--1" href="#!" role="button">Ver Demonstração<i class="fa-solid fa-angle-right ms-2"></i></a>
               </div>
             </div>
             <div class="row mt-2 align-items-center justify-content-between text-center text-lg-start mb-6 mb-lg-0">
-              <div class="col-lg-5"><img class="feature-image mb-9 mb-lg-0 d-dark-none" src="assets/img/spot-illustrations/24_2.png" height="394" alt="" /><img class="feature-image mb-9 mb-lg-0 d-light-none" src="assets/img/spot-illustrations/dark_24.png" height="394" alt="" /></div>
+              <div class="col-lg-5">
+                <img class="feature-image mb-9 mb-lg-0 d-dark-none" src="{{ asset('assets/img/spot-illustrations/24_2.png') }}" height="394" alt="" />
+                <img class="feature-image mb-9 mb-lg-0 d-light-none" src="{{ asset('assets/img/spot-illustrations/dark_24.png') }}" height="394" alt="" />
+              </div>
               <div class="col-lg-6 text-center text-lg-start">
-                <h6 class="text-primary mb-2 ls-2">REPORTS</h6>
-                <h3 class="fw-bolder mb-3">Get Reports Ready</h3>
-                <p class="mb-4 px-md-7 px-lg-0">With Phoenix, you can get ready reports on your growth analysis anytime. This dashboard also has all filters accessible according to your needs.</p><a class="btn btn-link me-2 p-0 fs--1" href="#!" role="button">Check Demo<i class="fa-solid fa-angle-right ms-2"></i></a>
+                <h6 class="text-primary mb-2 ls-2">RELATÓRIOS</h6>
+                <h3 class="fw-bolder mb-3">Obtenha relatórios prontos</h3>
+                <p class="mb-4 px-md-7 px-lg-0">Com o Matomall, você pode obter relatórios prontos sobre sua análise de crescimento a qualquer momento. Este painel também possui todos os filtros acessíveis de acordo com suas necessidades.</p>
+                <a class="btn btn-link me-2 p-0 fs--1" href="#!" role="button">Ver Demonstração<i class="fa-solid fa-angle-right ms-2"></i></a>
               </div>
             </div>
           </div>
         </div><!-- end of .container-->
-      </section><!-- <section> close ============================-->
-      <!-- ============================================-->
+      </section>
+
 
       <div class="position-relative">
         <div class="bg-holder z-index-2 d-none d-md-block" style="background-image:url(assets/img/bg/13.png);background-size:auto;background-position:right;"></div>
