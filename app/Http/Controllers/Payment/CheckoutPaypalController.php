@@ -175,7 +175,7 @@ class CheckoutPaypalController extends Controller
                             'parent_payment' => $sale->getParentPayment(),
                             'payment_mode' => $sale->getPaymentMode(),
                             'items' => json_encode($items),
-                            'order_status'=>1,
+                            'order_status' => 1,
                         ];
 
                         // Salvar as informações no banco de dados ou fazer o que for necessário
@@ -225,13 +225,13 @@ class CheckoutPaypalController extends Controller
             $payoutItem->setRecipientType('EMAIL')
                 ->setReceiver($storePaypalEmail)
                 ->setAmount(new Currency('{
-                    "value": "'.$amount.'",
+                    "value": "' . $amount . '",
                     "currency": "BRL"
                 }'));
 
             $senderBatchHeader = new PayoutSenderBatchHeader();
             $senderBatchHeader->setSenderBatchId(uniqid())
-                ->setEmailSubject('Payment for order: '.$order->reference);
+                ->setEmailSubject('Payment for order: ' . $order->reference);
 
             $payout = new Payout();
             $payout->setSenderBatchHeader($senderBatchHeader)

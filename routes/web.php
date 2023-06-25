@@ -103,3 +103,8 @@ Route::prefix('customer')->name('customer.')->namespace('App\Http\Controllers\Au
 Route::post('paypal', [\App\Http\Controllers\Payment\CheckoutPaypalController::class, 'postPaymentWithpaypal'])->name('addmoney.paypal');
 Route::get('paypal',[\App\Http\Controllers\Payment\CheckoutPaypalController::class,'getPaymentStatus'])->name('payment.status');
 
+Route::post('/payment/billing-plan', [\App\Http\Controllers\Subscription\CreatePlanController::class, 'createBillingPlan'])->name('payment.billing-plan');
+Route::post('/payment/subscription', [\App\Http\Controllers\Subscription\CreatePlanController::class, 'createSubscription'])->name('payment.subscription');
+Route::get('/payment/execute', [\App\Http\Controllers\Subscription\CreatePlanController::class, 'executeSubscription'])->name('payment.execute');
+Route::get('/payment/cancel', [\App\Http\Controllers\Subscription\CreatePlanController::class, 'cancelSubscription'])->name('payment.cancel');
+
