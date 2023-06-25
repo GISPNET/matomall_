@@ -95,7 +95,7 @@
                                                                     <span class="far fa-heart d-none-hover"></span>
                                                                 </button>
                                                                 <img class="img-fluid"
-                                                                    src="{{ asset('storage/' . $product->photos->first()->image) }}"
+                                                                    src=""
                                                                     alt="" />
                                                             </div>
                                                             <a class="stretched-link text-decoration-none"
@@ -169,7 +169,7 @@
                                                                 <span class="far fa-heart d-none-hover"></span>
                                                             </button>
                                                             <img class="img-fluid"
-                                                                src="{{ asset('storage/' . $product->photos->first()->image) }}"
+                                                                src=""
                                                                 alt="" />
                                                         </div>
                                                         <a class="stretched-link text-decoration-none"
@@ -230,7 +230,7 @@
                                                             <span class="far fa-heart d-none-hover"></span>
                                                         </button>
                                                         <img class="img-fluid"
-                                                            src="{{ asset('storage/' . $product->photos->first()->image) }}"
+                                                            src=""
                                                             alt="" />
                                                     </div>
                                                     <a class="stretched-link text-decoration-none"
