@@ -17,7 +17,6 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('slug')->nullable();
-            $table->foreignId('store_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

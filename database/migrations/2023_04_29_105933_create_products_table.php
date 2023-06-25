@@ -28,6 +28,7 @@ return new class extends Migration
             $table->date('expiry_date_of_product')->nullable();
             $table->foreignId('store_id')->constrained()->onDelete('cascade');
             $table->foreignId('category_id')->constrained()->nullable()->onDelete('cascade');
+            $table->foreignId('tag_id')->nullable()->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }
