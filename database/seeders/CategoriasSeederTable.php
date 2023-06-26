@@ -15,8 +15,7 @@ class CategoriasSeederTable extends Seeder
      */
     public function run()
     {
-        if(DB::table('categories')->count() < 0)
-        {
+        if (DB::table('categories')->count() < 0) {
             DB::table('categories')->insert([
                 [
                     'name' => 'Ofertas'
