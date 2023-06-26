@@ -29,7 +29,9 @@ class ProductsController extends Controller
     {
         $product = new Product;
         $categories = \App\Models\Category::all();
-        return view('sellers.products.add-product', compact('product', 'categories'));
+        $tags = \App\Models\Tag::all();
+        $brands = \App\Models\Brand::all();
+        return view('sellers.products.add-product', compact('product', 'categories','tags','brands'));
     }
 
     public function store(Request $request)
