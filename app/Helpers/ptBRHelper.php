@@ -22,7 +22,7 @@ class ptBRHelper
         }
         return date('d/m/Y H:i:s', strtotime($my_data));
     }
-    static function datam($my_data)
+    static function data_sem_hora($my_data)
     {
         if (($my_data == null) or ($my_data == '')) {
             return '';

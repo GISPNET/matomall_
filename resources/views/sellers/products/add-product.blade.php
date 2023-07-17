@@ -630,43 +630,37 @@
                                                     <div class="mb-4">
                                                         <div class="d-flex flex-wrap mb-2">
                                                             <h5 class="mb-0 text-1000 me-2">Categoria</h5>
-                                                            <a class="fw-bold fs--1" href="#!">Adicionar nova categoria</a>
+                                                            <a class="fw-bold fs--1" href="">Solicitar nova categoria</a>
                                                         </div>
                                                         <select class="form-select mb-3" aria-label="category">
-                                                            <option value="men-cloth">Roupas Masculinas</option>
-                                                            <option value="women-cloth">Roupas Femininas</option>
-                                                            <option value="kid-cloth">Roupas Infantis</option>
+                                                            @foreach ($categories as $category)
+                                                              <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                                            @endforeach
                                                         </select>
                                                     </div>
                                                 </div>
                                                 <div class="col-12 col-sm-6 col-xl-12">
                                                     <div class="mb-4">
                                                         <div class="d-flex flex-wrap mb-2">
-                                                            <h5 class="mb-0 text-1000 me-2">Fornecedor</h5>
-                                                            <a class="fw-bold fs--1" href="#!">Adicionar novo fornecedor</a>
+                                                            <h5 class="mb-0 text-1000 me-2">Marca</h5>
+                                                            <a class="fw-bold fs--1" href="#!">Solicitar nova fornecedor</a>
                                                         </div>
                                                         <select class="form-select mb-3" aria-label="category">
-                                                            <option value="men-cloth">Roupas Masculinas</option>
-                                                            <option value="women-cloth">Roupas Femininas</option>
-                                                            <option value="kid-cloth">Roupas Infantis</option>
+                                                            @foreach ($brands as $brand)
+                                                            <option value="{{ $brand->id }}">{{ $brand->name }}</option>
+                                                            @endforeach
                                                         </select>
-                                                    </div>
-                                                </div>
-                                                <div class="col-12 col-sm-6 col-xl-12">
-                                                    <div class="mb-xl-4">
-                                                        <h5 class="mb-2 text-1000">Coleção</h5>
-                                                        <input class="form-control mb-xl-3" type="text" placeholder="Coleção" />
                                                     </div>
                                                 </div>
                                                 <div class="col-12 col-sm-6 col-xl-12">
                                                     <div class="d-flex flex-wrap mb-2">
                                                         <h5 class="mb-0 text-1000 me-2">Tags</h5>
-                                                        <a class="fw-bold fs--1 lh-sm" href="#!">Ver todas as tags</a>
+                                                        <a class="fw-bold fs--1 lh-sm" href="">Ver todas as tags</a>
                                                     </div>
                                                     <select class="form-select" aria-label="category">
-                                                        <option value="men-cloth">Roupas Masculinas</option>
-                                                        <option value="women-cloth">Roupas Femininas</option>
-                                                        <option value="kid-cloth">Roupas Infantis</option>
+                                                        @foreach ($tags as $tag)
+                                                        <option value="{{ $tag->id }}">{{ $tag->name }}</option>
+                                                        @endforeach
                                                     </select>
                                                 </div>
                                             </div>
