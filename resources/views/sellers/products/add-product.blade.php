@@ -165,6 +165,9 @@
                                 <h4 class="mb-3">Descrição do Produto</h4>
                                 <textarea name="description"></textarea>
                             </div>
+
+                        <input name="files" type="file" multiple="multiple" />
+
                             <h4 class="mb-3">Exibir imagens</h4>
                             <div class="dropzone dropzone-multiple p-0 mb-5" id="my-awesome-dropzone" data-dropzone="data-dropzone">
                                 <div class="fallback">
@@ -632,7 +635,7 @@
                                                             <h5 class="mb-0 text-1000 me-2">Categoria</h5>
                                                             <a class="fw-bold fs--1" href="">Solicitar nova categoria</a>
                                                         </div>
-                                                        <select class="form-select mb-3" aria-label="category">
+                                                        <select class="form-select mb-3" name="category_id" aria-label="category">
                                                             @foreach ($categories as $category)
                                                               <option value="{{ $category->id }}">{{ $category->name }}</option>
                                                             @endforeach
@@ -643,9 +646,9 @@
                                                     <div class="mb-4">
                                                         <div class="d-flex flex-wrap mb-2">
                                                             <h5 class="mb-0 text-1000 me-2">Marca</h5>
-                                                            <a class="fw-bold fs--1" href="#!">Solicitar nova fornecedor</a>
+                                                            <a class="fw-bold fs--1" href="#">Solicitar nova marca</a>
                                                         </div>
-                                                        <select class="form-select mb-3" aria-label="category">
+                                                        <select class="form-select mb-3" name="brand_id" aria-label="brand">
                                                             @foreach ($brands as $brand)
                                                             <option value="{{ $brand->id }}">{{ $brand->name }}</option>
                                                             @endforeach
@@ -654,10 +657,10 @@
                                                 </div>
                                                 <div class="col-12 col-sm-6 col-xl-12">
                                                     <div class="d-flex flex-wrap mb-2">
-                                                        <h5 class="mb-0 text-1000 me-2">Tags</h5>
+                                                        <h5 class="mb-0 text-1000 me-2">Tag</h5>
                                                         <a class="fw-bold fs--1 lh-sm" href="">Ver todas as tags</a>
                                                     </div>
-                                                    <select class="form-select" aria-label="category">
+                                                    <select class="form-select" name="tag_id" aria-label="tag">
                                                         @foreach ($tags as $tag)
                                                         <option value="{{ $tag->id }}">{{ $tag->name }}</option>
                                                         @endforeach
