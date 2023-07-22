@@ -166,12 +166,11 @@
                                 <textarea name="description"></textarea>
                             </div>
 
-                        <input name="files" type="file" multiple="multiple" />
+                            <input type="file" name="files[]" multiple>
 
                             <h4 class="mb-3">Exibir imagens</h4>
                             <div class="dropzone dropzone-multiple p-0 mb-5" id="my-awesome-dropzone" data-dropzone="data-dropzone">
                                 <div class="fallback">
-                                    <input name="files" type="file" multiple="multiple" />
                                 </div>
                                 <div class="dz-preview d-flex flex-wrap">
                                     <div class="border bg-white rounded-3 d-flex flex-center position-relative me-2 mb-2"

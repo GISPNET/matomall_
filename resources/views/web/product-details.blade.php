@@ -963,7 +963,7 @@
                                         value="{{ $product->sale_price ? $product->sale_price : $product->regular_price }}">
                                     <input type="hidden" name="product[slug]" value="{{ $product->slug }}">
                                     <input type="hidden" name="product[image]"
-                                        value="{{ asset('assets/images/matomall-placeholder.png') }}">
+                                        value"{{ $product->photos->first()->image }}">
                                     <button class="btn btn-lg btn-warning rounded-pill flex-fill fs--1 fs-sm-0">
                                         <span class="fas fa-shopping-cart me-2"></span> Adicionar ao carrinho
                                     </button>

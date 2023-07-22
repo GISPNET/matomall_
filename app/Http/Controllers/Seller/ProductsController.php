@@ -36,7 +36,7 @@ class ProductsController extends Controller
 
     public function store(Request $request)
     {
-       $images=$request->file('files');
+        $images = $request->file('files');
 
         $data = $request->only('name','regular_price','sale_price','shipping_type','product_id_type','product_id','files','description','body','category_id','brand_id','tag_id');
         $store = auth()->user()->store;

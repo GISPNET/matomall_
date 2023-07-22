@@ -27,11 +27,11 @@
                                                             data-bs-toggle="tooltip" data-bs-placement="top"
                                                             title="Add to wishlist"><span
                                                                 class="fas fa-heart d-block-hover"></span><span
-                                                                class="far fa-heart d-none-hover"></span></button><img
-                                                            class="img-fluid"
-                                                            src="{{ asset('assets/images/matomall-placeholder.png') }}"
-                                                            alt="" /></div><a
-                                                        class="stretched-link text-decoration-none"
+                                                                class="far fa-heart d-none-hover"></span></button>
+
+                                                                <img class="img-fluid" src="{{ $product->photos->first()->image}}" alt="" />
+
+                                                    </div><a class="stretched-link text-decoration-none"
                                                         href="{{ route('product.details', $product->slug) }}">
                                                         <h6 class="mb-2 lh-sm line-clamp-3 product-name">
                                                             {{ $product->name }}</h6>
@@ -79,4 +79,4 @@
             </div>
         </section>
     </main>
-    @endsection
+@endsection
