@@ -28,14 +28,15 @@
                                                             title="Add to wishlist"><span
                                                                 class="fas fa-heart d-block-hover"></span><span
                                                                 class="far fa-heart d-none-hover"></span></button>
-                                                                @if ($product->photos->count())
-
-                                                                <img class="img-fluid" src="{{ Storage::url($product->photos->first()->image) }}" alt="" />
-
-                                                                @else
-                                                                  <img class="img-fluid" src="{{ asset('assets/images/matomall-placeholder.png') }}" alt="" />
-
-                                                                @endif
+                                                        @if ($product->photos->count())
+                                                            <img class="img-fluid"
+                                                                src="{{ Storage::url($product->photos->first()->image) }}"
+                                                                alt="" />
+                                                        @else
+                                                            <img class="img-fluid"
+                                                                src="{{ asset('assets/images/matomall-placeholder.png') }}"
+                                                                alt="" />
+                                                        @endif
 
                                                     </div><a class="stretched-link text-decoration-none"
                                                         href="{{ route('product.details', $product->slug) }}">
