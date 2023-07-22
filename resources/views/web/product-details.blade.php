@@ -947,11 +947,13 @@
                                     <div class="d-flex align-items-center border rounded-3 text-center p-5 h-100"
                                         style="margin-top: -100px">
                                         @if ($product->photos()->count())
-                                        <img class="img-fluid" src="{{ Storage::url($product->photos()->first()->image) }}" alt="" />
+                                            <img class="img-fluid"
+                                                src="{{ Storage::url($product->photos()->first()->image) }}"
+                                                alt="" />
                                         @else
-                                        <img class="img-fluid"
-                                        src="{{ asset('assets/images/matomall-placeholder.png') }}"
-                                        alt="" />
+                                            <img class="img-fluid"
+                                                src="{{ asset('assets/images/matomall-placeholder.png') }}"
+                                                alt="" />
                                         @endif
                                     </div>
                                 </div>
@@ -968,7 +970,7 @@
                                         value="{{ $product->sale_price ? $product->sale_price : $product->regular_price }}">
                                     <input type="hidden" name="product[slug]" value="{{ $product->slug }}">
                                     <input type="hidden" name="product[image]"
-       value="@if ($product->photos->count()){{ $product->photos->first()->image }}@endif">
+                                        value="@if ($product->photos->count()) {{ $product->photos->first()->image }} @endif">
 
                                     <button class="btn btn-lg btn-warning rounded-pill flex-fill fs--1 fs-sm-0">
                                         <span class="fas fa-shopping-cart me-2"></span> Adicionar ao carrinho
@@ -1095,23 +1097,32 @@
                                                         <span class="far fa-heart d-none-hover"></span>
                                                     </button>
                                                     @if ($product->photos()->count())
-                                                    <img class="img-fluid" src="{{ Storage::url($product->photos()->first()->image) }}" alt="" />
+                                                        <img class="img-fluid"
+                                                            src="{{ Storage::url($product->photos()->first()->image) }}"
+                                                            alt="" />
                                                     @else
-                                                    <img class="img-fluid"
-                                                    src="{{ asset('assets/images/matomall-placeholder.png') }}"
-                                                    alt="" />
+                                                        <img class="img-fluid"
+                                                            src="{{ asset('assets/images/matomall-placeholder.png') }}"
+                                                            alt="" />
                                                     @endif
                                                 </div>
                                                 <a class="stretched-link text-decoration-none"
                                                     href="{{ route('product.details', $product->slug) }}">
-                                                    <h6 class="mb-2 lh-sm line-clamp-3 product-name">{{ $product->name }}</h6>
+                                                    <h6 class="mb-2 lh-sm line-clamp-3 product-name">
+                                                        {{ $product->name }}</h6>
                                                 </a>
                                                 <div class="mb-2">
                                                     @if ($product->sale_price)
-                                                        <p class="me-2 text-900 text-decoration-line-through mb-0">{{ \App\Helpers\ptBRHelper::real($product->regular_price) }}</p>
-                                                        <h3 class="text-1100 mb-0">{{ \App\Helpers\ptBRHelper::real($product->sale_price) }}</h3>
+                                                        <p class="me-2 text-900 text-decoration-line-through mb-0">
+                                                            {{ \App\Helpers\ptBRHelper::real($product->regular_price) }}
+                                                        </p>
+                                                        <h3 class="text-1100 mb-0">
+                                                            {{ \App\Helpers\ptBRHelper::real($product->sale_price) }}
+                                                        </h3>
                                                     @else
-                                                        <h3 class="text-1100 mb-0">{{ \App\Helpers\ptBRHelper::real($product->regular_price) }}</h3>
+                                                        <h3 class="text-1100 mb-0">
+                                                            {{ \App\Helpers\ptBRHelper::real($product->regular_price) }}
+                                                        </h3>
                                                     @endif
                                                 </div>
                                                 <div class="mt-2">
@@ -1119,7 +1130,9 @@
                                                         @for ($i = 0; $i < $product->rating; $i++)
                                                             <span class="fa fa-star text-warning"></span>
                                                         @endfor
-                                                        <span class="text-500 fw-semi-bold ms-1">({{ $product->ratingCount }} people rated)</span>
+                                                        <span
+                                                            class="text-500 fw-semi-bold ms-1">({{ $product->ratingCount }}
+                                                            people rated)</span>
                                                     </p>
                                                 </div>
                                             </div>
