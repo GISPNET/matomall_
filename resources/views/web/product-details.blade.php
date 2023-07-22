@@ -946,8 +946,13 @@
                                 <div class="col-12 col-md-12 col-lg-12 col-xl-12" style="margin-top: 120px">
                                     <div class="d-flex align-items-center border rounded-3 text-center p-5 h-100"
                                         style="margin-top: -100px">
-                                        <img src="{{ asset('assets/images/matomall-placeholder.png') }}" alt=""
-                                            srcset="" class="img-fluid mw-100">
+                                        @if ($product->photos()->count())
+                                        <img class="img-fluid" src="{{ Storage::url($product->photos()->first()->image) }}" alt="" />
+                                        @else
+                                        <img class="img-fluid"
+                                        src="{{ asset('assets/images/matomall-placeholder.png') }}"
+                                        alt="" />
+                                        @endif
                                     </div>
                                 </div>
                             </div>
@@ -1088,9 +1093,13 @@
                                                         <span class="fas fa-heart d-block-hover"></span>
                                                         <span class="far fa-heart d-none-hover"></span>
                                                     </button>
+                                                    @if ($product->photos()->count())
+                                                    <img class="img-fluid" src="{{ Storage::url($product->photos()->first()->image) }}" alt="" />
+                                                    @else
                                                     <img class="img-fluid"
-                                                        src="{{ asset('assets/images/matomall-placeholder.png') }}"
-                                                        alt="" />
+                                                    src="{{ asset('assets/images/matomall-placeholder.png') }}"
+                                                    alt="" />
+                                                    @endif
                                                 </div>
                                                 <a class="stretched-link text-decoration-none"
                                                     href="{{ route('product.details', $product->slug) }}">
