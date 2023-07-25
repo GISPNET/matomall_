@@ -144,13 +144,16 @@
                                                 alt="" width="53"></div>
                                     </td>
                                     <td class="product align-middle ps-4"><a class="fw-semi-bold line-clamp-3 mb-0"
-                                            href="#!">Fitbit Sense Advanced Smartwatch with Tools for Heart Health,
-                                            Stress Management &amp; Skin Temperature Trends, Carbon/Graphite, One Size (S
-                                            &amp; ...</a></td>
-                                    <td class="price align-middle white-space-nowrap text-end fw-bold text-700 ps-4">$39
-                                    </td>
-                                    <td class="category align-middle white-space-nowrap text-600 fs--1 ps-4 fw-semi-bold">
-                                        Plants</td>
+                                            href="{{ route('product.details',$product->slug) }}">{{ $product->name }}</a></td>
+                                            <td class="price align-middle white-space-nowrap text-end fw-bold text-700 ps-4">
+                                                @if ($product->sale_price)
+                                                    {{ \App\Helpers\ptBRHelper::real($product->sale_price) }}
+                                                @else
+                                                    {{ \App\Helpers\ptBRHelper::real($product->regular_price) }}
+                                                @endif
+                                            </td>
+
+                                    <td class="category align-middle white-space-nowrap text-600 fs--1 ps-4 fw-semi-bold">{{ $product->category->name }}</td>
                                     <td class="tags align-middle review pb-2 ps-3" style="min-width:225px;"><a
                                             class="text-decoration-none" href="#!"><span
                                                 class="badge badge-tag me-2 mb-2">Health</span></a><a
@@ -186,8 +189,7 @@
                                             </div>
                                         </div>
                                     </td>
-                                    <td class="vendor align-middle text-start fw-semi-bold ps-4"><a href="#!">Blue
-                                            Olive Plant sellers. Inc</a></td>
+                                    <td class="vendor align-middle text-start fw-semi-bold ps-4"><a href="#!">{{ $product->store->seller->name }}</a></td>
                                     <td class="time align-middle white-space-nowrap text-600 ps-4">Nov 12, 10:45 PM</td>
                                     <td class="align-middle white-space-nowrap text-end pe-0 ps-4 btn-reveal-trigger">
                                         <div class="font-sans-serif btn-reveal-trigger position-static"><button

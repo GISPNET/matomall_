@@ -45,4 +45,9 @@ class Store extends Model
     {
         return $this->belongsToMany(OrderUser::class,'order_store');
     }
+
+    public function seller()
+    {
+        return $this->belongsTo(User::class,'user_id');
+    }
 }
