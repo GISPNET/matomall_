@@ -18,7 +18,7 @@ use App\Http\Controllers\PostController;
 Auth::routes();
 
 Route::get('/landing', function(){
-    return view('landing.default');
+    return view('landing.default2');
 });
 
 Route::get('/', [App\Http\Controllers\Web\HomePageController::class, 'index']);
