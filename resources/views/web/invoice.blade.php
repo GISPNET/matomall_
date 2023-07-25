@@ -53,7 +53,7 @@
                                         </div>
                                         <div class="col-auto col-lg-6 col-xl-7">
                                             <p class="fs--1 text-800 fw-semi-bold mb-0">
-                                                {{ \App\Helpers\ptBRHelper::datam($order->created_at) }}</p>
+                                                {{ \App\Helpers\ptBRHelper::data($order->created_at) }}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -103,7 +103,7 @@
                                 <div class="col-12 col-lg-4">
                                     <h6 class="mb-2"> Data do Pedido:</h6>
                                     <p class="fs--1 text-800 fw-semi-bold mb-0">
-                                        {{ \App\Helpers\ptBRHelper::datam($order->created_at) }}</p>
+                                        {{ \App\Helpers\ptBRHelper::data($order->created_at) }}</p>
                                 </div>
                             </div>
                         </div>
