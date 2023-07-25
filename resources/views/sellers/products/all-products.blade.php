@@ -198,7 +198,7 @@
                                         </div>
                                     </td>
                                     <td class="vendor align-middle text-start fw-semi-bold ps-4"><a href="#!">{{ $product->store->seller->name }}</a></td>
-                                    <td class="time align-middle white-space-nowrap text-600 ps-4">{{ \App\Helpers\ptBRHelper::data($product->created_at) }}</td>
+                                    <td class="time align-middle white-space-nowrap text-600 ps-4">{{ \App\Helpers\ptBRHelper::data_sem_hora($product->created_at) }}</td>
                                     <td class="align-middle white-space-nowrap text-end pe-0 ps-4 btn-reveal-trigger">
                                         <div class="font-sans-serif btn-reveal-trigger position-static"><button
                                                 class="btn btn-sm dropdown-toggle dropdown-caret-none transition-none btn-reveal fs--2"
