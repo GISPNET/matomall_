@@ -8,6 +8,7 @@ use App\Http\Requests\ProductStoreRequest;
 use App\Http\Requests\ProductUpdateRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cache;
 
 class ProductsController extends Controller
 {
@@ -18,11 +19,22 @@ class ProductsController extends Controller
     public function index()
     {
         $user = Auth::user();
+        /*$quando=1;
+
+        $products = Cache::remember('all-products-seller',$quando,function() use($user){
+            if ($user->store) {
+                return $products = $user->store->products()->paginate(10);
+            } else {
+               return  $products = [];
+            }
+        });*/
+
         if ($user->store) {
             $products = $user->store->products()->paginate(10);
         } else {
             $products = [];
         }
+
         return view('sellers.products.all-products', compact(['products']));
     }
     public function create()
