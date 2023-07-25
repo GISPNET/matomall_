@@ -140,8 +140,16 @@
                                         </div>
                                     </td>
                                     <td class="align-middle white-space-nowrap py-0">
-                                        <div class="border rounded-2"><img src="../../../assets/img//products/1.png"
-                                                alt="" width="53"></div>
+                                        <div class="border rounded-2">
+
+                                            @if ($product->photos->count())
+                                            <img src="{{ Storage::url($product->photos->first()->image) }}"
+                                            alt="" width="53">
+                                            @else
+                                            <img src="{{ asset('assets/images/matomall-placeholder.png') }}"
+                                            alt="" width="53">
+                                            @endif
+                                        </div>
                                     </td>
                                     <td class="product align-middle ps-4"><a class="fw-semi-bold line-clamp-3 mb-0"
                                             href="{{ route('product.details',$product->slug) }}">{{ $product->name }}</a></td>
