@@ -23,7 +23,7 @@ class ProductsController extends Controller
         } else {
             $products = [];
         }
-        return view('admin.products.index', compact(['products']));
+        return view('sellers.products.all-products', compact(['products']));
     }
     public function create()
     {
