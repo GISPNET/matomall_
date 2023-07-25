@@ -30,7 +30,7 @@ class ProductsController extends Controller
         });*/
 
         if ($user->store) {
-            $products = $user->store->products()->paginate(10);
+            $products = $user->store->products()->orderBy('id','desc')->paginate(10);
         } else {
             $products = [];
         }
