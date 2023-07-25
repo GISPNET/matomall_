@@ -215,7 +215,7 @@
                                                 </svg>
                                                 <!-- <span class="fas fa-ellipsis-h fs--2"></span> Font Awesome fontawesome.com --></button>
                                                 <div class="dropdown-menu dropdown-menu-end py-2">
-                                                    <a class="dropdown-item" href="#!">Visualizar</a>
+                                                    <a class="dropdown-item" href="{{ route('product.details',$product->slug) }}">Visualizar</a>
                                                     <a class="dropdown-item" href="#!">Exportar</a>
                                                     <div class="dropdown-divider"></div>
                                                     <a class="dropdown-item text-danger" href="#!">Remover</a>
