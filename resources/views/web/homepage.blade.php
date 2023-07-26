@@ -1,5 +1,5 @@
 @extends('web.layouts.app')
-@section('titulo','Matomall')
+@section('titulo', 'Matomall')
 @section('body')
     <main class="main" id="top">
         @component('web.components.top')
@@ -94,9 +94,15 @@
                                                                     <span class="fas fa-heart d-block-hover"></span>
                                                                     <span class="far fa-heart d-none-hover"></span>
                                                                 </button>
-                                                                <img class="img-fluid"
-                                                                    src=""
-                                                                    alt="" />
+                                                                @if ($product->photos->count())
+                                                                    <img class="img-fluid"
+                                                                        src="{{ Storage::url($product->photos->first()->image) }}"
+                                                                        alt="" />
+                                                                @else
+                                                                    <img class="img-fluid"
+                                                                        src="{{ asset('assets/img/matomall-placeholder.png') }}"
+                                                                        alt="" />
+                                                                @endif
                                                             </div>
                                                             <a class="stretched-link text-decoration-none"
                                                                 href="{{ route('product.details', $product->slug) }}">
@@ -107,8 +113,8 @@
                                                                 @for ($i = 0; $i < $product->rating; $i++)
                                                                     <span class="fa fa-star text-warning"></span>
                                                                 @endfor
-                                                                <span
-                                                                    class="text-500 fw-semi-bold ms-1">(67 pessoas avaliadas)</span>
+                                                                <span class="text-500 fw-semi-bold ms-1">(67 pessoas
+                                                                    avaliadas)</span>
                                                             </p>
                                                         </div>
                                                         <div>
@@ -117,7 +123,9 @@
                                                             <div class="d-flex align-items-center mb-1">
                                                                 <p class="me-2 text-900 text-decoration-line-through mb-0">
                                                                     ${{ $product->original_price }}</p>
-                                                                <h3 class="text-1100 mb-0">R$ {{ \App\Helpers\ptBRHelper::real($product->price) }}</h3>
+                                                                <h3 class="text-1100 mb-0">R$
+                                                                    {{ \App\Helpers\ptBRHelper::real($product->price) }}
+                                                                </h3>
                                                             </div>
                                                             <p class="text-700 fw-semi-bold fs--1 lh-1 mb-0">
                                                                 {{ $product->color_count }} {{ $product->store->name }}</p>
@@ -168,9 +176,15 @@
                                                                 <span class="fas fa-heart d-block-hover"></span>
                                                                 <span class="far fa-heart d-none-hover"></span>
                                                             </button>
-                                                            <img class="img-fluid"
-                                                                src=""
-                                                                alt="" />
+                                                            @if ($product->photos->count())
+                                                                <img class="img-fluid"
+                                                                    src="{{ Storage::url($product->photos->first()->image) }}"
+                                                                    alt="" />
+                                                            @else
+                                                                <img class="img-fluid"
+                                                                    src="{{ asset('assets/img/matomall-placeholder.png') }}"
+                                                                    alt="" />
+                                                            @endif
                                                         </div>
                                                         <a class="stretched-link text-decoration-none"
                                                             href="{{ route('product.details', $product->slug) }}">
@@ -181,12 +195,13 @@
                                                             @for ($i = 0; $i < $product->rating; $i++)
                                                                 <span class="fa fa-star text-warning"></span>
                                                             @endfor
-                                                            <span
-                                                                class="text-500 fw-semi-bold ms-1">(67 pessoas avaliadas)</span>
+                                                            <span class="text-500 fw-semi-bold ms-1">(67 pessoas
+                                                                avaliadas)</span>
                                                         </p>
                                                     </div>
                                                     <div>
-                                                        <h3 class="text-1100">{{ \App\Helpers\ptBRHelper::real($product->price) }}</h3>
+                                                        <h3 class="text-1100">
+                                                            {{ \App\Helpers\ptBRHelper::real($product->price) }}</h3>
                                                         <p class="text-700 fw-semi-bold fs--1 lh-1 mb-0">
                                                             {{ $product->colorCount }} {{ $product->store->name }}</p>
                                                     </div>
@@ -229,9 +244,15 @@
                                                             <span class="fas fa-heart d-block-hover"></span>
                                                             <span class="far fa-heart d-none-hover"></span>
                                                         </button>
-                                                        <img class="img-fluid"
-                                                            src=""
-                                                            alt="" />
+                                                        @if ($product->photos->count())
+                                                            <img class="img-fluid"
+                                                                src="{{ Storage::url($product->photos->first()->image) }}"
+                                                                alt="" />
+                                                        @else
+                                                            <img class="img-fluid"
+                                                                src="{{ asset('assets/img/matomall-placeholder.png') }}"
+                                                                alt="" />
+                                                        @endif
                                                     </div>
                                                     <a class="stretched-link text-decoration-none"
                                                         href="{{ route('product.details', $product->slug) }}">
