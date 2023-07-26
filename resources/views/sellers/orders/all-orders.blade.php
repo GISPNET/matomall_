@@ -156,7 +156,7 @@
                                             <td class="customer align-middle white-space-nowrap ps-8"><a
                                                     class="d-flex align-items-center" href="#!">
                                                     <div class="avatar avatar-m"><img class="rounded-circle"
-                                                            src="{{ $order->user->profile_picture ? asset('storage/' . $order->user->profile_picture) : asset('assets/images/users/avatar.png') }}"
+                                                            src="{{ $order->user->profile_picture ? asset('storage/' . $order->user->profile_picture) : asset('assets/img/users/avatar.png') }}"
                                                             alt="{{ $order->user->name }}"></div>
                                                     <h6 class="mb-0 ms-3 text-900">{{ $order->user->name }}</h6>
                                                 </a>
