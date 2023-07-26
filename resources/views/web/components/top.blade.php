@@ -32,7 +32,7 @@
                     <div class="card-body p-0">
                       <div class="text-center pt-4 pb-3">
                         <div class="avatar avatar-xl ">
-                          <img class="rounded-circle " src="{{ auth()->user()->profile_picture ? asset('storage/'.auth()->user()->profile_picture) : asset('assets/images/users/avatar.png') }}" alt="" />
+                          <img class="rounded-circle " src="{{ auth()->user()->profile_picture ? asset('storage/'.auth()->user()->profile_picture) : asset('assets/img/users/avatar.png') }}" alt="" />
                         </div>
                         <h6 class="mt-2 text-black">{{ auth()->user()->name }}</h6>
                       </div>
