@@ -47,7 +47,7 @@ Route::prefix('seller')->name('seller.')->namespace('App\Http\Controllers\Seller
         Route::get('/add', 'ProductsController@create')->name('add');
         Route::post('/', 'ProductsController@store')->name('store');
         Route::get('/{id}', 'ProductsController@edit')->name('edit');
-        Route::delete('/{id}', 'ProductsController@destroy')->name('destroy');
+        Route::delete('/destroy/{id}', 'ProductsController@destroy')->name('destroy');
         Route::post('/{id}', 'ProductsController@update')->name('update');
     });
     Route::prefix('/categories')->name('category.')->group(function () {

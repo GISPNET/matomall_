@@ -124,7 +124,7 @@
                                     <th class="sort white-space-nowrap align-middle ps-4" scope="col" style="width:350px;" data-sort="product">NOME DO PRODUTO</th>
                                     <th class="sort align-middle text-end ps-4" scope="col" data-sort="price" style="width:150px;">PREÇO</th>
                                     <th class="sort align-middle ps-4" scope="col" data-sort="category" style="width:150px;">CATEGORIA</th>
-                                    <th class="sort align-middle ps-3" scope="col" data-sort="tags" style="width:250px;">TAGS</th>
+                                    <th class="sort align-middle ps-3" scope="col" data-sort="tags" style="width:250px;">TAG</th>
                                     <th class="sort align-middle fs-0 text-center ps-4" scope="col" style="width:125px;"></th>
                                     <th class="sort align-middle ps-4" scope="col" data-sort="vendor" style="width:200px;">FORNECEDOR</th>
                                     <th class="sort align-middle ps-4" scope="col" data-sort="time" style="width:50px;">PUBLICADO EM</th>
@@ -164,15 +164,7 @@
                                     <td class="category align-middle white-space-nowrap text-600 fs--1 ps-4 fw-semi-bold">{{ $product->category->name }}</td>
                                     <td class="tags align-middle review pb-2 ps-3" style="min-width:225px;"><a
                                             class="text-decoration-none" href="#!"><span
-                                                class="badge badge-tag me-2 mb-2">Health</span></a><a
-                                            class="text-decoration-none" href="#!"><span
-                                                class="badge badge-tag me-2 mb-2">Exercise</span></a><a
-                                            class="text-decoration-none" href="#!"><span
-                                                class="badge badge-tag me-2 mb-2">Discipline</span></a><a
-                                            class="text-decoration-none" href="#!"><span
-                                                class="badge badge-tag me-2 mb-2">Lifestyle</span></a><a
-                                            class="text-decoration-none" href="#!"><span
-                                                class="badge badge-tag me-2 mb-2">Fitness</span></a></td>
+                                                class="badge badge-tag me-2 mb-2">{{ $product->tag->name  }}</span></a></td>
                                     <td class="align-middle review fs-0 text-center ps-4">
                                         <div class="d-toggle-container">
                                             <div class="d-block-hover"><svg class="svg-inline--fa fa-star text-warning"
@@ -218,7 +210,12 @@
                                                     <a class="dropdown-item" href="{{ route('product.details',$product->slug) }}">Visualizar</a>
                                                     <a class="dropdown-item" href="#!">Exportar</a>
                                                     <div class="dropdown-divider"></div>
-                                                    <a class="dropdown-item text-danger" href="#!">Remover</a>
+                                                    <form action="{{ route('seller.product.destroy', $product->id) }}" method="POST">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" class="dropdown-item text-danger">Remover</button>
+                                                    </form>
+
                                                   </div>
                                         </div>
                                     </td>
@@ -229,36 +226,23 @@
                     </div>
                     <div class="row align-items-center justify-content-between py-2 pe-0 fs--1">
                         <div class="col-auto d-flex">
-                            <p class="mb-0 d-none d-sm-block me-3 fw-semi-bold text-900"
-                                data-list-info="data-list-info">1 to 10 <span class="text-600"> Items of </span>16</p><a
-                                class="fw-semi-bold" href="#!" data-list-view="*">View all<svg
-                                    class="svg-inline--fa fa-angle-right ms-1" data-fa-transform="down-1"
-                                    aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angle-right"
-                                    role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"
-                                    data-fa-i2svg="" style="transform-origin: 0.25em 0.5625em;">
-                                    <g transform="translate(128 256)">
-                                        <g transform="translate(0, 32)  scale(1, 1)  rotate(0 0 0)">
-                                            <path fill="currentColor"
-                                                d="M64 448c-8.188 0-16.38-3.125-22.62-9.375c-12.5-12.5-12.5-32.75 0-45.25L178.8 256L41.38 118.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l160 160c12.5 12.5 12.5 32.75 0 45.25l-160 160C80.38 444.9 72.19 448 64 448z"
-                                                transform="translate(-128 -256)"></path>
-                                        </g>
+                            <p class="mb-0 d-none d-sm-block me-3 fw-semi-bold text-900" data-list-info="data-list-info">1 a 10 <span class="text-600">Itens de </span>16</p>
+                            <a class="fw-semi-bold" href="#!" data-list-view="*">Ver todos<svg class="svg-inline--fa fa-angle-right ms-1" data-fa-transform="down-1" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angle-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512" data-fa-i2svg="" style="transform-origin: 0.25em 0.5625em;">
+                                <g transform="translate(128 256)">
+                                    <g transform="translate(0, 32)  scale(1, 1)  rotate(0 0 0)">
+                                        <path fill="currentColor" d="M64 448c-8.188 0-16.38-3.125-22.62-9.375c-12.5-12.5-12.5-32.75 0-45.25L178.8 256L41.38 118.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l160 160c12.5 12.5 12.5 32.75 0 45.25l-160 160C80.38 444.9 72.19 448 64 448z" transform="translate(-128 -256)"></path>
                                     </g>
-                                </svg>
-                                <!-- <span class="fas fa-angle-right ms-1" data-fa-transform="down-1"></span> Font Awesome fontawesome.com --></a><a
-                                class="fw-semi-bold d-none" href="#!" data-list-view="less">View Less<svg
-                                    class="svg-inline--fa fa-angle-right ms-1" data-fa-transform="down-1"
-                                    aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angle-right"
-                                    role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"
-                                    data-fa-i2svg="" style="transform-origin: 0.25em 0.5625em;">
-                                    <g transform="translate(128 256)">
-                                        <g transform="translate(0, 32)  scale(1, 1)  rotate(0 0 0)">
-                                            <path fill="currentColor"
-                                                d="M64 448c-8.188 0-16.38-3.125-22.62-9.375c-12.5-12.5-12.5-32.75 0-45.25L178.8 256L41.38 118.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l160 160c12.5 12.5 12.5 32.75 0 45.25l-160 160C80.38 444.9 72.19 448 64 448z"
-                                                transform="translate(-128 -256)"></path>
-                                        </g>
+                                </g>
+                            </svg>
+                            <!-- <span class="fas fa-angle-right ms-1" data-fa-transform="down-1"></span> Font Awesome fontawesome.com --></a>
+                            <a class="fw-semi-bold d-none" href="#!" data-list-view="less">Ver menos<svg class="svg-inline--fa fa-angle-right ms-1" data-fa-transform="down-1" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angle-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512" data-fa-i2svg="" style="transform-origin: 0.25em 0.5625em;">
+                                <g transform="translate(128 256)">
+                                    <g transform="translate(0, 32)  scale(1, 1)  rotate(0 0 0)">
+                                        <path fill="currentColor" d="M64 448c-8.188 0-16.38-3.125-22.62-9.375c-12.5-12.5-12.5-32.75 0-45.25L178.8 256L41.38 118.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l160 160c12.5 12.5 12.5 32.75 0 45.25l-160 160C80.38 444.9 72.19 448 64 448z" transform="translate(-128 -256)"></path>
                                     </g>
-                                </svg>
-                                <!-- <span class="fas fa-angle-right ms-1" data-fa-transform="down-1"></span> Font Awesome fontawesome.com --></a>
+                                </g>
+                            </svg>
+                            <!-- <span class="fas fa-angle-right ms-1" data-fa-transform="down-1"></span> Font Awesome fontawesome.com --></a>
                         </div>
                         <div class="col-auto d-flex"><button class="page-link disabled" data-list-pagination="prev"
                                 disabled=""><svg class="svg-inline--fa fa-chevron-left" aria-hidden="true"
