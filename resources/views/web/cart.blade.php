@@ -50,7 +50,7 @@
                                                                     alt="" width="53" />
                                                         </div>
                                                     @else
-                                                        <img src="{{ asset('assets/images/matomall-placeholder.png') }}"
+                                                        <img src="{{ asset('assets/img/matomall-placeholder.png') }}"
                                                             alt="" width="53" />
                                             @endif
 

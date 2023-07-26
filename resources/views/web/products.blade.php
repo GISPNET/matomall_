@@ -34,7 +34,7 @@
                                                                 alt="" />
                                                         @else
                                                             <img class="img-fluid"
-                                                                src="{{ asset('assets/images/matomall-placeholder.png') }}"
+                                                                src="{{ asset('assets/img/matomall-placeholder.png') }}"
                                                                 alt="" />
                                                         @endif
 

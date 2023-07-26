@@ -146,7 +146,7 @@
                                             <img src="{{ Storage::url($product->photos->first()->image) }}"
                                             alt="" width="53">
                                             @else
-                                            <img src="{{ asset('assets/images/matomall-placeholder.png') }}"
+                                            <img src="{{ asset('assets/img/matomall-placeholder.png') }}"
                                             alt="" width="53">
                                             @endif
                                         </div>
