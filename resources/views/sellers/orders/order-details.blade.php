@@ -3,9 +3,9 @@
 @section('content')
     <div class="content">
         <div class="mb-9">
-            <h2 class="mb-0">Pedido <span>#0{{$order->id}}</span></h2>
-<div class="d-flex flex-wrap flex-between-center mb-1">
-    <p class="text-800 lh-sm mb-0">ID do Cliente: <a class="fw-bold" href="#!">0{{$order->user->id}}</a></p>
+            <h2 class="mb-0">Pedido <span>#0{{ $order->id }}</span></h2>
+            <div class="d-flex flex-wrap flex-between-center mb-1">
+                <p class="text-800 lh-sm mb-0">ID do Cliente: <a class="fw-bold" href="#!">0{{ $order->user->id }}</a></p>
                 <div class="d-flex"><button class="btn pe-3 ps-0 text-900"><svg class="svg-inline--fa fa-print me-2"
                             aria-hidden="true" focusable="false" data-prefix="fas" data-icon="print" role="img"
                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg="">
@@ -28,34 +28,47 @@
                                     <tr>
                                         <th class="sort white-space-nowrap align-middle fs--2" scope="col"></th>
                                         <th class="sort white-space-nowrap align-middle" scope="col"
-                                            style="min-width:400px;" data-sort="products" colspan="2">PRODUCTS</th>
+                                            style="min-width: 400px;" data-sort="products" colspan="2">PRODUTOS</th>
                                         <th class="sort align-middle text-end ps-4" scope="col" data-sort="price"
-                                            style="width:150px;">PRICE</th>
+                                            style="width: 150px;">PREÇO</th>
                                         <th class="sort align-middle text-end ps-4" scope="col" data-sort="quantity"
-                                            style="width:200px;">QUANTITY</th>
+                                            style="width: 200px;">QUANTIDADE</th>
                                         <th class="sort align-middle text-end ps-4" scope="col" data-sort="total"
-                                            style="width:250px;">TOTAL</th>
+                                            style="width: 250px;">TOTAL</th>
                                     </tr>
                                 </thead>
                                 <tbody class="list" id="order-table-body">
                                     @php
                                         $total = 0;
                                     @endphp
-                                    @foreach (json_decode($order->items) as $key=>$item)
-                                    @php
-                                    $total=$total+$item->total;
-                                @endphp
-                                    <tr class="hover-actions-trigger btn-reveal-trigger position-static">
-                                        <td class="align-middle white-space-nowrap py-2">
-                                            <div class="border rounded-2"><img src="{{asset('assets/img//products/6.png') }}"
-                                                    alt="" width="53"></div>
-                                        </td>
-                                        <td class="products align-middle py-0" colspan="2"><a
-                                                class="fw-semi-bold line-clamp-2 mb-0" href="{{ route('product.details',$item->slug) }}">{{ $item->name }}</a></td>
-                                        <td class="price align-middle text-900 fw-semi-bold text-end py-0 ps-4">{{ \App\Helpers\ptBRHelper::real($item->price) }}</td>
-                                        <td class="quantity align-middle text-end py-0 ps-4 text-700">{{ $item->quantity }}</td>
-                                        <td class="total align-middle fw-bold text-1000 text-end py-0 ps-4">{{ \App\Helpers\ptBRHelper::real($item->total) }}</td>
-                                    </tr>
+                                    @foreach (json_decode($order->items) as $key => $item)
+                                        @php
+                                            $total = $total + $item->total;
+                                        @endphp
+                                        <tr class="hover-actions-trigger btn-reveal-trigger position-static">
+                                            <td class="align-middle white-space-nowrap py-2">
+                                                <div class="border rounded-2">
+
+                                                    @if ($item->produto_image)
+                                                        <img src="{{ Storage::url($item->produto_image) }}" alt=""
+                                                            width="53">
+                                                    @else
+                                                        <img src="{{ asset('assets/images/matomall-placeholder.png') }}"
+                                                            alt="" width="53">
+                                                    @endif
+                                                </div>
+                                            </td>
+                                            <td class="products align-middle py-0" colspan="2"><a
+                                                    class="fw-semi-bold line-clamp-2 mb-0"
+                                                    href="{{ route('product.details', $item->slug) }}">{{ $item->name }}</a>
+                                            </td>
+                                            <td class="price align-middle text-900 fw-semi-bold text-end py-0 ps-4">
+                                                {{ \App\Helpers\ptBRHelper::real($item->price) }}</td>
+                                            <td class="quantity align-middle text-end py-0 ps-4 text-700">
+                                                {{ $item->quantity }}</td>
+                                            <td class="total align-middle fw-bold text-1000 text-end py-0 ps-4">
+                                                {{ \App\Helpers\ptBRHelper::real($item->total) }}</td>
+                                        </tr>
                                     @endforeach
                                 </tbody>
                             </table>
@@ -94,7 +107,7 @@
                                         </svg>
                                         <h6 class="mb-0">Email</h6>
                                     </div><a class="fs--1 ms-4"
-                                        href="mailto:{{$order->user->email}}">{{$order->user->email}}</a>
+                                        href="mailto:{{ $order->user->email }}">{{ $order->user->email }}</a>
                                 </div>
                                 <div class="col-6 col-sm-12 order-sm-1">
                                     <div class="d-flex align-items-center mb-1"><svg xmlns="http://www.w3.org/2000/svg"
@@ -108,7 +121,7 @@
                                         <h6 class="mb-0">Endereço</h6>
                                     </div>
                                     <div class="ms-4">
-                                        <p class="text-800 mb-0 fs--1">{{$order->user->billing_address}}</p>
+                                        <p class="text-800 mb-0 fs--1">{{ $order->user->billing_address }}</p>
                                     </div>
                                 </div>
                                 <div class="col-6 col-sm-12">
@@ -122,7 +135,8 @@
                                             </path>
                                         </svg>
                                         <h6 class="mb-0">Telefone</h6>
-                                    </div><a class="fs--1 ms-4" href="tel:{{$order->user->phone}}">{{$order->user->phone}}</a>
+                                    </div><a class="fs--1 ms-4"
+                                        href="tel:{{ $order->user->phone }}">{{ $order->user->phone }}</a>
                                 </div>
                             </div>
                         </div>
@@ -142,7 +156,7 @@
                                         </svg>
                                         <h6 class="mb-0">Email</h6>
                                     </div><a class="fs--1 ms-4"
-                                        href="mailto:{{$order->user->email}}:">{{$order->user->email}}</a>
+                                        href="mailto:{{ $order->user->email }}:">{{ $order->user->email }}</a>
                                 </div>
                                 <div class="col-6 col-sm-12">
                                     <div class="d-flex align-items-center mb-1"><svg xmlns="http://www.w3.org/2000/svg"
@@ -155,7 +169,8 @@
                                             </path>
                                         </svg>
                                         <h6 class="mb-0">Telefone</h6>
-                                    </div><a class="fs--1 ms-4" href="tel:{{$order->user->phone}}">{{$order->user->phone}}</a>
+                                    </div><a class="fs--1 ms-4"
+                                        href="tel:{{ $order->user->phone }}">{{ $order->user->phone }}</a>
                                 </div>
                                 <div class="col-6 col-sm-12 order-sm-1">
                                     <div class="d-flex align-items-center mb-1"><svg xmlns="http://www.w3.org/2000/svg"
@@ -169,7 +184,7 @@
                                         <h6 class="mb-0">Endereço</h6>
                                     </div>
                                     <div class="ms-4">
-                                        <p class="text-800 mb-0 fs--1">{{$order->user->billing_address}}</p>
+                                        <p class="text-800 mb-0 fs--1">{{ $order->user->billing_address }}</p>
                                     </div>
                                 </div>
                                 <div class="col-6 col-sm-12">
@@ -185,8 +200,9 @@
                                             <line x1="3" y1="10" x2="21" y2="10"></line>
                                         </svg>
                                         <h6 class="mb-0">Data de Envio</h6>
-                                        </div>
-                                        <p class="mb-0 text-800 fs--1 ms-4">{{ $order->created_at->addWeeks(2)->format('d M, Y') }}</p>
+                                    </div>
+                                    <p class="mb-0 text-800 fs--1 ms-4">
+                                        {{ $order->created_at->addWeeks(2)->format('d M, Y') }}</p>
                                 </div>
                             </div>
                         </div>
@@ -201,7 +217,8 @@
                                     <div>
                                         <div class="d-flex justify-content-between">
                                             <p class="text-900 fw-semi-bold">Subtotal dos itens :</p>
-                                            <p class="text-1100 fw-semi-bold">{{ \App\Helpers\ptBRHelper::real($total) }}</p>
+                                            <p class="text-1100 fw-semi-bold">{{ \App\Helpers\ptBRHelper::real($total) }}
+                                            </p>
                                         </div>
                                         <div class="d-flex justify-content-between">
                                             <p class="text-900 fw-semi-bold">Desconto :</p>
@@ -232,13 +249,17 @@
                                 <div class="card-body">
                                     <h3 class="card-title mb-4">Status do Pedido</h3>
                                     <h6 class="mb-2">Status do Pagamento</h6>
-                                    <form action="{{ route('seller.orders.update',$order->id) }}" method="POST">
+                                    <form action="{{ route('seller.orders.update', $order->id) }}" method="POST">
                                         @csrf
-                                        <select class="form-select mb-4" aria-label="tipo de entrega" name="order_status">
+                                        <select class="form-select mb-4" aria-label="tipo de entrega"
+                                            name="order_status">
                                             <option value="cod">teste</option>
-                                            <option value="1" @if( $order->order_status==1) selected @else @endif >Processando</option>
-                                            <option value="2" @if( $order->order_status==2) selected @else @endif>Cancelado</option>
-                                            <option value="3" @if( $order->order_status==3) selected @else @endif>Concluído</option>
+                                            <option value="1" @if ($order->order_status == 1) selected @else @endif>
+                                                Processando</option>
+                                            <option value="2" @if ($order->order_status == 2) selected @else @endif>
+                                                Cancelado</option>
+                                            <option value="3" @if ($order->order_status == 3) selected @else @endif>
+                                                Concluído</option>
                                         </select>
                                         <button class="btn btn-primary w-100">Actualizar</button>
                                     </form>
