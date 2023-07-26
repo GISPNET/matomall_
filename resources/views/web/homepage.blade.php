@@ -248,47 +248,55 @@
                   $products = App\Models\Product::all();
                   foreach ($products as $product) {
                     ?>
-                                    <div class="swiper-slide">
-                                        <div class="position-relative text-decoration-none product-card h-100">
-                                            <div class="d-flex flex-column justify-content-between h-100">
-                                                <div>
-                                                    <div class="border border-1 rounded-3 position-relative mb-3">
-                                                        <button
-                                                            class="btn rounded-circle p-0 d-flex flex-center btn-wish z-index-2 d-toggle-container btn-outline-primary"
-                                                            data-bs-toggle="tooltip" data-bs-placement="top"
-                                                            title="Add to wishlist">
-                                                            <span class="fas fa-heart d-block-hover"></span>
-                                                            <span class="far fa-heart d-none-hover"></span>
-                                                        </button>
-                                                        @if ($product->photos->count())
-                                                            <img class="img-fluid"
-                                                                src="{{ Storage::url($product->photos->first()->image) }}"
-                                                                alt="" />
-                                                        @else
-                                                            <img class="img-fluid"
-                                                                src="{{ asset('assets/img/matomall-placeholder.png') }}"
-                                                                alt="" />
-                                                        @endif
+                                    @if ($product->sale_price)
+                                        <div class="swiper-slide">
+                                            <div class="position-relative text-decoration-none product-card h-100">
+                                                <div class="d-flex flex-column justify-content-between h-100">
+                                                    <div>
+                                                        <div class="border border-1 rounded-3 position-relative mb-3">
+                                                            <button
+                                                                class="btn rounded-circle p-0 d-flex flex-center btn-wish z-index-2 d-toggle-container btn-outline-primary"
+                                                                data-bs-toggle="tooltip" data-bs-placement="top"
+                                                                title="Add to wishlist">
+                                                                <span class="fas fa-heart d-block-hover"></span>
+                                                                <span class="far fa-heart d-none-hover"></span>
+                                                            </button>
+                                                            @if ($product->photos->count())
+                                                                <img class="img-fluid"
+                                                                    src="{{ Storage::url($product->photos->first()->image) }}"
+                                                                    alt="" />
+                                                            @else
+                                                                <img class="img-fluid"
+                                                                    src="{{ asset('assets/img/matomall-placeholder.png') }}"
+                                                                    alt="" />
+                                                            @endif
+                                                        </div>
+                                                        <a class="stretched-link text-decoration-none"
+                                                            href="{{ route('product.details', $product->slug) }}">
+                                                            <h6 class="mb-2 lh-sm line-clamp-3 product-name">
+                                                                <?php echo $product->name; ?></h6>
+                                                        </a>
+                                                        <p class="fs--1">
+                                                            <?php
+                                                            for ($i = 0; $i < $product->rating; $i++) {
+                                                                echo '<span class="fa fa-star text-warning"></span>';
+                                                            }
+                                                            ?>
+                                                        </p>
                                                     </div>
-                                                    <a class="stretched-link text-decoration-none"
-                                                        href="{{ route('product.details', $product->slug) }}">
-                                                        <h6 class="mb-2 lh-sm line-clamp-3 product-name">
-                                                            <?php echo $product->name; ?></h6>
-                                                    </a>
-                                                    <p class="fs--1">
-                                                        <?php
-                                                        for ($i = 0; $i < $product->rating; $i++) {
-                                                            echo '<span class="fa fa-star text-warning"></span>';
-                                                        }
-                                                        ?>
-                                                    </p>
-                                                </div>
-                                                <div>
-                                                    <h6 class="text-success lh-1 mb-0"><?php echo $product->discount; ?>% off</h6>
+                                                    <div>
+
+                                                        @php
+                                                            $discount = (($product->regular_price - $product->sale_price) / $product->regular_price) * 100;
+                                                        @endphp
+                                                        <h6 class="text-success lh-1 mb-0">{{ intval($discount) }}% de
+                                                            desconto</h6>
+
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    @endif
                                     <?php
                   }
                   ?>
