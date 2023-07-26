@@ -24,6 +24,11 @@ Route::get('/landing', function(){
 Route::get('/', [App\Http\Controllers\Web\HomePageController::class, 'index']);
 
 Route::prefix('seller')->name('seller.')->namespace('App\Http\Controllers\Seller')->group(function () {
+
+    Route::prefix('/auth')->name('auth.')->group(function () {
+        Route::get('/login', 'AuthController@login')->name('login');
+    });
+
     Route::prefix('/dashboard')->name('dashboard.')->group(function () {
         Route::get('/', 'DashboardController@index')->name('index');
     });
