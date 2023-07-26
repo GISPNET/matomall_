@@ -108,7 +108,7 @@
                         data-bs-toggle="modal" data-bs-target="#searchBoxModal"><span data-feather="search"
                             style="height: 20px; width: 20px;"></span></a><a
                         class="btn btn-link text-900 order-1 order-lg-0 ps-3 me-2"
-                        href="pages/authentication/simple/sign-in.html">Entrar</a><a
+                        href="{{ route('seller.auth.login') }}">Entrar</a><a
                         class="btn btn-phoenix-primary order-0"
                         href="pages/authentication/simple/sign-up.html"><span class="fw-bold">Registrar-se</span></a>
 </div>
