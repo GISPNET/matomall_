@@ -221,6 +221,8 @@ class CheckoutPaypalController extends Controller
             $storePaypalEmail = $store->paypal_email;
             $amount = $this->calculateStorePaymentAmount($order, $storeId);
 
+            dd($storePaypalEmail);
+
             $payoutItem = new PayoutItem();
             $payoutItem->setRecipientType('EMAIL')
                 ->setReceiver($storePaypalEmail)
@@ -231,7 +233,7 @@ class CheckoutPaypalController extends Controller
 
             $senderBatchHeader = new PayoutSenderBatchHeader();
             $senderBatchHeader->setSenderBatchId(uniqid())
-                ->setEmailSubject('Payment for order: ' . $order->reference);
+                ->setEmailSubject('Pagamento para o pedido: ' . $order->reference);
 
             $payout = new Payout();
             $payout->setSenderBatchHeader($senderBatchHeader)
@@ -240,7 +242,7 @@ class CheckoutPaypalController extends Controller
             try {
                 $payout->create(null, $this->_api_context);
             } catch (\PayPal\Exception\PPConnectionException $ex) {
-                \Session::put('error', 'Payment failed');
+                \Session::put('error', 'Falha no pagamento');
                 return;
             }
         }
