@@ -121,11 +121,19 @@
                                                             <p class="fs--1 text-1000 fw-bold mb-2">
                                                                 {{ $product->availability }}</p>
                                                             <div class="d-flex align-items-center mb-1">
-                                                                <p class="me-2 text-900 text-decoration-line-through mb-0">
-                                                                    ${{ $product->original_price }}</p>
-                                                                <h3 class="text-1100 mb-0">R$
-                                                                    {{ \App\Helpers\ptBRHelper::real($product->price) }}
-                                                                </h3>
+                                                                @if ($product->sale_price)
+                                                                    <p
+                                                                        class="me-2 text-900 text-decoration-line-through mb-0">
+                                                                        {{ \App\Helpers\ptBRHelper::real($product->regular_price) }}
+                                                                    </p>
+                                                                    <h3 class="text-1100 mb-0">
+                                                                        {{ \App\Helpers\ptBRHelper::real($product->sale_price) }}
+                                                                    </h3>
+                                                                @else
+                                                                    <h3 class="text-1100 mb-0">
+                                                                        {{ \App\Helpers\ptBRHelper::real($product->regular_price) }}
+                                                                    </h3>
+                                                                @endif
                                                             </div>
                                                             <p class="text-700 fw-semi-bold fs--1 lh-1 mb-0">
                                                                 {{ $product->color_count }} {{ $product->store->name }}</p>
@@ -199,11 +207,19 @@
                                                                 avaliadas)</span>
                                                         </p>
                                                     </div>
-                                                    <div>
-                                                        <h3 class="text-1100">
-                                                            {{ \App\Helpers\ptBRHelper::real($product->price) }}</h3>
-                                                        <p class="text-700 fw-semi-bold fs--1 lh-1 mb-0">
-                                                            {{ $product->colorCount }} {{ $product->store->name }}</p>
+                                                    <div class="d-flex align-items-center mb-1">
+                                                        @if ($product->sale_price)
+                                                            <p class="me-2 text-900 text-decoration-line-through mb-0">
+                                                                {{ \App\Helpers\ptBRHelper::real($product->regular_price) }}
+                                                            </p>
+                                                            <h3 class="text-1100 mb-0">
+                                                                {{ \App\Helpers\ptBRHelper::real($product->sale_price) }}
+                                                            </h3>
+                                                        @else
+                                                            <h3 class="text-1100 mb-0">
+                                                                {{ \App\Helpers\ptBRHelper::real($product->regular_price) }}
+                                                            </h3>
+                                                        @endif
                                                     </div>
                                                 </div>
                                             </div>
