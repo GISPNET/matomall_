@@ -282,7 +282,7 @@
                                                 <tr class="hover-actions-trigger btn-reveal-trigger position-static">
                                                     <td class="order align-middle white-space-nowrap py-2 ps-0"
                                                         colspan="3"><a class="fw-semi-bold text-primary"
-                                                            href="#!">#00{{ $key + 1 }}</a></td>
+                                                            href="#!">#0{{ $key + 1 }}</a></td>
                                                     <td @if ($order->state == 'completed') class="status align-middle white-space-nowrap text-start fw-bold text-700 py-2">
                                                     <span class="badge badge-phoenix fs--2 badge-phoenix-success"><span
                                                             class="badge-label">Concluído</span><svg
