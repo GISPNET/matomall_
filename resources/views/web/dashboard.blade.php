@@ -47,7 +47,7 @@
                                         <div class="col-12 col-sm-auto"><input class="d-none" id="avatarFile"
                                                 type="file"><label class="cursor-pointer avatar avatar-5xl"
                                                 <label for="avatarFile">
-                                                    <img class="rounded-circle" src="{{ $user->profile_picture ? asset('storage/'.$user->profile_picture) : asset('assets/images/users/avatar.png') }}" alt="">
+                                                    <img class="rounded-circle" src="{{ $user->profile_picture ? asset('storage/'.$user->profile_picture) : asset('assets/img/users/avatar.png') }}" alt="">
                                                 </label>
                                                 </label>
                                         </div>

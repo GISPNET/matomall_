@@ -897,7 +897,7 @@ style="display:none;">
                                 <div
                                     class="d-flex align-items-center justify-content-between position-relative">
                                     <div class="d-flex">
-                                        <div class="avatar avatar-m status-online me-3">                                    <img class="rounded-circle " src="{{ auth()->user()->profile_picture ? asset('storage/'.auth()->user()->profile_picture) : asset('assets/images/users/avatar.png') }}" alt="{{ auth()->user()->name }}" />
+                                        <div class="avatar avatar-m status-online me-3">                                    <img class="rounded-circle " src="{{ auth()->user()->profile_picture ? asset('storage/'.auth()->user()->profile_picture) : asset('assets/img/users/avatar.png') }}" alt="{{ auth()->user()->name }}" />
                                         </div>
                                         <div class="flex-1 me-sm-3">
                                             <h4 class="fs--1 text-black">Jessie Samson</h4>

@@ -129,7 +129,7 @@
                         <div class="py-2"><a class="dropdown-item py-2 d-flex align-items-center"
                                 href="pages/members.html">
                                 <div class="avatar avatar-l status-online  me-2 text-900">
-                                    <img class="rounded-circle " src="{{ auth()->user()->profile_picture ? asset('storage/'.auth()->user()->profile_picture) : asset('assets/images/users/avatar.png') }}"
+                                    <img class="rounded-circle " src="{{ auth()->user()->profile_picture ? asset('storage/'.auth()->user()->profile_picture) : asset('assets/img/users/avatar.png') }}"
                                         alt="" />
                                 </div>
                                 <div class="flex-1">
@@ -140,7 +140,7 @@
                             <a class="dropdown-item py-2 d-flex align-items-center"
                                 href="pages/members.html">
                                 <div class="avatar avatar-l  me-2 text-900">
-                                    <img class="rounded-circle " src="{{ auth()->user()->profile_picture ? asset('storage/'.auth()->user()->profile_picture) : asset('assets/images/users/avatar.png') }}"
+                                    <img class="rounded-circle " src="{{ auth()->user()->profile_picture ? asset('storage/'.auth()->user()->profile_picture) : asset('assets/img/users/avatar.png') }}"
                                         alt="" />
                                 </div>
                                 <div class="flex-1">
@@ -214,7 +214,7 @@
                                             <div class="d-flex">
                                                 <div class="avatar avatar-m status-online me-3"><img
                                                         class="rounded-circle"
-                                                        src="{{ auth()->user()->profile_picture ? asset('storage/'.auth()->user()->profile_picture) : asset('assets/images/users/avatar.png') }}"
+                                                        src="{{ auth()->user()->profile_picture ? asset('storage/'.auth()->user()->profile_picture) : asset('assets/img/users/avatar.png') }}"
                                                         alt="" /></div>
                                                 <div class="flex-1 me-sm-3">
                                                     <h4 class="fs--1 text-black">Jessie Samson</h4>
@@ -286,7 +286,7 @@
                                             <div class="d-flex">
                                                 <div class="avatar avatar-m status-online me-3"><img
                                                         class="rounded-circle avatar-placeholder"
-                                                        src="{{ auth()->user()->profile_picture ? asset('storage/'.auth()->user()->profile_picture) : asset('assets/images/users/avatar.png') }}"
+                                                        src="{{ auth()->user()->profile_picture ? asset('storage/'.auth()->user()->profile_picture) : asset('assets/img/users/avatar.png') }}"
                                                         alt="" /></div>
                                                 <div class="flex-1 me-sm-3">
                                                     <h4 class="fs--1 text-black">Jessie Samson</h4>
@@ -324,7 +324,7 @@
                                             <div class="d-flex">
                                                 <div class="avatar avatar-m status-online me-3"><img
                                                         class="rounded-circle"
-                                                        src="{{ auth()->user()->profile_picture ? asset('storage/'.auth()->user()->profile_picture) : asset('assets/images/users/avatar.png') }}"
+                                                        src="{{ auth()->user()->profile_picture ? asset('storage/'.auth()->user()->profile_picture) : asset('assets/img/users/avatar.png') }}"
                                                         alt="" /></div>
                                                 <div class="flex-1 me-sm-3">
                                                     <h4 class="fs--1 text-black">Kiera Anderson</h4>
@@ -359,7 +359,7 @@
                                             <div class="d-flex">
                                                 <div class="avatar avatar-m status-online me-3"><img
                                                         class="rounded-circle"
-                                                        src="{{ auth()->user()->profile_picture ? asset('storage/'.auth()->user()->profile_picture) : asset('assets/images/users/avatar.png') }}"
+                                                        src="{{ auth()->user()->profile_picture ? asset('storage/'.auth()->user()->profile_picture) : asset('assets/img/users/avatar.png') }}"
                                                         alt="" /></div>
                                                 <div class="flex-1 me-sm-3">
                                                     <h4 class="fs--1 text-black">Herman Carter</h4>
@@ -394,7 +394,7 @@
                                             <div class="d-flex">
                                                 <div class="avatar avatar-m status-online me-3"><img
                                                         class="rounded-circle"
-                                                        src="{{ auth()->user()->profile_picture ? asset('storage/'.auth()->user()->profile_picture) : asset('assets/images/users/avatar.png') }}"
+                                                        src="{{ auth()->user()->profile_picture ? asset('storage/'.auth()->user()->profile_picture) : asset('assets/img/users/avatar.png') }}"
                                                         alt="" /></div>
                                                 <div class="flex-1 me-sm-3">
                                                     <h4 class="fs--1 text-black">Benjamin Button</h4>
@@ -461,7 +461,7 @@
                     href="#!" role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside"
                     aria-haspopup="true" aria-expanded="false">
                     <div class="avatar avatar-l ">
-                        <img class="rounded-circle " src="{{ auth()->user()->profile_picture ? asset('storage/'.auth()->user()->profile_picture) : asset('assets/images/users/avatar.png') }}"
+                        <img class="rounded-circle " src="{{ auth()->user()->profile_picture ? asset('storage/'.auth()->user()->profile_picture) : asset('assets/img/users/avatar.png') }}"
                             alt="" />
                     </div>
                 </a>
@@ -471,7 +471,7 @@
                         <div class="card-body p-0">
                             <div class="text-center pt-4 pb-3">
                                 <div class="avatar avatar-xl ">
-                                    <img class="rounded-circle " src="{{ auth()->user()->profile_picture ? asset('storage/'.auth()->user()->profile_picture) : asset('assets/images/users/avatar.png') }}" />
+                                    <img class="rounded-circle " src="{{ auth()->user()->profile_picture ? asset('storage/'.auth()->user()->profile_picture) : asset('assets/img/users/avatar.png') }}" />
                                 </div>
                                 <h6 class="mt-2 text-black">{{ auth()->user()->name }}</h6>
                             </div>
