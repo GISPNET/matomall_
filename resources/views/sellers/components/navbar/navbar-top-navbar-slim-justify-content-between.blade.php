@@ -779,7 +779,7 @@
                             <ul class="dropdown-menu navbar-dropdown-caret">
                                 <li><a class="dropdown-item" href="documentation/getting-started.html">
                                         <div class="dropdown-item-wrapper"><span class="me-2 uil"
-                                                data-feather="life-buoy"></span>Getting started</div>
+                                                data-feather="life-buoy"></span>Getting starteda</div>
                                     </a></li>
                                 <li class="dropdown dropdown-inside"><a class="dropdown-item dropdown-toggle"
                                         id="customization" href="#" data-bs-toggle="dropdown"
