@@ -175,7 +175,7 @@
                                                 </a>
                                             </li>
                                             <li class="nav-item"><a class="nav-link"
-                                                    href="../../../apps/crm/analytics.html" data-bs-toggle=""
+                                                    href="{{ route('seller.orders.pending_orders') }}" data-bs-toggle=""
                                                     aria-expanded="false">
                                                     <div class="d-flex align-items-center"><span
                                                             class="nav-link-text">Pedidos Pendentes
@@ -183,7 +183,7 @@
                                                 </a>
                                             </li>
                                             <li class="nav-item"><a class="nav-link"
-                                                    href="../../../apps/crm/analytics.html" data-bs-toggle=""
+                                                    href="{{ route('seller.orders.completed_orders') }}" data-bs-toggle=""
                                                     aria-expanded="false">
                                                     <div class="d-flex align-items-center"><span
                                                             class="nav-link-text">Pedidos Concluídos
