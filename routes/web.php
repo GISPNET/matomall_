@@ -41,6 +41,10 @@ Route::prefix('seller')->name('seller.')->namespace('App\Http\Controllers\Seller
         Route::post('/{id}', 'OrdersController@update')->name('update');
     });
 
+    Route::prefix('/customers')->name('customers.')->group(function () {
+        Route::get('/', 'CustomerController@index')->name('index');
+    });
+
     Route::prefix('/stores')->name('store.')->group(function () {
         Route::get('/', 'StoreController@index')->name('index');
         Route::get('/create', 'StoreController@create')->name('create')->middleware('userhasonestore');
