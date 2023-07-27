@@ -55,4 +55,39 @@ class CustomerController extends Controller
 
         return view('sellers.customers.all-customers', compact('uniqueCustomers'));
     }
+
+    public function show($customerId)
+    {
+        $store = Auth::user()->store;
+
+        $orders = $store->orders;
+
+        $customer = User::find($customerId)->whereHas('orders', function($query) use($store){
+        })->first();
+
+        if (!$customer) {
+            abort(404);
+        }
+
+        $customer->totalSpent = 0;
+        $customer->totalOrders = 0;
+        $customer->lastOrderDate = null;
+        $customer->lastAccessDate = $customer->last_login_at;
+
+        foreach ($orders as $order) {
+            if ($order->user_id === $customer->id) {
+                $customer->totalOrders++;
+
+                foreach (json_decode($order->items) as $item) {
+                    $customer->totalSpent += $item->total;
+                }
+
+                if (!$customer->lastOrderDate || $order->created_at > $customer->lastOrderDate) {
+                    $customer->lastOrderDate = $order->created_at;
+                }
+            }
+        }
+         return $customer;
+        return view('sellers.customers.customers-details', compact('customer'));
+    }
 }

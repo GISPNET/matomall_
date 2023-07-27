@@ -159,7 +159,7 @@
                                                                 </div>
                                                             </td>
                                                             <td class="customer align-middle white-space-nowrap pe-5"><a
-                                                                    class="d-flex align-items-center" href="#!">
+                                                                    class="d-flex align-items-center" href="{{ route('seller.customers.show',$customer->id) }}">
                                                                     <div class="avatar avatar-m"><img
                                                                             class="rounded-circle"
                                                                             src="{{ $customer->profile_picture ? asset('storage/' . $customer->profile_picture) : asset('assets/img/users/avatar.png') }}"
@@ -169,7 +169,7 @@
                                                                 </a></td>
                                                             <td class="email align-middle white-space-nowrap pe-5"><a
                                                                     class="fw-semi-bold"
-                                                                    href="mailto:annac34@gmail.com">{{ $customer->email }}</a>
+                                                                    href="mailto:{{ $customer->email }}">{{ $customer->email }}</a>
                                                             </td>
                                                             <td
                                                                 class="total-orders align-middle white-space-nowrap fw-semi-bold text-end text-1000">

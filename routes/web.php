@@ -43,6 +43,7 @@ Route::prefix('seller')->name('seller.')->namespace('App\Http\Controllers\Seller
 
     Route::prefix('/customers')->name('customers.')->group(function () {
         Route::get('/', 'CustomerController@index')->name('index');
+        Route::get('/{id}', 'CustomerController@show')->name('show');
     });
 
     Route::prefix('/stores')->name('store.')->group(function () {

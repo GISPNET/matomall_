@@ -221,8 +221,6 @@ class CheckoutPaypalController extends Controller
             $storePaypalEmail = $store->paypal_email;
             $amount = $this->calculateStorePaymentAmount($order, $storeId);
 
-            dd($storePaypalEmail);
-
             $payoutItem = new PayoutItem();
             $payoutItem->setRecipientType('EMAIL')
                 ->setReceiver($storePaypalEmail)
