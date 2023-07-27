@@ -45,7 +45,7 @@
                         </li>
                         <li class="nav-item">
                             <!-- rótulo -->
-                            <p class="navbar-vertical-label">Aplicativos</p>
+                            <p class="navbar-vertical-label">Recursos</p>
                             <hr class="navbar-vertical-line" />
                             <!-- páginas principais -->
                             <div class="nav-item-wrapper">
@@ -58,14 +58,13 @@
                                         <span class="nav-link-icon">
                                             <span data-feather="shopping-cart"></span>
                                         </span>
-                                        <span class="nav-link-text">Comércio Eletrônico</span>
+                                        <span class="nav-link-text">Matomall</span>
                                     </div>
                                 </a>
                                 <div class="parent-wrapper label-1">
                                     <ul class="nav collapse parent" data-bs-parent="#navbarVerticalCollapse"
                                         id="e-commerce">
-                                        <li class="collapsed-nav-item-title d-none">Comércio Eletrônico</li>
-                                        <!-- Itens diretamente dentro do menu Comércio Eletrônico -->
+                                        <li class="collapsed-nav-item-title d-none">Matomall</li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="{{ route('seller.product.add') }}"
                                                 data-bs-toggle="" aria-expanded="false">
@@ -112,7 +111,7 @@
                         </li>
                         <li class="nav-item">
                             <!-- rótulo -->
-                            <p class="navbar-vertical-label">Páginas</p>
+                            <p class="navbar-vertical-label">Extras</p>
                             <hr class="navbar-vertical-line" />
                             <!-- páginas principais -->
                             <div class="nav-item-wrapper">
