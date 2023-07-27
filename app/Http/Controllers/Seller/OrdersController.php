@@ -30,7 +30,16 @@ class OrdersController extends Controller
 
     $orders = $user->store->orders()->where('order_status',1)->latest()->paginate(10);
 
-    return view('sellers.orders.all-orders', compact('orders'));
+    return view('sellers.orders.pending_orders', compact('orders'));
+   }
+   public function completed_orders()
+    {
+    $user = Auth::user();
+    $storeId = $user->store->id;
+
+    $orders = $user->store->orders()->where('order_status',3)->latest()->paginate(10);
+
+    return view('sellers.orders.completed_orders', compact('orders'));
    }
     public function show($id)
     {

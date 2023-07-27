@@ -36,6 +36,7 @@ Route::prefix('seller')->name('seller.')->namespace('App\Http\Controllers\Seller
     Route::prefix('/orders')->name('orders.')->group(function () {
         Route::get('/', 'OrdersController@index')->name('index');
         Route::get('/pending', 'OrdersController@pending_orders')->name('pending_orders');
+        Route::get('/completed', 'OrdersController@completed_orders')->name('completed_orders');
         Route::get('/{id}', 'OrdersController@show')->name('show');
         Route::post('/{id}', 'OrdersController@update')->name('update');
     });
