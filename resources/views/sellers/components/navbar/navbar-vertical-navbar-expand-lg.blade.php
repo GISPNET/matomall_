@@ -167,7 +167,7 @@
                                             id="CRM" style="">
                                             <li class="collapsed-nav-item-title d-none">Pedidos</li>
                                             <li class="nav-item"><a class="nav-link"
-                                                    href="../../../apps/crm/analytics.html" data-bs-toggle=""
+                                                    href="{{ route('seller.orders.index') }}" data-bs-toggle=""
                                                     aria-expanded="false">
                                                     <div class="d-flex align-items-center"><span
                                                             class="nav-link-text">Meus Pedidos
@@ -216,15 +216,15 @@
                                                     </path>
                                                 </svg>
                                                 <!-- <span class="fas fa-caret-right"></span> Font Awesome fontawesome.com -->
-                                            </div><span class="nav-link-icon"><svg xmlns="http://www.w3.org/2000/svg"
-                                                    width="16px" height="16px" viewBox="0 0 24 24" fill="none"
-                                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                                    stroke-linejoin="round" class="feather feather-mail">
-                                                    <path
-                                                        d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
-                                                    </path>
-                                                    <polyline points="22,6 12,13 2,6"></polyline>
-                                                </svg></span><span class="nav-link-text">Clientes</span>
+                                            </div><span class="nav-link-icon">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users">
+                                                  <path d="M17 13c0 1.66-1.34 3-3 3s-3-1.34-3-3"></path>
+                                                  <path d="M2 8v10a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3V8"></path>
+                                                  <path d="M20 8V6a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                                  <circle cx="12" cy="13" r="4"></circle>
+                                                </svg>
+                                              </span>
+                                              <span class="nav-link-text">Clientes</span>
                                         </div>
                                     </a>
                                     <div class="parent-wrapper label-1">
@@ -317,12 +317,13 @@
                                                     </path>
                                                 </svg>
                                                 <!-- <span class="fas fa-caret-right"></span> Font Awesome fontawesome.com -->
-                                            </div><span class="nav-link-icon"><svg xmlns="http://www.w3.org/2000/svg"
-                                                    width="16px" height="16px" viewBox="0 0 24 24" fill="none"
-                                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                                    stroke-linejoin="round" class="feather feather-bookmark">
-                                                    <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
-                                                </svg></span><span class="nav-link-text">Pagamentos</span>
+                                            </div><span class="nav-link-icon">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-credit-card">
+                                                  <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
+                                                  <line x1="1" y1="10" x2="23" y2="10"></line>
+                                                </svg>
+                                              </span>
+                                              <span class="nav-link-text">Pagamentos</span>
                                         </div>
                                     </a>
                                     <div class="parent-wrapper label-1">
